@@ -46,7 +46,7 @@
 %% icelandic: thesis is in Icelandic
 %% oldstyle:  use the PhD headers and footers from the old CS template
 %% online: for online versions (skip blank pages)
-\documentclass[online,masters,deptsse,forcegraphics,draft]{ruthesis}
+\documentclass[table,xcdraw,online,masters,deptsse,forcegraphics,draft]{ruthesis}
 
 %%%%%%%%%%%%%%%%%%%% TeXStudio Magic Comments %%%%%%%%%%%%%%%%%%%%%
 %% These comments that start with "!TeX" modify the way TeXStudio works
@@ -94,6 +94,9 @@
 %% any existing settings
 \IfFileExists{custom.sty}{\usepackage{custom}}{}
 
+%%%% My user packages-Toma%%%%%%
+\usepackage{multirow}
+%\usepackage[table,xcdraw]{xcolor} %% this was added to the \documentclass[..here..]
 
 %%%%%%%%%%%%%%% INFORMATION %%%%%%%%%%%%%%%%%%5
 %% University information must be multilingual to deal with the
@@ -387,8 +390,27 @@ Student et al.\cite{student2015awesome} of which I am an author.
 %% IN CS PhD, this is sometimes centered.
 \coverchapter{List of Abbreviations}%%RUM: Not mentioned
 \begin{tabular}{ll}
-MSc &Masters of Science\\
+MSc     &   Masters of Science\\
 %PhD &Doctor of Philosophy\\
+AROT    &   Arrival Runway Occupancy Time\\
+ROT     &   Runway Occupancy Time\\
+ICAO    &   International Civil Aviation Organisation\\
+WTC     &   Wake Turbulence Category\\
+EASA    &   European Aviation Safety Agency\\
+MTOM    &   Maximum Take-off Mass\\
+MTOW    &   Maximum Take-off Weight\\
+ADS-B   &   Automatic Dependent Surveillance-Broadcast\\
+MOPS    &   Minimum Operational Performance Standards \\
+NUC     &   Navigation Uncertainty Code\\
+NIC     &   Navigation Integrity Code\\
+NACp    &   Navigation Accuracy Code for position\\
+SIL     &   Serveillance Integrity Lavel \\
+PIC     &   Position Integrity Code\\
+MRS     &   Minimum Radar Separation\\
+FAA     &   Federal Aviation Administration\\
+IFR     &   Instrumental Flight Rules\\
+VFR     &   Visual Flight Rules\\
+
 \end{tabular}
 
 \coverchapter{List of Symbols}%%RUM: Not mentioned

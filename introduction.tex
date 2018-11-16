@@ -6,62 +6,349 @@
   achieve? What is the problem I am trying to solve?  How is my
   solution interesting or novel?}{}
 
-Keflavik International Airport is the major airport in Iceland with three runways\fxnote{how many runways?}. There has been a gradual increase of passengers travelling through Keflavik in the recent years with over eight million passengers and 62,3 thousand air transport movements in 2017\cite{isavia_facts_2017}. For 2018 the passenger numbers show a growth of 13.1\% on average (at the time of writing) from the previous year\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavik Airport can encounter constrained capacity of the runway during peak traffic periods. 
-A significant constraint of this process is caused by separation regulations of aircraft due to wake-vortices. These are specified by rules established by the European Aviation Safety Agency (EASA)  for each type of aircraft based primarily on the weight of the aircraft. The general flight safety requirements are established by the International Civil Aviation Organization (ICAO) for maintaining safe distance between aircraft
+Keflavik International Airport (KEF) is the major gateway to Iceland currently with two functioning runways. 
+
+There has been a gradual increase of passengers travelling through Keflavik in the recent years with over eight million passengers and 62,3 thousand air transport movements in 2017 \cite{isavia_facts_2017}. For 2018 the passenger numbers show a growth of 13.1\% on average (at the time of writing) from the previous year \cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavik Airport can encounter constrained capacity of the runway during peak traffic periods. 
+A significant constraint of this process is caused by separation regulations of aircraft due to wake-vortices. These are specified by rules established by the European Aviation Safety Agency (EASA)  for each type of aircraft based primarily on the weight of the aircraft. The general flight safety requirements are established by the International Civil Aviation Organisation (ICAO) for maintaining safe distance between aircraft
 
 \section{Background and Literature Review}
-\ifdraft{Provide background about the subject matter (e.g. How was morse code
-developed?  How is it used today?). 
-This is a place where there are usually many citations.
-It is suspicious when there is not.
-Include the purpose of the different equipment and your design intent. 
-Include references to relevant scientific/technical work and books.
-What other examples of similar designs exist?
-How is your approach distinctive?
 
-If you have specifications or related standards, these mustscribed and cited also.  As an example, you might cite the specific
-RoboSub competition website (and documents) if working on the lighting system for an AUV\cite{guls2016auvlight}
+%\ifdraft{Provide background about the subject matter (e.g. %How was morse code developed?  How is it used today?). 
+%This is a place where there are usually many citations.
+%It is suspicious when there is not.
+%Include the purpose of the different equipment and your %design intent. 
+%Include references to relevant scientific/technical work and %books.
+%What other examples of similar designs exist?
+%How is your approach distinctive?
 
-%% Glossary is broken, do not use --foley
-% \gls{auv}\footnote{Autonomous Undersea Vehicle}.
+%If you have specifications or related standards, these %mustscribed and cited also.  As an example, you might cite %the specific
+%RoboSub competition website (and documents) if working on the %lighting system for an AUV
 
-% Notice that there is now information on the AUV in the Index and Acronyms.
-% It isn't in the \gls{glossary} because we didn't put it there.
-\index{AUV}
-}{}
+%%% Glossary is broken, do not use --foley
+%% \gls{auv}\footnote{Autonomous Undersea Vehicle}.
+%
+%% Notice that there is now information on the AUV in the %Index %and Acronyms.
+%% It isn't in the \gls{glossary} because we didn't put it %there.
+%\index{AUV}
+%}{}
 
-The wing of an aircraft can be regarded as a beam of finite length with aerofoil as cross section \cite{hansen2015aerodynamics}. The lift effect is created by the differencial pressure between the lower and the upper side of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. This leads to a continuous sheet of stream-wise vorticity in the wake behind a wing \cite{hansen2015aerodynamics}. A finite lifting wing leaves behind multiple trailing swirls of the airflow that mix together and roll up into two main counter-rotating vortices aft of the wing as illustrated in Figure \ref{fig:vortex_develop} \cite{magazine_aibus_safety, Breitsamter2011Feb} . Between the vortices the air moves downwards while outside the induced flow is upwards. Those vortices are also known as wake turbulence. 
-The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the  generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360km/h$ and the vorteces can stay active up to hundred wing spans \cite{Breitsamter2011Feb}. Aerodynamic properties of the aircraft govern the vortex rollup process and ambient atmosperic conditions dominate the behaviour of the vortices forcing instability and eventual decay of the vorteces \cite{Hallock2018Apr}.
-This can lead to the up-set and potentially loss of control of a smaller aircraft following the flightpath of a preceding airplane. To diminish the effect of such vortices the trailing aircraft must be maintained at a safe distance behind the lead aircraft as the vortices  laterally spread to either side of the flightpath and are dissipated.
+
+
+\subsection{Current understandings of wake vortex behaviour}
+The wing of an aircraft can be regarded as a beam of finite length with aerofoil as cross section \cite{hansen2015aerodynamics}. The lift effect is created by the differential pressure between the lower and the upper side of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. A finite lifting wing leaves behind a continuous sheet of stream-wise vorticity  \cite{hansen2015aerodynamics}.  This manifests itself in multiple trailing swirls of the airflow that mix together and roll up into two main counter-rotating vortices aft of the wing as illustrated in Figure \ref{fig:vortex_develop} \cite{magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the air moves downwards while outside the induced flow is upwards. Those vortices are also known as wake turbulence. 
+The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360km/h$ and the vortices can stay effective up to hundred wing spans. This can result in wake vortices lasting for several minutes and up to $30km$ behind larger aircraft \cite{Breitsamter2011Feb, gerz_commercial_2002}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/WakeVortexPlane.png}
+    \caption[Wake vortex roll-up process]{Wing vortex evolution and roll-up process. Two main vortices form behind the aircraft turning in opposite directions, clockwise behind the left wing (seen from behind) and anti-clockwise behind the right one \cite{magazine_aibus_safety}} \label{fig:vortex_develop}
+\end{figure}
+
+\subsection{Ground effect and decay process}
+
+Near ground on approach the wake vortices tend to descend slowly to an altitude of about one half of the initial separation.
+Upon reaching this point the descent will stop and then ascend slowly. This "re-bounce" effect is caused by the presence of the ground and carries with it the formation of a second pair of induced vortices outside and bellow the main vortex. 
+In the presence of stable cross-wind conditions the decay of the downwind vortex is not identical to the upwind vortex and the descent rate may vary significantly \cite{Hallock2018Apr}. 
+The trajectories of the vortex pair may be modified and the upwind vortex could stall over the runway while the downwind vortex ascends and decays faster (Figure \ref{fig:vortex_ground_effect}).
+Measurements have shown that the lateral/sideways motion of a vortex in an airport environment could range between $229 m$ and $518 m$ and in some cases even $762 m$, which is the basis for the "2500-foot"  rule separation in parallel runways configuration \cite{Hallock2018Apr, hallock2004summary, hallock2003wake}. The vertical descent rate for medium commercial aircraft in stable atmosphere  is shown to be around $1.5-2.5m/s$ for the first $30s$ after which the descent slows and eventually approaches zero at $152-274m$ below the flight path, and for heavier aircraft decaying vortices have been observed at $305m$ and below of the flight path  \cite{lissaman1973aircraft, Hallock2018Apr}. 
+Aerodynamic properties of the aircraft govern the vortex roll-up process and ambient atmospheric conditions dominate the behaviour of the vortices forcing instability and eventual decay of the vortices \cite{Hallock2018Apr}.
+several factors that drive the decay rate of the vortex pair have formulated:
+\begin{itemize}
+    \item Atmospheric turbulence extracts energy from the vortex and reduces its strength leading to a faster wake decay \cite{Hallock2018Apr}.
+    \item Viscosity of the atmosphere also draws out energy from the vortex but at a slower rate than the atmospheric turbulence \cite{Hallock2018Apr}.
+    \item Buoyancy force acts on the vortex in a thermally stable stratified environment as a result of the lesser air density inside the vortex system and may causes stall or rebound to the flight level \cite{Holzapfel2001Feb, gerz_commercial_2002}.
+    \item Vortex instability in the form of long wave sinusoidal fluctuations of the vortex core (Crow instability) may occur due to light turbulence in the atmosphere and may causes the vortices to link and decay faster \cite{Hallock2018Apr, crow2003stability}.
+    \item Secondary vorticity structures, vertical rib-like counter rotating flow formations may appear between the vortex pair and eventually wrap around the main vortices, leading to turbulence build inside the system and rapid circulation decay\cite{Holzapfel2001Feb, Holzapfel2003Jun}.
+\end{itemize}
 
 
 \begin{figure}
-  \centering
-\includegraphics[width=0.8\textwidth]{graphics/WakeVortexPlane.png}
-  \caption[RU Logo]{Development of wingtip vortices. Two main vortices form behind the aircraft turning in opposite directions, clockwise behind the left wing (seen from behind) and anti-clockwise behind the right one\cite{magazine_aibus_safety}} \label{fig:vortex_develop}
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/Hallock_vortex_evolution.jpg}
+    \caption[Wake vortex and ground effect]{Vortex evolution and ground effect \cite{Hallock2018Apr}.} \label{fig:vortex_ground_effect}
 \end{figure}
 
 
-\begin{table}
-  \centering
-  \begin{tabular}{ll}
-    $x$& $x^{2}$\\
-    1 &1\\
-    2 &4\\
-    3 &9\\
-  \end{tabular}
-  \caption{Table of squared numbers}\label{tab:numbers}
-\end{table}
-%There is an RU logo in Figure~\ref{fig:ru-logo}.
-This logo will scale according to the width of the text on the page.
-There is a helpful list of squared numbers in Table~\ref{tab:numbers}.
+\subsection{Wake vortex separation}
+An aircraft affected by the wake vortex can experience loss of lift or an induced rolling moment and velocity fluctuations \ref{fig:vortex_encounter}.
 
-The test text ``Lorem Ipsum''\index{Lorem Ipsum} is from an ancient text from 45 B.C. \cite{cicero46deFinibus, lipsomwebsite}\\
-\lipsum[1-5]
-\subsection{Subsection}
-\lipsum[6-10]
-\subsubsection{SubSubsection}
-\lipsum[11-15]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/reaction_in_wake.jpg}
+    \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft. (A) induced rolling moment, (B) upward motion, (C) loss of lift  \cite{Hallock2018Apr}} \label{fig:vortex_encounter}
+\end{figure}
+
+This can lead to the up-set and potentially loss of control of a smaller aircraft following the flight path of a preceding aircraft.
+To diminish the effect of such vortices the trailing aircraft must be maintained at a safe distance behind the lead aircraft as the vortices spread laterally to either side of the flight path and are dissipated.\cite{Breitsamter2011Feb}. \\
+The distance between aircraft pairs in view of safety is referred to as wake vortex separation. 
+Traditional separation standards, introduced in the seventies, are defined by ICAO  on the basis of certificated maximum take-off mass (MTOM) as shown in Table \ref{tab:WTC}. The prescribed categories are three (i.e.Heavy, Medium and Light). In addition for aircraft in the order of $560000kg$ ICAO provides a subcategory to the Heavy types called Super Heavy. Some states have chosen to further increase the number of categories to adapt the wake turbulence categories (WTC) to specific airport requirements. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table \ref{tab:WTC}), while the Federal Aviation Administration (FAA) places the B757 into a separate category and increases the upper weight limit of the Light category. \cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}
+
+\begin{table}
+    \centering
+    \resizebox{1\textwidth}{!} {
+    \begin{tabular}{l|c|c|c|c|c|c}
+    ~    & \multicolumn{6}{c}{Category} \\ \hline
+    ICAO & Super Heavy & Heavy (H) & \multicolumn{2}{c|}{Medium (M)} & \multicolumn{2}{c}{Light (L)} \\
+    
+    ~    & A380-800    & $ > 136000 $  & \multicolumn{2}{c|}{$ 136000-7000 $ } & \multicolumn{2}{c}{$ \leq 7000 $} \\ \hline
+    
+    ICAO (UK)   & ~  & Heavy (H) & Upper Medium (UM) & Lower Medium (LM) & Small (S)  & Light (L) \\
+    
+    ~    & A380-800    & $ > 136000 $  & $ 136000-104000 $     & $ 104000-40000 $      & $ 40000-17000 $ & $ \leq 17000 $   \\ \hline
+    
+    ICAO \& FAA (US)   & Super      & Heavy (H) & B757   & Large   & \multicolumn{2}{c}{Small} \\
+    
+    ~    & A380        & $ > 136000 $  & ~                 & $ 136000-18600 $      & \multicolumn{2}{c}{$ \leq 18600 $} \\ 
+    \end{tabular}}
+    \caption[ICAO wake turbulence categories based on maximum take-off mass]{ICAO wake turbulence categories based on maximum take-off mass (MTOM) in kg. \cite{icao_wtc, uk_aeronautical_information_services_wake_2017, kolos2013influence}} \label{tab:WTC}
+\end{table}
+
+The ICAO wake turbulence categories outline the worst case for each category and thus generate over-separation in many cases\cite{noauthor_recat_2018}. The separation distances for instrumental flight rules are observed for the follower aircraft and are conventionally expressed in nautical miles (NM). The separation reverts to radar separation minimum (MRS) when wake turbulence restrictions are not required. As  prescribed  by  ICAO  the  horizontal MRS is 3NM(or 2.5NM under given conditions described in ICAO Doc 4444 PANS-AM) \cite{noauthor_icao_2018}, which translates to 79s (66s) time separation between leader and follower at approach speed of 70 m/s.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{ICAO WTC scheme}} & \multicolumn{4}{c|}{Follower}              \\ \cline{3-6} 
+\multicolumn{2}{|c|}{}                                 & Super (A380-800) & Heavy & Medium & Light \\ \hline
+\multirow{4}{*}{Leader}       & Super (A380-800)       & ~                & 6 NM  & 7 NM   & 8 NM   \\ \cline{2-6} 
+                              & Heavy                  & ~                & 4 NM  & 5 NM   & 6 NM   \\ \cline{2-6} 
+                              & Medium                 & ~                & ~     & ~      & 5 NM   \\ \cline{2-6} 
+                              & Light                  & ~                & ~     & ~      & ~      \\ \hline
+\end{tabular}%
+}
+\caption[ICAO wake turbulence categories and separation minima]{ICAO wake turbulence categories and separation minima to avoid wake vortex encounter. \cite{noauthor_recat_2018}} \label{tab:ICAO_WTC}
+\end{table}
+
+
+
+%There is an RU logo in Figure~\ref{fig:ru-logo}.
+%This logo will scale according to the width of the text on the page.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
+\multicolumn{2}{|c|}{}                                 & CAT\_A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+\multirow{6}{*}{Leader}             & CAT-A            & 3 NM   & 4 NM  & 5 NM  & 5 NM  & 6 NM  & 8 NM  \\ \cline{2-8} 
+                                    & CAT-B            &        & 3 NM  & 4 NM  & 4 NM  & 5 NM  & 7 NM  \\ \cline{2-8} 
+                                    & CAT-C            &        & (*)   & 3 NM  & 3 NM  & 4 NM  & 6 NM  \\ \cline{2-8} 
+                                    & CAT-D            &        &       &       &       &       & 5 NM  \\ \cline{2-8} 
+                                    & CAT-E            &        &       &       &       &       & 4 NM  \\ \cline{2-8} 
+                                    & CAT-F            &        &       &       &       &       & 3 NM  \\ \hline
+\end{tabular}%
+}
+\caption[RECAT-EU  distance-based separation minima]{RECAT-EU WT distance-based separation minima on approach and departure (*) means minimum radar separation (MRS), set at 2.5 NM, is applicable as per current ICAO doc 4444 provisions.}
+\label{tab:RECAT-dist}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
+\multicolumn{2}{|c|}{}                                 & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+\multirow{6}{*}{Leader}             & CAT-A            &        & 100s  & 120s  & 140s  & 160s  & 180s  \\ \cline{2-8} 
+                                    & CAT-B            &        &       &       & 100s  & 120s  & 140s  \\ \cline{2-8} 
+                                    & CAT-C            &        &       &       & 80s   & 100s  & 120s  \\ \cline{2-8} 
+                                    & CAT-D            &        &       &       &       &       & 120s  \\ \cline{2-8} 
+                                    & CAT-E            &        &       &       &       &       & 100s  \\ \cline{2-8} 
+                                    & CAT-F            &        &       &       &       &       & 80s   \\ \hline
+\end{tabular}%
+}
+\caption[RECAT-EU time-based separation minima]{RECAT-EU WT time-based separation minima on approach and departure}
+\label{tab:RECAT-time}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{}                                          & \multicolumn{6}{c|}{Follower}                                                                                                                                                                                                   \\ \cline{3-8} 
+\multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A                             & CAT-B                                & CAT-C                         & CAT-D                         & CAT-E                         & CAT-F                                                \\ \hline
+                                                        & CAT-A & \cellcolor[HTML]{FD6864}(+0,5 NM) & \cellcolor[HTML]{67FD9A}-2 NM        & \cellcolor[HTML]{67FD9A}-1 NM & \cellcolor[HTML]{67FD9A}-2 NM & \cellcolor[HTML]{67FD9A}-1 NM &                                                      \\ \cline{2-8} 
+                                                        & CAT-B &                                   & \cellcolor[HTML]{67FD9A}-1 NM        &                               & \cellcolor[HTML]{67FD9A}-1 NM &                               & \cellcolor[HTML]{FD6864}+1 NM                        \\ \cline{2-8} 
+                                                        & CAT-C &                                   & \cellcolor[HTML]{67FD9A}-1 (-1,5) NM & \cellcolor[HTML]{67FD9A}-1 NM & \cellcolor[HTML]{67FD9A}-2 NM & \cellcolor[HTML]{67FD9A}-1 NM &                                                      \\ \cline{2-8} 
+                                                        & CAT-D &                                   &                                      &                               &                               &                               &                                                      \\ \cline{2-8} 
+                                                        & CAT-E &                                   &                                      &                               &                               &                               & \cellcolor[HTML]{67FD9A}{\color[HTML]{000000} -1 NM} \\ \cline{2-8} 
+\multirow{-6}{*}{Leader}                                & CAT-F &                                   &                                      &                               &                               &                               & \cellcolor[HTML]{FD6864}(+0,5 NM)                    \\ \hline 
+\end{tabular}%
+}
+\caption{Difference in wake separation minima on approach between reference ICAO and RECAT-EU schemes (full proposal)}
+\label{tab:delta_distance_wtc2recat}
+\end{table}
+
+
+
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{}                                          & \multicolumn{6}{c|}{Follower}                                                                                                             \\ \cline{3-8} 
+\multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B                        & CAT-C & CAT-D                        & CAT-E                        & CAT-F                        \\ \hline
+                                                        & CAT-A &       & \cellcolor[HTML]{67FD9A}-20s &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
+                                                        & CAT-B &       &                              &       & \cellcolor[HTML]{67FD9A}-20s &                              & \cellcolor[HTML]{FD6864}+20s \\ \cline{2-8} 
+                                                        & CAT-C &       &                              &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
+                                                        & CAT-D &       &                              &       &                              &                              &                              \\ \cline{2-8} 
+                                                        & CAT-E &       &                              &       &                              &                              & \cellcolor[HTML]{67FD9A}-20s \\ \cline{2-8} 
+\multirow{-6}{*}{Leader}                                & CAT-F &       &                              &       &                              &                              & \cellcolor[HTML]{FD6864}+20s \\ \hline
+\end{tabular}
+}
+\caption{Difference in wake separation on departure between reference ICAO and RECAT-EU schemes(full proposal)}
+\label{tab:delta_times_wtc2recat}
+\end{table}
+
+
+
+\subsection{Runway Occupancy}
+\fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
+The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway\cite{ROT_definition}. This project focuses on arrivals runway occupancy (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
+The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval/window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavik airport. The time between flights, i.e. the time between start of runway occupancy, during the high load interval is less than or equal to X minutes (currently X = 4 in the script). The last flight in a window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it. 
+
+The data collection on Runway Occupancy Time (ROT) in Isavia starts on 21.Nov 2014 with the acceptance of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by the company. ADS-B was preferred to radar at Keflavik airport because of signal accuracy \cite{isavia_wiki}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard \cite{ASTERIX_ADS-B_specs}.
+The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. The ADS-B equipped aircraft at Keflavik airport is estimated around $90\%$ \cite{isavia-rounardeild_rannsoknir_2018}.  Certain filtering of the ADS-B data is applied before commencing measurements: 
+\begin{itemize}
+    \item All records with no latitude, longitude and/or time data are omitted.
+    \item The records are filtered with regards to quality, i.e. filtered with regards to Target Surveillance status, MOPS version, NUC/NIC, NACp, SIL and PIC.
+    \item An ADS-B data record within 0.5 second from another is omitted, i.e. if there are less than 0.5 seconds between two successive locations one of the records is omitted.
+    \item An algorithm is used to analyse the data and determine if it originates from two different flights (the flight stops for 15 minutes or more after/before taxiing). If so the data for the second flight is omitted
+    \item The velocity is calculated from ADS-B location data and ADS-B time data (velocity = distance travelled/time). The ADS-B velocity record is optional in the ASTERIX category 021 standard and is therefore unreliable in measurements. Since the velocity is calculated from measured data, it can exhibit spikes. To get a more realistic velocity curve, a Savitzky-Golay filter is applied to smooth the data.
+    \item An aircraft main gear lift-off is considered to be the point where the ADS-B ground bit is removed, i.e. the ADS-B ground bit goes from a value of 1 to a value of 0.
+    \item An aircraft touchdown is considered to be the point where the ADS-B ground bit is set, i.e. the ADS-B ground bit goes from a value of 0 to a value of 1.
+    \item An aircraft is considered to be stationary when the velocity is below 0.5 knots and to be moving if the velocity is greater than 0.5 knots.
+    \cite{isavia_wiki}
+\end{itemize}
+
+
+\fxnote{The ROT measurements have been checked by: comparing them to measurements made by hand.
+Who measures and who checks them and how???}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/AROT_hist.png}
+    \caption[AROT histogram]{AROT histogram}
+    \label{fig:AROT_hist}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/AROT_hist_cumul.png}
+    \caption[AROT histogram and cumulative distribution]{AROT histogram and cumulative distribution}
+    \label{fig:AROT_hist_cumul}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/pdf_wtc.png}
+    \caption[PDF for WTC]{PDF for WTC}
+    \label{fig:pdf_wtc}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/pdf_recats.png}
+    \caption[PDF for RACAT]{PDF fro RACAT}
+    \label{fig:pdf_recats}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/each_recat_box.png}
+    \caption[Boxplot of AROT for RECAT categories]{Boxplot of AROT for RECAT categories}
+    \label{fig:each_recat_box}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/each_recat_hist.png}
+    \caption[AROT histogram for each RECAT]{AROT histogram for each RECAT}
+    \label{fig:each_recat_hist}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/each_recat_hist_dist.png}
+    \caption[AROT histogram and pdf for each RECAT]{AROT histogram and pdf for each RECAT}
+    \label{fig:each_recat_hist_dist}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/each_recat_rug_cumdist.png}
+    \caption[AROT rug plot and cumulative pdf for each RECAT]{AROT rug plot and cumulative pdf for each RECAT}
+    \label{fig:each_recat_rug_cumdist}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|r|r|r|r|r|r|r|r|}
+\cline{2-9}
+                               & \multicolumn{8}{c|}{AROT}                                                              \\ \hline
+\multicolumn{1}{|l|}{RECAT-EU} & count  & mean      & std       & min       & 25\%      & 50\%      & 75\%      & max   \\ \hline
+\multicolumn{1}{|l|}{CAT-A}    & 3      & 108       & 22        & 88        & 96        & 105       & 119       & 132   \\ \hline
+\multicolumn{1}{|l|}{CAT-B}    & 147    & 86        & 19        & 51        & 70        & 85        & 100       & 139   \\ \hline
+\multicolumn{1}{|l|}{CAT-C}    & 8909   & 80        & 17        & 14        & 67        & 79        & 91        & 156   \\ \hline
+\multicolumn{1}{|l|}{CAT-D}    & 2177   & 78        & 19        & 46        & 64        & 77        & 92        & 155   \\ \hline
+\multicolumn{1}{|l|}{CAT-E}    & 168    & 86        & 24        & 37        & 71        & 85        & 101       & 149   \\ \hline
+\multicolumn{1}{|l|}{CAT-F}    & 96     & 85        & 26        & 43        & 69        & 81        & 97        & 155   \\ \hline
+\end{tabular}%
+}
+\caption{AROT statistics for airtrafic mix at KEF by RECAT categories}
+\label{tab:AROT_RECAT_ stats}
+\end{table}
+
+
+\subsection{Runway Capacity}
+
+\fxnote{operational procedures for air traffic control at kef, }
+\fxnote{equipment specifications in the tower that might influence the WTC sepatarion decision-talk to Haraldur}
+
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "DEGREE-NAME-YEAR"
