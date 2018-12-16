@@ -227,12 +227,7 @@ The ICAO wake turbulence categories outline the worst case for each category and
 
 \fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_RECAT_AROTs_boxplot.png}
-    \caption[AROTs boxplot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year (since October, 2017). The box plot shows the AROTs for all runways at BIKF.}
-    \label{fig:RECAT_AROTs_boxplot}
-\end{figure}
+
 
 The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway \cite{ROT_definition}. \\
 This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway \cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
@@ -248,125 +243,6 @@ The peak traffic hours are characterised by the time intervals when the airport 
 \subsubsection{Factors affecting AROT}
 \fxnote{Airfield surface condition, weather conditions, fast exits, season,  , }
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
-                          & \multicolumn{1}{c|}{}   & \multicolumn{7}{c|}{AROT [s]} \\ \hline
-\multicolumn{1}{|l|}{RECAT-EU} & count & mean & std & min & 25\% & 50\% & 75\% & max \\ \hline
-\multicolumn{1}{|l|}{CAT-A}    & 2     & 119  & 19  & 105 & 112  & 119  & 125  & 132 \\ \hline
-\multicolumn{1}{|l|}{CAT-B}    & 53    & 81   & 20  & 51  & 65   & 77   & 91   & 136 \\ \hline
-\multicolumn{1}{|l|}{CAT-C}    & 3449  & 78   & 17  & 41  & 65   & 75   & 89   & 155 \\ \hline
-\multicolumn{1}{|l|}{CAT-D}    & 1029  & 75   & 18  & 46  & 62   & 71   & 87   & 155 \\ \hline
-\multicolumn{1}{|l|}{CAT-E}    & 98    & 86   & 25  & 42  & 71   & 84   & 101  & 151 \\ \hline
-\multicolumn{1}{|l|}{CAT-F}    & 50    & 83   & 23  & 43  & 69   & 81   & 91   & 155 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by RECAT]{AROT statistics for the air traffic mix at KEF by RECAT-EU categories. The count is the number of landings in peak hours since October 2017}
-\label{tab:AROT_RECAT_stats}
-\end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{ll|r|r|r|r|r|r|r|}
-\cline{3-9}
-                             &                           & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
-\multicolumn{1}{|l|}{season} & count                     & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{SUMMER} & \multicolumn{1}{r|}{3741} & 76                        & 17                       & 41                       & 63                        & 72                        & 86                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{WINTER} & \multicolumn{1}{r|}{940}  & 84                        & 20                       & 43                       & 69                        & 84                        & 96                        & 153                      \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by season]{AROT statistics for the air traffic mix at KEF by season. The count is the number of landings in peak hours since October 2017}
-\label{my-label2}
-\end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
-                             & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
-\multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 974                        & 85                        & 22                       & 42                       & 67                        & 88                        & 99                        & 152                      \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 852                        & 85                        & 11                       & 61                       & 78                        & 84                        & 91                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 1513                       & 67                        & 10                       & 41                       & 61                        & 66                        & 71                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 402                        & 68                        & 14                       & 42                       & 60                        & 66                        & 72                        & 155                      \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by runway for the summer]{AROT statistics for the air traffic mix at KEF by runway for the summer of 2018. The count is the number of landings in peak hours.}
-\label{my-label3}
-\end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
-                             & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
-\multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 286                        & 88                        & 26                       & 43                       & 62                        & 90                        & 106                       & 153                      \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 333                        & 93                        & 12                       & 70                       & 85                        & 91                        & 99                        & 144                      \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 252                        & 72                        & 12                       & 45                       & 64                        & 70                        & 75                        & 140                      \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 69                         & 73                        & 13                       & 49                       & 63                        & 72                        & 79                        & 105                      \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by runway for the winter]{AROT statistics for the air traffic mix at KEF by runway for the winter season. The count is the number of landings in peak hours since October 2017}
-\label{my-label4}
-\end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
- & \multicolumn{1}{l|}{} & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
-\multicolumn{1}{|l|}{month} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}January} & 95 & 86 & 20 & 54 & 70 & 85 & 96 & 136 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}February} & 80 & 87 & 16 & 52 & 75 & 86 & 93 & 144 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}March} & 215 & 84 & 18 & 47 & 70 & 85 & 95 & 150 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}April} & 222 & 82 & 17 & 45 & 69 & 81 & 93 & 139 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}May} & 387 & 75 & 13 & 42 & 66 & 74 & 82 & 140 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}June} & 649 & 73 & 16 & 44 & 62 & 68 & 80 & 155 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}July} & 731 & 72 & 16 & 43 & 61 & 68 & 77 & 155 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}August} & 727 & 79 & 18 & 42 & 64 & 81 & 91 & 148 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}September} & 636 & 77 & 18 & 41 & 64 & 75 & 88 & 152 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}October} & 611 & 79 & 17 & 43 & 66 & 76 & 91 & 155 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}November} & 221 & 84 & 23 & 43 & 66 & 82 & 98 & 151 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}December} & 107 & 87 & 24 & 45 & 68 & 86 & 99 & 153 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by month]{AROT statistics for the air traffic mix at KEF by month. The count is the number of landings in peak hours since October 2017}
-\label{my-label5}
-\end{table}
 
 
 
