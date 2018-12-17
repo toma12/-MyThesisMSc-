@@ -21,7 +21,12 @@ The reading from the position of the ADS-B antenna of the aircraft is used inste
 Who measures and who checks them and how???}
 
 \section{Data manipulation}
-The data was obtained from the database using SQL server and stored as csv files. The the manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. The reference table was provided by Eurocontrol. The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. The resulting data frame was used for the analysis in this project. It contained over 11600 \fxnote{run the SQL query 01.01.2015 til 30 Nov.2018 } arrivals for the time period of almost four years (from 01.01.2015 til 30.11.2018). The data frame contained unique information about the AROT of each aircraft, the landing time and used runway, along with the ICAO wake category. 
+The data was obtained from the database using SQL server and stored as csv files. The the manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
+The reference table was provided by Eurocontrol. 
+The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
+After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003 quantile and above the 0,997 quantile were removed from data set based on AROTs. 
+The resulting data frame was used for the analysis in this project. 
+It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 til 30.11.2018). The data frame contained unique information about the AROT of each aircraft, the landing time and used runway, along with the ICAO wake category. 
 
 
 \subsection{Aircraft traffic mix}
@@ -65,10 +70,10 @@ The data was obtained from the database using SQL server and stored as csv files
 \multicolumn{1}{|l|}{RECAT-EU} & count & mean & std & min & 25\% & 50\% & 75\% & max \\ \hline
 \multicolumn{1}{|l|}{CAT-A}    & 2     & 119  & 19  & 105 & 112  & 119  & 125  & 132 \\ \hline
 \multicolumn{1}{|l|}{CAT-B}    & 53    & 81   & 20  & 51  & 65   & 77   & 91   & 136 \\ \hline
-\multicolumn{1}{|l|}{CAT-C}    & 3449  & 78   & 17  & 41  & 65   & 75   & 89   & 155 \\ \hline
+\multicolumn{1}{|l|}{CAT-C}    & 3436  & 78   & 17  & 46  & 65   & 75   & 89   & 155 \\ \hline
 \multicolumn{1}{|l|}{CAT-D}    & 1029  & 75   & 18  & 46  & 62   & 71   & 87   & 155 \\ \hline
-\multicolumn{1}{|l|}{CAT-E}    & 98    & 86   & 25  & 42  & 71   & 84   & 101  & 151 \\ \hline
-\multicolumn{1}{|l|}{CAT-F}    & 50    & 83   & 23  & 43  & 69   & 81   & 91   & 155 \\ \hline
+\multicolumn{1}{|l|}{CAT-E}    & 95   & 88   & 24  & 46  & 71   & 85   & 101  & 151 \\ \hline
+\multicolumn{1}{|l|}{CAT-F}    & 49    & 84   & 22  & 48  & 72   & 81   & 91   & 155 \\ \hline
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by RECAT]{AROT statistics for the air traffic mix at KEF by RECAT-EU categories. The count is the number of landings in peak hours since October 2017}
@@ -85,8 +90,8 @@ The data was obtained from the database using SQL server and stored as csv files
 \cline{3-9}
                              &                           & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
 \multicolumn{1}{|l|}{season} & count                     & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{SUMMER} & \multicolumn{1}{r|}{3741} & 76                        & 17                       & 41                       & 63                        & 72                        & 86                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{WINTER} & \multicolumn{1}{r|}{940}  & 84                        & 20                       & 43                       & 69                        & 84                        & 96                        & 153                      \\ \hline
+\multicolumn{1}{|l|}{SUMMER} & \multicolumn{1}{r|}{3727} & 76  & 17 & 46 & 63  & 72 & 87  & 155 \\ \hline
+\multicolumn{1}{|l|}{WINTER} & \multicolumn{1}{r|}{937}  & 84  & 20 & 45 & 69  & 84 & 96  & 153 \\ \hline
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by season]{AROT statistics for the air traffic mix at KEF by season. The count is the number of landings in peak hours since October 2017}
@@ -102,10 +107,10 @@ The data was obtained from the database using SQL server and stored as csv files
 \cline{3-9}
                              & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
 \multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 974                        & 85                        & 22                       & 42                       & 67                        & 88                        & 99                        & 152                      \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 852                        & 85                        & 11                       & 61                       & 78                        & 84                        & 91                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 1513                       & 67                        & 10                       & 41                       & 61                        & 66                        & 71                        & 155                      \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 402                        & 68                        & 14                       & 42                       & 60                        & 66                        & 72                        & 155                      \\ \hline
+\multicolumn{1}{|l|}{RWY 01} & 963 & 85 & 21 & 46 & 68 & 88 & 100 & 152 \\ \hline
+\multicolumn{1}{|l|}{RWY 10} & 852 & 85 & 11 & 61 & 78 & 84 & 91 & 155 \\ \hline
+\multicolumn{1}{|l|}{RWY 19} & 1511 & 67 & 10 & 46 & 61 & 66 & 71 & 155 \\ \hline
+\multicolumn{1}{|l|}{RWY 28} & 401 & 68 & 14 & 49 & 60 & 66 & 72 & 155 \\ \hline
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by runway for the summer]{AROT statistics for the air traffic mix at KEF by runway for the summer of 2018. The count is the number of landings in peak hours.}
@@ -122,10 +127,10 @@ The data was obtained from the database using SQL server and stored as csv files
 \cline{3-9}
                              & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
 \multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 286                        & 88                        & 26                       & 43                       & 62                        & 90                        & 106                       & 153                      \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 333                        & 93                        & 12                       & 70                       & 85                        & 91                        & 99                        & 144                      \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 252                        & 72                        & 12                       & 45                       & 64                        & 70                        & 75                        & 140                      \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 69                         & 73                        & 13                       & 49                       & 63                        & 72                        & 79                        & 105                      \\ \hline
+\multicolumn{1}{|l|}{RWY 01} & 284 & 88 & 26 & 47 & 63 & 90 & 106 & 153 \\ \hline
+\multicolumn{1}{|l|}{RWY 10} & 333 & 93 & 12 & 70 & 85 & 91 & 99 & 144 \\ \hline
+\multicolumn{1}{|l|}{RWY 19} & 251 & 72 & 12 & 51 & 65 & 70 & 75 & 140 \\ \hline
+\multicolumn{1}{|l|}{RWY 28} & 69 & 73 & 13 & 49 & 63 & 72 & 79 & 105 \\ \hline
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by runway for the winter]{AROT statistics for the air traffic mix at KEF by runway for the winter season. The count is the number of landings in peak hours since October 2017}
@@ -151,23 +156,23 @@ The data was obtained from the database using SQL server and stored as csv files
 \rowcolor[HTML]{DAE8FC} 
 \multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}March} & 215 & 84 & 18 & 47 & 70 & 85 & 95 & 150 \\ \hline
 \rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}April} & 222 & 82 & 17 & 45 & 69 & 81 & 93 & 139 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}April} & 221 & 82 & 17 & 47 & 69 & 81 & 93 & 139 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}May} & 387 & 75 & 13 & 42 & 66 & 74 & 82 & 140 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}May} & 386 & 75 & 13 & 46 & 67 & 74 & 83 & 140 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}June} & 649 & 73 & 16 & 44 & 62 & 68 & 80 & 155 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}June} & 647 & 73 & 16 & 47 & 62 & 68 & 80 & 155 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}July} & 731 & 72 & 16 & 43 & 61 & 68 & 77 & 155 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}July} & 729 & 72 & 16 & 46 & 61 & 68 & 77 & 155 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}August} & 727 & 79 & 18 & 42 & 64 & 81 & 91 & 148 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}August} & 724 & 80 & 18 & 46 & 64 & 81 & 91 & 148 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}September} & 636 & 77 & 18 & 41 & 64 & 75 & 88 & 152 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}September} & 632 & 78 & 18 & 46 & 64 & 75 & 88 & 152 \\ \hline
 \rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}October} & 611 & 79 & 17 & 43 & 66 & 76 & 91 & 155 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}October} & 609 & 79 & 17 & 46 & 66 & 76 & 91 & 155 \\ \hline
 \rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}November} & 221 & 84 & 23 & 43 & 66 & 82 & 98 & 151 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}November} & 220 & 84 & 23 & 48 & 66 & 82 & 99 & 151 \\ \hline
 \rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}December} & 107 & 87 & 24 & 45 & 68 & 86 & 99 & 153 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}December} & 106 & 87 & 23 & 51 & 69 & 86 & 99 & 153 \\ \hline
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by month]{AROT statistics for the air traffic mix at KEF by month. The count is the number of landings in peak hours since October 2017}
