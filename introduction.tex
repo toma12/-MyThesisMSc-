@@ -1,17 +1,17 @@
 \chapter{Introduction\label{cha:introduction}}
 %% \ifdraft only shows the text in the first argument if you are in draft mode.
 %% These directions will disappear in other modes.
-\ifdraft{State the objectives of the exercise. Ask yourself:
-  \underline{Why} did I design/create the item? What did I aim to
-  achieve? What is the problem I am trying to solve?  How is my
-  solution interesting or novel?}{}
+% \ifdraft{State the objectives of the exercise. Ask yourself:
+%   \underline{Why} did I design/create the item? What did I aim to
+%   achieve? What is the problem I am trying to solve?  How is my
+%   solution interesting or novel?}{}
 
-Keflavík International Airport (IATA:KEF, ICAO:BIKF) is the major gateway to Iceland currently with two functioning runways. 
-There has been a gradual increase of passengers travelling through Keflavik Airport in the recent years with over eight million passengers and 62,3 thousand air transport movements in 2017 \cite{isavia_facts_2017}. For 2018 the passenger numbers show a growth of 13.1\% on average (at the time of writing) from the previous year \cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can encounter constrained capacity of the runway during peak traffic periods. 
-A significant constraint of this process is caused by separation regulations of aircraft due to wake-vortices. These are specified by rules established by the European Aviation Safety Agency (EASA)  for each type of aircraft based primarily on the weight of the aircraft. The general flight safety requirements are established by the International Civil Aviation Organisation (ICAO) for maintaining safe distance between aircraft
+Keflavík International Airport (IATA:KEF, ICAO:BIKF) is the major gateway to Iceland currently with two functioning runways. The runways operate in both directions and are designated as RWY-01 (South-North), RWY-19 (North-South) , RWY-10 (East-West) and RWY-28 (West-East). 
+There has been a gradual increase of passengers travelling through Keflavík Airport in the recent years with over eight million passengers and 62,3 thousand air transport movements in 2017 \cite{isavia_facts_2017}. For 2018 the passenger numbers show a growth of 13.1\% on average (at the time of writing) from the previous year \cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can encounter constrained capacity of the runways during peak traffic periods. 
+A significant constraint of airport capacity is caused by separation regulations of aircraft due to wake-vortices. These are specified by rules established by the European Aviation Safety Agency (EASA) for each type of aircraft based primarily on the weight of the aircraft. The general flight safety requirements are established by the International Civil Aviation Organisation (ICAO) for maintaining safe distance between aircraft.\fxnote{Introduction needs more work, incomplete.}
 
 \section{Background and Literature Review}
-
+The research parameters for the literate review included but were not limited to the following concepts: runway occupancy time, runway capacity, wake vortex separation. The project addresses in particular the arrival runway occupancy and its seasonal fluctuations as well as the variations between the different runways at Keflavík International Airport.
 %\ifdraft{Provide background about the subject matter (e.g. %How was morse code developed?  How is it used today?). 
 %This is a place where there are usually many citations.
 %It is suspicious when there is not.
@@ -176,6 +176,64 @@ The ICAO wake turbulence categories outline the worst case for each category and
 \end{table}
 
 
+
+
+
+\section{Runway Occupancy Time\label{sec:ROT}}
+
+\fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
+
+
+
+The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway \cite{ROT_definition}. \\
+This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway \cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
+The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4 minutes. This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/Peak_Diagram.png}
+    \caption[Rules defining a peak hour]{The rules used by Isavia to mark a high load interval as peak or not. The time separating each two aircraft in a peak cluster (red) is set as less than or equal to 4 minutes. The last red aircraft in the peak cluster is not counted as part of the peak. Cluster separators are defined as time intervals larger than four minutes.}
+    \label{fig:Peak_Diagram}
+\end{figure}
+
+
+\section{Runway Capacity}
+
+ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions \cite{airport_capacity_methodology}. 
+Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
+R. de Neufville \cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in 1 hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system \cite{de_neufville_airport_2013}.
+The method used by Isavia to estimate the throughput capacity at BIKF is the Capacity Envelope that takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure \ref{fig:capacity_evnelope} with a 15 minute time interval. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
+    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed Mode A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The script producing this plot is on the Isavia´s internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
+\end{figure}
+
+This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed Mode A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in the previous section (\ref{sec:ROT})
+
+There are many aspects of a runway system that can affect the number of aircraft that can land or depart from an airfield and some of those are listed bellow \cite{de_neufville_airport_2013, kim_validation_2010}.
+\begin{itemize}
+    \item Number and geometric layout of the runways.
+    \item State and performance of the ATM system.
+    \item Separation requirements between aircraft pairs imposed by the ATM.
+    \item Weather conditions (visibility, precipitation, cloud ceiling). 
+    \item Wind direction and strength.
+    \item Mix of aircraft using the airport.
+    \item Sequence of movement on each runway (arrivals - departures split)
+    \item Type and location of taxiway exits from the runway.
+    \item Runway occupancy time.
+    \item Controller workload.
+    \item Noise-related constraints and other environmental considerations.
+\end{itemize}
+
+Two of the above mentioned factors are principal in determining airfield capacity, namely the wake vortex separation requirements and runway occupancy \cite{kolos2013influence}. Those are in turn influenced by traffic mix, seasonal factors and runway exits, to mention a few. The following chapter \ref{cha:methods} on Methods  will deal with some of those aspects. 
+
+\fxnote{equipment specifications in the tower that might influence the WTC separtarion decision-talk to Haraldur, Talk to Hjalti about the 2,5 - 3 NM MRS issue!}
+
+\section{Runway Occupancy and Landing Time Interval Study Objective}
+The goal of examining the arrival runway occupancy times and the landing time intervals (LTI) is to determine whether the implementation of the RECAT-EU scheme at BIKF under certain conditions, would affect the throughput of the airfield. Here the LTI is a directly influenced by the distance separation of arrival pairs and the final approach speed of the aircraft. Additionally the analysis could indicate whether the limiting element is the runway occupancy or the separation requirement. The transition from ICAO WTS to RECAT-EU scheme suggests a decrease in distance separation for a number of the aircraft pairs (Tables \ref{tab:delta_distance_wtc2recat}).
+
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
@@ -200,90 +258,29 @@ The ICAO wake turbulence categories outline the worst case for each category and
 
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-\multicolumn{2}{|c|}{}                                          & \multicolumn{6}{c|}{Follower}                                                                                                             \\ \cline{3-8} 
-\multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B                        & CAT-C & CAT-D                        & CAT-E                        & CAT-F                        \\ \hline
-                                                        & CAT-A &       & \cellcolor[HTML]{67FD9A}-20s &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
-                                                        & CAT-B &       &                              &       & \cellcolor[HTML]{67FD9A}-20s &                              & \cellcolor[HTML]{FD6864}+20s \\ \cline{2-8} 
-                                                        & CAT-C &       &                              &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
-                                                        & CAT-D &       &                              &       &                              &                              &                              \\ \cline{2-8} 
-                                                        & CAT-E &       &                              &       &                              &                              & \cellcolor[HTML]{67FD9A}-20s \\ \cline{2-8} 
-\multirow{-6}{*}{Leader}                                & CAT-F &       &                              &       &                              &                              & \cellcolor[HTML]{FD6864}+20s \\ \hline
-\end{tabular}
-}
-\caption[Time difference between reference ICAO and RECAT-EU schemes]{Time difference in wake separation on departure between reference ICAO and RECAT-EU schemes(full proposal) \cite{rooseleer2015recat}}
-\label{tab:delta_times_wtc2recat}
-\end{table}
+% % Please add the following required packages to your document preamble:
+% % \usepackage{multirow}
+% % \usepackage{graphicx}
+% \begin{table}[]
+% \centering
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|c|c|c|c|c|c|c|c|}
+% \hline
+% \multicolumn{2}{|c|}{}                                          & \multicolumn{6}{c|}{Follower}                                                                                                             \\ \cline{3-8} 
+% \multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B                        & CAT-C & CAT-D                        & CAT-E                        & CAT-F                        \\ \hline
+%                                                         & CAT-A &       & \cellcolor[HTML]{67FD9A}-20s &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
+%                                                         & CAT-B &       &                              &       & \cellcolor[HTML]{67FD9A}-20s &                              & \cellcolor[HTML]{FD6864}+20s \\ \cline{2-8} 
+%                                                         & CAT-C &       &                              &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
+%                                                         & CAT-D &       &                              &       &                              &                              &                              \\ \cline{2-8} 
+%                                                         & CAT-E &       &                              &       &                              &                              & \cellcolor[HTML]{67FD9A}-20s \\ \cline{2-8} 
+% \multirow{-6}{*}{Leader}                                & CAT-F &       &                              &       &                              &                              & \cellcolor[HTML]{FD6864}+20s \\ \hline
+% \end{tabular}
+% }
+% \caption[Time difference between reference ICAO and RECAT-EU schemes]{Time difference in wake separation on departure between reference ICAO and RECAT-EU schemes(full proposal) \cite{rooseleer2015recat}}
+% \label{tab:delta_times_wtc2recat}
+% \end{table}
 
-
-\subsection{Runway Occupancy Time\label{sec:ROT}}
-
-\fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
-
-
-
-The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway \cite{ROT_definition}. \\
-This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway \cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
-The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavik Airport. The time between flights during the high load interval is set at $\leq$4 minutes. This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it.   \fxnote{Peak hours need to be explained, Include picture}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/Peak_Diagram.png}
-    \caption[Rules defining a peak hour]{The rules used by Isavia to mark a high load interval as peak or not. The time separating each two aircraft in a peak cluster (red) is set as less than or equal to 4 minutes. The last red aircraft is not counted as part of the peak. Clusters are separated by time intervals larger than four minutes.}
-    \label{fig:Peak_Diagram}
-\end{figure}
-
-
-
-
-
-
-
-
-\subsection{Runway Capacity}
-
-ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions \cite{airport_capacity_methodology}. 
-Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
-R. de Neufville \cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in 1 hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system \cite{de_neufville_airport_2013}.
-The method used by Isavia to estimate the throughput capacity at BIKF is the Capacity Envelope that takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure \ref{fig:capacity_evnelope} with a 15 minute time interval. 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
-    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed Mode A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The script producing the plot is on the Isavia´s Víkingaskipið.}  \label{fig:capacity_evnelope}
-\end{figure}
-
-This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed Mode A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in the previous section (\ref{sec:ROT})
-
-There are many aspects of a runway system that can affect the number of aircraft that can land or depart from an airfield and some of those are listed bellow \cite{de_neufville_airport_2013, kim_validation_2010}.
-\begin{itemize}
-    \item Number and geometric layout of the runways.
-    \item State and performance of the ATM system.
-    \item Separation requirements between aircraft pairs imposed by the ATM.
-    \item Weather conditions (visibility, precipitation, cloud ceiling). 
-    \item Wind direction and strength.
-    \item Mix of aircraft using the airport.
-    \item Sequence of movement on each runway (arrivals - departures split)
-    \item Type and location of taxiway exits from the runway.
-    \item Runway occupancy time.
-    \item Controller workload.
-    \item Noise-related constraints and other environmental considerations.
-\end{itemize}
-
-Two of the above mentioned factors are principal in determining airfield capacity, namely the wake vortex separation requirements and runway occupancy \cite{kolos2013influence}. Those are in turn influenced by traffic mix, seasonal factors and runway exits, to mention a few. The following chapter (\ref{cha:methods}) on Methods  will deal with some of those aspects. 
-
-\fxnote{equipment specifications in the tower that might influence the WTC separtarion decision-talk to Haraldur}
-
-\subsection{Runway Occupancy and Landing Time Interval Study Objective}
-The objective of examining the arrival runway occupancy times and the landing time intervals (LTI) is to determine whether the implementation of the RECAT-EU scheme at BIKF under certain conditions, would affect the throughput of the airfield. Additionally the analysis could indicate whether limiting element is the runway occupancy or the separation requirements. The RECAT scheme suggests a decrease in distance and in time separation of aircraft pairs (\ref{tab:delta_distance_wtc2recat}, \ref{tab:delta_times_wtc2recat})
-
+The implementation of RECAT shifts the reference separation minima for arrival pairs thus creating the potential for reduced time separation between the aircraft. The reduction of time interval between landings leads to increased throughput of the runways.
 \fxnote{State my hypothesis. Research objectives/research question comes in concluding part of introduction}
 
 
