@@ -223,7 +223,7 @@ The ICAO wake turbulence categories outline the worst case for each category and
 \end{table}
 
 
-\subsection{Runway Occupancy Time}
+\subsection{Runway Occupancy Time\label{sec:ROT}}
 
 \fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
 
@@ -240,8 +240,7 @@ The peak traffic hours are characterised by the time intervals when the airport 
     \label{fig:Peak_Diagram}
 \end{figure}
 
-\subsubsection{Factors affecting AROT}
-\fxnote{Airfield surface condition, weather conditions, fast exits, season,  , }
+
 
 
 
@@ -250,10 +249,40 @@ The peak traffic hours are characterised by the time intervals when the airport 
 
 \subsection{Runway Capacity}
 
-\fxnote{operational procedures for air traffic control at kef, }
-\fxnote{equipment specifications in the tower that might influence the WTC sepatarion decision-talk to Haraldur}
+ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions \cite{airport_capacity_methodology}. 
+Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
+R. de Neufville \cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in 1 hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system \cite{de_neufville_airport_2013}.
+The method used by Isavia to estimate the throughput capacity at BIKF is the Capacity Envelope that takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure \ref{fig:capacity_evnelope} with a 15 minute time interval. 
 
-subsection{AROT and LTI Objective}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
+    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed Mode A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The script producing the plot is on the Isavia´s Víkingaskipið.}  \label{fig:capacity_evnelope}
+\end{figure}
+
+This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed Mode A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in the previous section (\ref{sec:ROT})
+
+There are many aspects of a runway system that can affect the number of aircraft that can land or depart from an airfield and some of those are listed bellow \cite{de_neufville_airport_2013, kim_validation_2010}.
+\begin{itemize}
+    \item Number and geometric layout of the runways.
+    \item State and performance of the ATM system.
+    \item Separation requirements between aircraft pairs imposed by the ATM.
+    \item Weather conditions (visibility, precipitation, cloud ceiling). 
+    \item Wind direction and strength.
+    \item Mix of aircraft using the airport.
+    \item Sequence of movement on each runway (arrivals - departures split)
+    \item Type and location of taxiway exits from the runway.
+    \item Runway occupancy time.
+    \item Controller workload.
+    \item Noise-related constraints and other environmental considerations.
+\end{itemize}
+
+Two of the above mentioned factors are principal in determining airfield capacity, namely the wake vortex separation requirements and runway occupancy \cite{kolos2013influence}. Those are in turn influenced by traffic mix, seasonal factors and runway exits, to mention a few. The following chapter (\ref{cha:methods}) on Methods  will deal with some of those aspects. 
+
+\fxnote{equipment specifications in the tower that might influence the WTC separtarion decision-talk to Haraldur}
+
+\subsection{Runway Occupancy and Landing Time Interval Study Objective}
+The objective of examining the arrival runway occupancy times and the landing time intervals (LTI) is to determine whether the implementation of the RECAT-EU scheme at BIKF under certain conditions, would affect the throughput of the airfield. Additionally the analysis could indicate whether limiting element is the runway occupancy or the separation requirements. The RECAT scheme suggests a decrease in distance and in time separation of aircraft pairs (\ref{tab:delta_distance_wtc2recat}, \ref{tab:delta_times_wtc2recat})
 
 \fxnote{State my hypothesis. Research objectives/research question comes in concluding part of introduction}
 
