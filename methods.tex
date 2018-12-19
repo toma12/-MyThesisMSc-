@@ -2,7 +2,7 @@
 Data collection on flights through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy and landing intervals.
 
 \section{Data Collecting and Data Filtering}
-More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik Internetional Airport because of improved signal accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport is estimated around $90\%$~\cite{isavia-rounardeild_rannsoknir_2018}\fxnote{confirm the \% from the script for equipment in Vikingaskipið}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
+More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik Internetional Airport because of improved signal accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport is estimated around $90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
 The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied before commencing measurements and calculations: 
 \begin{itemize}
     \item All records with no latitude, longitude and/or time data are omitted.
@@ -26,12 +26,14 @@ The reference table was provided by Eurocontrol.
 The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
 After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003~quantile and above the 0,997~quantile were regarded as anomalies removed from data set based on AROT values. 
 The resulting data frame was used for the analysis in this project. 
-It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 til 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. 
+It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. Consequently the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11 2018) because of the effect of fast-exits on AROT, which is explained in the coming section \ref{sssec:factors_arot}
 
 
-\subsection{Aircraft Traffic Mix}
+\subsection{Aircraft Traffic Mix\label{ssec:traffic_mix}}
+The aircraft traffic mix is one of the components that affect runway capacity as mentioned in~\ref{sec:runway_capacity}. Sorting the aircraft fleet arriving at BIKF into ICAO WTC reveals that the majority of flights~(85,4\%) are in the Medium wake category (Figure~\ref{fig:post_fast_exit_mix_pie_v2}) and the rest are mainly into the Heavy category~(14,2\%) with less than one percent Light aircraft. The small portion of Light flights can be explained with the policy of BIKF to avoid servicing those flights during the morning and afternoon peaks. This distribution of the three categories implies that sorting the aircraft into arriving pairs would produce primarily Medium-Medium pairs. This is confirmed by the analysis of the number of arrival pairs in the ICAO categories (Table~\ref{tab:mix_to_wtc}).\\
 
-\fxnote{Looked at the traffic mix, pie chart and mix by model}\\
+
+
 
 \begin{figure}[ht]
     \centering
@@ -51,7 +53,7 @@ It contained over 11500 arrivals for the time period of almost four years (from 
 % -----------------------
 \subsection{Arrival Runway Occupancy Times}
 
-\subsubsection{Factors affecting AROT}
+\subsubsection{Factors affecting AROT\label{sssec:factors_arot}}
 \fxnote{Airfield surface condition, weather conditions, fast exits, season,   }
 
 
@@ -192,7 +194,68 @@ It contained over 11500 arrivals for the time period of almost four years (from 
 % ---------------------------
 \subsection{Landing Time Intervals}
 
-\fxnote{Looked at LTI}\\
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{tabular}{cc|r|r|r|}
+\cline{3-5}
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{3}{c|}{Follower} \\ \cline{3-5} 
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{L} \\ \hline
+\multicolumn{1}{|c|}{} & H & \cellcolor[HTML]{FFCC67}56 & \cellcolor[HTML]{FE996B}332 & \cellcolor[HTML]{FFFFC7}2 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{} & M & \cellcolor[HTML]{FE996B}367 & \cellcolor[HTML]{FD6864}1795 & \cellcolor[HTML]{FFFFC7}7 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{\multirow{-3}{*}{\rotatebox[origin=c]{90}{Leader}}} & L & \cellcolor[HTML]{FFFFC7}3 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 \\ \hline
+\end{tabular}%
+}
+\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF arranged into the corresponding wake categories. It is apparent that the majority of arrival pairs are classified as Medium-Medium}
+\label{tab:mix_to_wtc}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{6}{c|}{Follower} \\ \cline{3-8} 
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+\multicolumn{1}{|c|}{} & CAT-A &  &  &  & \cellcolor[HTML]{FFFFC7}1 &  &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-B &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}17 & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}2 &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-C &  & \cellcolor[HTML]{FFFC9E}19 & \cellcolor[HTML]{FD6864}1690 & \cellcolor[HTML]{FE996B}240 & \cellcolor[HTML]{FFCE93}42 & \cellcolor[HTML]{FFFC9E}13 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-D & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FE996B}229 & \cellcolor[HTML]{FE996B}198 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FFFFC7}5 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-E &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFCE93}43 & \cellcolor[HTML]{FFFFC7}9 &  &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}} & CAT-F &  &  & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 &  \\ \hline
+\end{tabular}%
+}
+\caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT pairs from the traffic mix at BIKF arranged into the corresponding wake categories. The majority of arrival pairs are classified as C-C.}
+\label{tab:mix_to_recat}
+\end{table}
+
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
+    \caption[list of figures caption]{Caption}
+    \label{fig:dist_separ_HH_HM_MH_MM_pairs}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
+    \caption[list of figures caption]{Caption}
+    \label{fig:time_separ_HH_HM_MH_MM_pairs}
+\end{figure}
 
 
 %\lipsum[14-20]
