@@ -38,7 +38,7 @@ The wing of an aircraft can be regarded as a beam of finite length with aerofoil
 The lift effect is created by the differential pressure between the lower and the upper side of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. A finite lifting wing leaves behind a continuous sheet of stream-wise vorticity ~\cite{hansen2015aerodynamics}\fxnote{Find a more appropriate source for citation }.  This manifests itself in multiple trailing swirls of the airflow that mix together and roll up into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop}~\cite{magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the air moves downwards while outside the induced flow is upwards. Those vortices are also known as wake turbulence. 
 The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360$ km/h and the vortices can stay effective up to hundred wing spans. This can result in wake vortices lasting for several minutes and up to $30$ km behind larger aircraft~\cite{Breitsamter2011Feb, gerz_commercial_2002}. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/WakeVortexPlane.png}
     \caption[Wake vortex roll-up process]{Wing vortex evolution and roll-up process. Two main vortices form behind the aircraft turning in opposite directions, clockwise behind the left wing (seen from behind) and anti-clockwise behind the right one~\cite[p. 043]{magazine_aibus_safety}} \label{fig:vortex_develop}
@@ -62,7 +62,7 @@ Several factors that drive the decay rate of the vortex pair have been formulate
 \end{itemize}
 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/Hallock_vortex_evolution.jpg}
     \caption[Wake vortex and ground effect]{Vortex evolution and ground effect~\cite[p. 29]{Hallock2018Apr}.} \label{fig:vortex_ground_effect}
@@ -75,7 +75,7 @@ This can lead to the up-set and potentially loss of control of an aircraft follo
 To diminish the effect of such vortices the trailing aircraft must be maintained at a safe distance behind the leading aircraft as the vortices spread laterally to either side of the flight path and are dissipated~\cite{Breitsamter2011Feb}.
 The distance between aircraft pairs in view of safety is referred to as wake vortex separation. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/reaction_in_wake.jpg}
     \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft. (A) induced rolling moment, (B) upward motion, (C) loss of lift~\cite[p. 33]{Hallock2018Apr}} \label{fig:vortex_encounter}
@@ -83,7 +83,7 @@ The distance between aircraft pairs in view of safety is referred to as wake vor
 
 Traditional separation standards, introduced in the seventies, are defined by ICAO  on the basis of certificated maximum take-off mass (MTOM) as shown in Table~\ref{tab:WTC}. The prescribed categories are three (i.e.Heavy, Medium and Light). In addition for aircraft in the order of $560000$~kg ICAO provides a subcategory to the Heavy types called Super Heavy. Some states have chosen to further increase the number of categories to adapt the wake turbulence categories (WTC) to specific airport requirements. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table~\ref{tab:WTC}), while the Federal Aviation Administration (FAA) places Boeing B757 into a separate category and increases the upper weight limit of the Light category.~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}
 
-\begin{table}[]
+\begin{table}[h]
     \centering
     \resizebox{1\textwidth}{!} {
     \begin{tabular}{l|c|c|c|c|c|c}
@@ -109,7 +109,7 @@ The ICAO wake turbulence categories outline the worst case for each category and
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -132,7 +132,7 @@ The criteria used for categorisation of existing and new aircraft types are prov
 % \usepackage{graphicx}
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{0.7\textwidth}{!}{%
 \begin{tabular}{clcllc}
@@ -153,7 +153,7 @@ The criteria used for categorisation of existing and new aircraft types are prov
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -176,7 +176,7 @@ The criteria used for categorisation of existing and new aircraft types are prov
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -209,7 +209,7 @@ The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time 
 This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway~\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
 The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes. This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/Peak_Diagram.png}
     \caption[Rules defining a peak hour]{Rules used by Isavia to identify a high load interval as peak or not. The time separating each two aircraft in a peak cluster (red) is set as less than or equal to 4 minutes. The last red aircraft in the peak cluster is not counted as part of the peak. Cluster separators are defined as time intervals larger than four minutes.}
@@ -224,7 +224,7 @@ Several measures are currently used to estimate the amount of aircraft movements
 R. de Neufville~\cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in one hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system~\cite{de_neufville_airport_2013}.
 The Capacity Envelope method used by Isavia to estimate the throughput capacity at BIKF takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure~\ref{fig:capacity_evnelope} for a 15~minute time interval. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
     \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed~Mode~A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The script producing this plot is on the Isavia´s internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
@@ -260,7 +260,7 @@ Additionally the analysis could indicate whether the limiting element is the run
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -306,10 +306,10 @@ Additionally the analysis could indicate whether the limiting element is the run
 The implementation of RECAT shifts the wake separation minima for arrival pairs thus creating the potential for reduced time separation between the aircraft. The reduction of the time interval between landings facilitates increas in the throughput capacity of the runways. 
 Figure~\ref{fig:AROT_LTI_rwy19_H_M} may be used to illustrate the hypothesis. The current ICAO time separation reference, indicated by the red vertical line for BIKF RWY-19 will be relocated to the left for some of the aircraft pairs under the RECAT scheme. This relocation will be more noticeable for RECAT C-C and C-D pairs formed from the ICAO HEAVY-MEDIUM pairs, in which case the separation is reduced from 5 NM to 3 NM. A shift of the reference separation line creates the potential for shift in the distribution of the LTI, as long as it does not overlap with the ROT. Furthermore study on the runway capacity of significantly larger airports~\cite{kolos2013influence} suggests that the frequency distribution of LTI tends to compress or squeeze to the right of the reference line with less standard deviation about the mean when the air traffic is intensified.
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_rot_landig_time_interval_RWY19_leader_H_follower_M_peak-hour_BAR_20171004_20181130.png}
-    \caption[Caption table]{Arrival runway occupancy time (blue) and landing time intervals (green) for Heavy leader - Medium follower pairs on BIKF runway RWY-19. The observed time period is from October 2017 to November 2018. The red line indicates the ICAO WTC reference time separation for the selected H-M aircraft pair.}\label{fig:AROT_LTI_rwy19_H_M}
+    \caption[Caption table]{Arrival runway occupancy time (blue) and landing time intervals (green) for Heavy leader - Medium follower pairs on BIKF runway RWY-19. The observed time period is from October 2017 to November 2018. The red line indicates the ICAO WTC reference time separation for the selected H-M aircraft pairs.}\label{fig:AROT_LTI_rwy19_H_M}
 \end{figure}
 
 

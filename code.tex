@@ -1,28 +1,39 @@
-\chapter{Runway Usage}\label{cha:RWY_use}
 
 
-\begin{figure}[]
+
+\chapter{Runway Usage}\label{cha:RWY_usage}
+
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_summer}
+    \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_2017-10-04_to_2018-11-30.png}
+    \caption[Runway usage at BIKF]{Overall runway usage at BIKF for a period of one year since October 2017. Almost half of all arrivals during that period (44,7\%) use RWY-19, followed by RWY-01 (25,7\%) and RWY-10 (17.6\%). The summer traffic favours RWY-19 with 52.8\%~(Figure~\ref{fig:runway_usage_summer}), while during the winter season some of those arrivals are diverted towards RWY-01 and RWY-10~(Figure~\ref{fig:runway_usage_summer}). RWY-28 is least used despite its fast-exit TWY B-1.}
+    \label{fig:runway_usage}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/fig_runway_usage_summer}
     \caption[Summer runway usage at BIKF]{The summer traffic favours RWY-19 (52,8\%), followed by RWY-01 (23,3\%), while RWY-10 and RWY-28 are with 11,6\% and 12,3\% respectively.}
     \label{fig:runway_usage_summer}
 \end{figure}
 
 
-\begin{figure}[]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_winter}
+    \includegraphics[width=0.7\textwidth]{graphics/fig_runway_usage_winter}
     \caption[Winter runway usage at BIKF]{The winter traffic at BIKF is a bit more evenly distributed among runways bit still favours RWY-19 (38,8\%),followed by RWY-01 with 28,9\%, RWY-10 (20,8\%) and RWY-28 (11,4\%).}
     \label{fig:runway_usage_winter}
 \end{figure}
 
 
-\chapter{Arrival Runway Occupancy Times}\label{cha:AROTs}
+\chapter{Arrival Runway Occupancy Times\label{cha:AROTs}}
 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -41,7 +52,7 @@
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -60,7 +71,7 @@
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -79,7 +90,7 @@
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -98,34 +109,34 @@
 % ----------------------------
 
 
-\chapter{Code}\label{cha:code}
-You can put code in your document using the listings package, which is
-loaded by default in \path{custom.tex}.  Be aware that the listings
-package does not put code in your document if you are in draft mode
-unless you set the \texttt{forcegraphics} option.
+% \chapter{Code}\label{cha:code}
+% You can put code in your document using the listings package, which is
+% loaded by default in \path{custom.tex}.  Be aware that the listings
+% package does not put code in your document if you are in draft mode
+% unless you set the \texttt{forcegraphics} option.
 
-There is an example java (Listing~\ref{src:Data_Bus.java}) and XML
-file (Listing~\ref{src:AndroidManifest.xml}).  Thanks to the
-\texttt{url} package, you can typeset OSX and unix paths like this:
-\path{/afs/rnd.ru.is/project/thesis-template}.  Windows paths:
-\path{C:\windows\temp\ }.  You can also typeset them using the menukey
-package, but it tends to delete the last separator and has other
-complications.\footnote{The menukey package has issues with biblatex,
-  read \path{custom.tex} for more information.}
+% There is an example java (Listing~\ref{src:Data_Bus.java}) and XML
+% file (Listing~\ref{src:AndroidManifest.xml}).  Thanks to the
+% \texttt{url} package, you can typeset OSX and unix paths like this:
+% \path{/afs/rnd.ru.is/project/thesis-template}.  Windows paths:
+% \path{C:\windows\temp\ }.  You can also typeset them using the menukey
+% package, but it tends to delete the last separator and has other
+% complications.\footnote{The menukey package has issues with biblatex,
+%   read \path{custom.tex} for more information.}
 
-If you are trying to include multiple different languages, you should
-go read the documentation and set these up in \path{custom.tex}.  You
-will save yourself a lot of effort, especially if you have to fix
-anything.
+% If you are trying to include multiple different languages, you should
+% go read the documentation and set these up in \path{custom.tex}.  You
+% will save yourself a lot of effort, especially if you have to fix
+% anything.
 
-%I have put the source code in the \directory{src/} folder.
-\lstinputlisting[language=Java, firstline=1,
-lastline=40, caption={Data\_Bus.java: Setting up the class.},
-label={src:Data_Bus.java}]{src/Data_Bus.java}
+% %I have put the source code in the \directory{src/} folder.
+% \lstinputlisting[language=Java, firstline=1,
+% lastline=40, caption={Data\_Bus.java: Setting up the class.},
+% label={src:Data_Bus.java}]{src/Data_Bus.java}
 
-\lstinputlisting[language={[android]XML}, firstline=1, lastline=20,
-caption={AndroidManifest.xml: Configuration for the Android UI.},
-label={src:AndroidManifest.xml}]{src/AndroidManifest.xml}
+% \lstinputlisting[language={[android]XML}, firstline=1, lastline=20,
+% caption={AndroidManifest.xml: Configuration for the Android UI.},
+% label={src:AndroidManifest.xml}]{src/AndroidManifest.xml}
 
 %%% Local Variables: 
 %%% mode: latex
