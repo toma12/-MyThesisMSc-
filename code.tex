@@ -35,6 +35,28 @@
 % \usepackage{graphicx}
 \begin{table}[h]
 \centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{lr|r|r|r|r|r|r|r|}
+\cline{3-9}
+                          & \multicolumn{1}{c|}{}   & \multicolumn{7}{c|}{AROT [s]} \\ \hline
+\multicolumn{1}{|l|}{RECAT-EU} & count & mean & std & min & 25\% & 50\% & 75\% & max \\ \hline
+\multicolumn{1}{|l|}{CAT-A}    & 2     & 119  & 19  & 105 & 112  & 119  & 125  & 132 \\ \hline
+\multicolumn{1}{|l|}{CAT-B}    & 53    & 81   & 20  & 51  & 65   & 77   & 91   & 136 \\ \hline
+\multicolumn{1}{|l|}{CAT-C}    & 3436  & 78   & 17  & 46  & 65   & 75   & 89   & 155 \\ \hline
+\multicolumn{1}{|l|}{CAT-D}    & 1029  & 75   & 18  & 46  & 62   & 71   & 87   & 155 \\ \hline
+\multicolumn{1}{|l|}{CAT-E}    & 95   & 88   & 24  & 46  & 71   & 85   & 101  & 151 \\ \hline
+\multicolumn{1}{|l|}{CAT-F}    & 49    & 84   & 22  & 48  & 72   & 81   & 91   & 155 \\ \hline
+\end{tabular}%
+}
+\caption[AROTs for the air traffic mix by RECAT]{AROT statistics for the air traffic mix at BIKF by RECAT-EU categories. The count is the number of landings in peak hours since October 2017}
+\label{tab:AROT_RECAT_stats}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
 \cline{3-9}
@@ -106,6 +128,13 @@
 \end{table}
 
 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/BIKF_schematic.png}
+    \caption[BIKF schematic]{BIKF schematic with marked runways and fast-exit taxiways.}
+    \label{fig:BIKF_schematic}
+\end{figure}
 % ----------------------------
 
 

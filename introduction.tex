@@ -103,7 +103,7 @@ Traditional separation standards, introduced in the seventies, are defined by IC
     \caption[ICAO wake turbulence categories based on maximum take-off mass]{ICAO wake turbulence categories based on maximum take-off mass (MTOM) in kg~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, kolos2013influence}.} \label{tab:WTC}
 \end{table}
 
-The ICAO wake turbulence categories outline the worst case for each category and thus generate over-separation in many cases~\cite{noauthor_recat_2018}. The separation distances for instrumental flight rules are observed for the follower aircraft and are conventionally expressed in nautical miles (NM). The separation reverts to radar separation minimum (MRS) when wake turbulence restrictions are not required. As  prescribed  by  ICAO  the  horizontal MRS is 3~NM (or a reduced separation minimum of 2.5~NM may be applied under given conditions described in ICAO Doc 4444 PANS-AM~\cite{doc44444}), which translates to 79~s (66~s) time separation between leader and follower at final approach speed of 70~m/s.
+The ICAO wake turbulence categories (Table~\ref{tab:ICAO_WTC}) outline the worst case for each category and thus generate over-separation in many cases~\cite{noauthor_recat_2018}. The separation distances for instrumental flight rules are observed for the follower aircraft and are conventionally expressed in nautical miles (NM). The separation reverts to radar separation minimum (MRS) when wake turbulence restrictions are not required. As  prescribed  by  ICAO  the  horizontal MRS is 3~NM (or a reduced separation minimum of 2.5~NM may be applied under given conditions described in ICAO Doc 4444 PANS-AM~\cite{doc44444}), which translates to 79~s (66~s) time separation between leader and follower at final approach speed of 70~m/s.
 
 
 % Please add the following required packages to your document preamble:
@@ -116,7 +116,7 @@ The ICAO wake turbulence categories outline the worst case for each category and
 \hline
 \multicolumn{2}{|c|}{\multirow{2}{*}{ICAO WTC scheme}} & \multicolumn{4}{c|}{Follower}              \\ \cline{3-6} 
 \multicolumn{2}{|c|}{}                                 & Super (A380-800) & Heavy & Medium & Light \\ \hline
-\multirow{4}{*}{Leader}       & Super (A380-800)       & (*)                & 6 NM  & 7 NM   & 8 NM   \\ \cline{2-6} 
+\multirow{4}{*}{\rotatebox[origin=c]{90}{Leader}}       & Super (A380-800)       & (*)                & 6 NM  & 7 NM   & 8 NM   \\ \cline{2-6} 
                               & Heavy                  & (*)                & 4 NM  & 5 NM   & 6 NM   \\ \cline{2-6} 
                               & Medium                 & (*)                & (*)     & (*)      & 5 NM   \\ \cline{2-6} 
                               & Light                  & (*)                & (*)     & (*)      & (*)      \\ \hline
@@ -125,8 +125,8 @@ The ICAO wake turbulence categories outline the worst case for each category and
 \caption[ICAO wake turbulence categories and separation minima]{ICAO wake turbulence categories and separation minima to avoid wake vortex encounter~\cite{noauthor_recat_2018, rooseleer2015recat}.} \label{tab:ICAO_WTC}
 \end{table}
 
-It must be noted that the division of ICAO WTC categories into the RECAT scheme is not achieved by splitting each category in half.
-The criteria used for categorisation of existing and new aircraft types are provided in detail in~\cite{noauthor_recat_2018}. The case from the traffic mix at BIKF presents the arrangement shown in Table~\ref{tab:wtc2recat_division}. A more detailed illustration of the re-categorisation is presented in the coming section \ref{ssec:traffic_mix} on aircraft traffic mix (Figure~\ref{fig:post_fast_exit_mix_pie_v2}).
+It must be noted that the division of ICAO WTC into the RECAT scheme (Table~\ref{tab:RECAT-dist}) is not achieved by splitting each category in half.
+The criteria used for categorisation of existing and new aircraft types are provided in detail in~\cite{rooseleer2015recat}. The case from the traffic mix at BIKF presents the arrangement shown in Table~\ref{tab:wtc2recat_division}. A more detailed illustration of the re-categorisation is presented in the upcoming section \ref{ssec:traffic_mix} on aircraft traffic mix (Figure~\ref{fig:post_fast_exit_mix_pie_v2}).
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
@@ -141,11 +141,11 @@ The criteria used for categorisation of existing and new aircraft types are prov
 \multicolumn{1}{l}{} &  & \multicolumn{4}{c}{\cellcolor[HTML]{F8FF00}MEDIUM}
 \end{tabular}%
 }
-\caption{Transition from ICAO WTC to RECAT-EU categories. The categorisation process and criteria for assigning an existing aircraft type into RECAT-EU scheme is illustrated in detail in~\cite{noauthor_recat_2018}}
+\caption{Transition from ICAO WTC to RECAT-EU categories. The categorisation process and criteria for assigning an existing aircraft type into RECAT-EU scheme is illustrated in detail in~\cite{rooseleer2015recat}}.
 \label{tab:wtc2recat_division}
 \end{table}
 
-\fxnote{explain the transition from WTC to REACT , and point the case for BIKF: H to ABC, M to CDEF, ....reference the pie chart on mix}
+The noticeable changes in Table~\ref{tab:RECAT-dist} from Table~\ref{tab:ICAO_WTC} affect a follower aircraft, whose relative position from the ICAO scheme is shifted to the left in the new table after re-categorisation. Such benefit experiences for example a Heavy follower aircraft that is re-categorised as CAT-C, in which case the separation from the leader is reduced with up to 3 NM. 
 
 %There is an RU logo in Figure~\ref{fig:ru-logo}.
 %This logo will scale according to the width of the text on the page.
@@ -160,7 +160,7 @@ The criteria used for categorisation of existing and new aircraft types are prov
 \hline
 \multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
 \multicolumn{2}{|c|}{}                                 & CAT\_A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
-\multirow{6}{*}{Leader}             & CAT-A            & 3 NM   & 4 NM  & 5 NM  & 5 NM  & 6 NM  & 8 NM  \\ \cline{2-8} 
+\multirow{6}{*}{\rotatebox[origin=c]{90}{Leader}}            & CAT-A            & 3 NM   & 4 NM  & 5 NM  & 5 NM  & 6 NM  & 8 NM  \\ \cline{2-8} 
                                     & CAT-B            &    (*)    & 3 NM  & 4 NM  & 4 NM  & 5 NM  & 7 NM  \\ \cline{2-8} 
                                     & CAT-C            &    (*)    & (*)   & 3 NM  & 3 NM  & 4 NM  & 6 NM  \\ \cline{2-8} 
                                     & CAT-D            &    (*)    &   (*)    &    (*)   &   (*)    &   (*)    & 5 NM  \\ \cline{2-8} 
@@ -168,35 +168,9 @@ The criteria used for categorisation of existing and new aircraft types are prov
                                     & CAT-F            &    (*)    &   (*)    &    (*)   &   (*)    &   (*)    & 3 NM  \\ \hline
 \end{tabular}%
 }
-\caption[RECAT-EU distance-based separation minima]{RECAT-EU WT distance-based separation minima on approach and departure. (*) means minimum radar separation (MRS), set at 2.5 NM, applicable as per current ICAO doc 4444 provisions \cite{doc44444, rooseleer2015recat}.}
+\caption[RECAT-EU distance-based separation minima]{RECAT-EU WT distance-based separation minima on approach and departure. (*) means minimum radar separation (MRS), set at 2.5 NM, applicable as per current ICAO doc 4444 provisions \cite{doc44444, rooseleer2015recat, noauthor_recat_2018}.}
 \label{tab:RECAT-dist}
 \end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
-\multicolumn{2}{|c|}{}                                 & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
-\multirow{6}{*}{Leader}             & CAT-A            &        & 100s  & 120s  & 140s  & 160s  & 180s  \\ \cline{2-8} 
-                                    & CAT-B            &        &       &       & 100s  & 120s  & 140s  \\ \cline{2-8} 
-                                    & CAT-C            &        &       &       & 80s   & 100s  & 120s  \\ \cline{2-8} 
-                                    & CAT-D            &        &       &       &       &       & 120s  \\ \cline{2-8} 
-                                    & CAT-E            &        &       &       &       &       & 100s  \\ \cline{2-8} 
-                                    & CAT-F            &        &       &       &       &       & 80s   \\ \hline
-\end{tabular}%
-}
-\caption[RECAT-EU time-based separation minima]{RECAT-EU WT time-based separation minima on approach and departure~\cite{rooseleer2015recat}}
-\label{tab:RECAT-time}
-\end{table}
-
-
-
 
 
 \section{Runway Occupancy Time\label{sec:ROT}}
@@ -207,7 +181,7 @@ The criteria used for categorisation of existing and new aircraft types are prov
 
 The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway~\cite{ROT_definition}. \\
 This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway~\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
-The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes. This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it.
+The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes (Figure~\ref{fig:Peak_Diagram}). This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it. The AROT metric is essential for the project because a following aircraft is not allowed to land on the same runway before it has been vacated by the leading aircraft. The interval to the next landing aircraft is specified as the Landing Time Interval (LTI) which is directly linked to the inter-arrival distance or in other words the wake turbulence separation.
 
 \begin{figure}[h]
     \centering
@@ -227,7 +201,7 @@ The Capacity Envelope method used by Isavia to estimate the throughput capacity 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
-    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed~Mode~A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The script producing this plot is on the Isavia´s internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
+    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed~Mode~A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The figure is from Isavia´s internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
 \end{figure}
 
 This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed~Mode~A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in the previous section~\ref{sec:ROT}
@@ -272,7 +246,7 @@ Additionally the analysis could indicate whether the limiting element is the run
                                                         & CAT-C &                                   & \cellcolor[HTML]{67FD9A}-1 (-1,5) NM & \cellcolor[HTML]{67FD9A}-1 NM & \cellcolor[HTML]{67FD9A}-2 NM & \cellcolor[HTML]{67FD9A}-1 NM &                                                      \\ \cline{2-8} 
                                                         & CAT-D &                                   &                                      &                               &                               &                               &                                                      \\ \cline{2-8} 
                                                         & CAT-E &                                   &                                      &                               &                               &                               & \cellcolor[HTML]{67FD9A}{\color[HTML]{000000} -1 NM} \\ \cline{2-8} 
-\multirow{-6}{*}{Leader}                                & CAT-F &                                   &                                      &                               &                               &                               & \cellcolor[HTML]{FD6864}(+0,5 NM)                    \\ \hline 
+\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}                                & CAT-F &                                   &                                      &                               &                               &                               & \cellcolor[HTML]{FD6864}(+0,5 NM)                    \\ \hline 
 \end{tabular}%
 }
 \caption[Difference in wake separation minima on approach between reference ICAO and RECAT-EU schemes]{Difference in wake separation minima on approach between reference ICAO and RECAT-EU schemes (full proposal)~\cite{rooseleer2015recat}}
@@ -303,13 +277,13 @@ Additionally the analysis could indicate whether the limiting element is the run
 % \label{tab:delta_times_wtc2recat}
 % \end{table}
 
-The implementation of RECAT shifts the wake separation minima for arrival pairs thus creating the potential for reduced time separation between the aircraft. The reduction of the time interval between landings facilitates increas in the throughput capacity of the runways. 
+The implementation of RECAT shifts the wake separation minima for arrival and departure pairs thus creating the potential for reduced time separation between the aircraft. The reduction of the time interval between landings facilitates increas in the throughput capacity of the runways. 
 Figure~\ref{fig:AROT_LTI_rwy19_H_M} may be used to illustrate the hypothesis. The current ICAO time separation reference, indicated by the red vertical line for BIKF RWY-19 will be relocated to the left for some of the aircraft pairs under the RECAT scheme. This relocation will be more noticeable for RECAT C-C and C-D pairs formed from the ICAO HEAVY-MEDIUM pairs, in which case the separation is reduced from 5 NM to 3 NM. A shift of the reference separation line creates the potential for shift in the distribution of the LTI, as long as it does not overlap with the ROT. Furthermore study on the runway capacity of significantly larger airports~\cite{kolos2013influence} suggests that the frequency distribution of LTI tends to compress or squeeze to the right of the reference line with less standard deviation about the mean when the air traffic is intensified.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_rot_landig_time_interval_RWY19_leader_H_follower_M_peak-hour_BAR_20171004_20181130.png}
-    \caption[Caption table]{Arrival runway occupancy time (blue) and landing time intervals (green) for Heavy leader - Medium follower pairs on BIKF runway RWY-19. The observed time period is from October 2017 to November 2018. The red line indicates the ICAO WTC reference time separation for the selected H-M aircraft pairs.}\label{fig:AROT_LTI_rwy19_H_M}
+    \caption[Caption table]{Arrival runway occupancy time (blue) and landing time intervals (green) for Heavy leader - Medium follower pairs on BIKF runway RWY-19. The observed time period is from October 2017 to November 2018. The red line indicates the ICAO WTC reference time separation for the selected H-M aircraft pairs. The figure is from the Isavia´s internal GUI Víkingaskipið.}\label{fig:AROT_LTI_rwy19_H_M}
 \end{figure}
 
 
