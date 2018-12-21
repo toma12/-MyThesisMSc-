@@ -27,7 +27,7 @@ The reference table was provided by Eurocontrol.
 The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
 After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003~quantile and above the 0,997~quantile were regarded as anomalies removed from data set based on AROT values. 
 The resulting data frame was used for the analysis in this project. 
-It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. Consequently the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11 2018) because of the effect of fast-exits on AROT, which is explained in the coming section \ref{sssec:factors_arot}
+It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. Consequently the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11 2018) because of the effect of fast-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
 
 
 \subsection{Aircraft Traffic Mix\label{ssec:traffic_mix}}
@@ -49,34 +49,24 @@ Another approach for classification of the traffic fleet mix at BIKF in peak hou
 \end{figure}
  Those models represent a major part of the Icelandair fleet and the share of the Boeing~737~MAX~8 (ICAO:B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018~\cite{icelandair_fleet}. The aircraft types are shown with their ICAO and RECAT categories and the tendency is towards increasing the share of the Medium-Medium pairs, or the C-D and D-C RECAT pairs respectively, with the addition of the new Icelandair aircraft.
 
-
-
-
 % -----------------------
 
+\subsection{Arrival Runway Occupancy Time Considerations}\label{ssec:AROT_considerations} 
 
-\subsection{Arrival Runway Occupancy Times} 
+The ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that the radar separation minimum (MRS) between succeeding aircraft which are established on the same final approach track, may be reduced from 3~NM to 2,5~NM under certain conditions. One of the requirements is that the average runway occupancy time of landing aircraft is proven, by means such as data collection and statistical analysis and methods based on theoretical model, not to exceed 50 seconds. 
 
-The ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that the radar separation minimum (MRS) between succeeding aircraft which are established on the same final approach track, may be reduced from 3~NM to 2,5~NM under certain conditions. One of the requirements is that the average runway occupancy time of landing aircraft is proven, by means such as data collection and statistical analysis and methods based on theoretical model, not to exceed 50 seconds. \\
+\subsubsection{Traffic Mix and AROT\label{sssec:mix_effect_arot}}
 Several approaches were used to look at the AROT at the airfield. First the runway occupancy was inspected based on the RECAT category of the aircraft (Figure~\ref{fig:RECAT_AROTs_boxplot}). 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_RECAT_AROTs_boxplot.png}
-    \caption[AROTs boxplot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year since October 2017. The box plot shows the AROTs for all runways at BIKF.}
+    \caption[AROTs box-plot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year since October 2017. The coloured blocks indicate where 50\% of the data are or the interquartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile, upper edge is the 75\textsuperscript{th}~percentile. The whiskers are at $\pm$1,5$\times$IQR  The box plot shows the AROTs for all runways at BIKF.}
     \label{fig:RECAT_AROTs_boxplot}
 \end{figure}
-The analysis showed that none of the average runway occupancy values fulfils the 50~seconds limit for reduced MRS. Closest to the required time were the aircraft from the CAT-D and CAT-C with mean values of 75 and 78 seconds respectively (Table~\ref{tab:AROT_RECAT_stats}). Those results point to the necessity of setting the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (refer to Table~\ref{tab:RECAT-dist}).
+The analysis showed that none of the average runway occupancy values fulfils the 50~seconds limit for reduced MRS. Closest to the required time were the aircraft from the CAT-D and CAT-C with mean values of 75 and 78 seconds respectively (Table~\ref{tab:AROT_RECAT_stats}). Those results point to the necessity of setting the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
 
-
-\subsubsection{Factors affecting AROT\label{sssec:factors_arot}}
-\fxnote{Airfield surface condition, weather conditions, fast exits, season. The effect of Specific weather conditions on ROT were not investigated in this project, Airfield surface conditions ref from Doc 4444.}
-
-
-
-
-
-
-
+\subsubsection{Seasonal Variation of AROT\label{sssec:seasonal_arot}}
+Another approach was to analyse the seasonal variations of the runway occupancy. The differentiation between summer and winter months was based on AROT for a period of one year (Table~\ref{tab:month2season_arot}). Months with average AROT~$\leq$80~seconds formed the summer season and the rest were selected as winter months. This separation is purely subjective but succeeds in forming two seasons with equal number of months. On average the seasonal variation of runway occupancy times was eight seconds as seen in Table~\ref{tab:summer_winter_arot}. Sill the seasonal variation should be taken into consideration as they can effect the AROT significantly, especially in the winter months when adverse weather conditions could impair the runway surface by accumulated slush, snow or ice, thus diminishing braking action. Good braking action due to runway surface condition is also one of the requirements for reduced MRS as provided by~\cite{doc44444}.
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[h]
@@ -91,100 +81,42 @@ The analysis showed that none of the average runway occupancy values fulfils the
 \end{tabular}%
 }
 \caption[AROTs for the air traffic mix by season]{AROT statistics for the air traffic mix at KEF by season. The count is the number of landings in peak hours since October 2017}
-\label{my-label2}
+\label{tab:summer_winter_arot}
 \end{table}
 
+\subsubsection{Runway Usage and AROT\label{sssec:runway_usage_arot}}
+Runway occupancy for each of the runways was also examined both with regards to seasonal variations and fast-exit usage. The usage of the four runways in peak hours is shown in Figure~\ref{fig:runway_usage_peak}. The data for this observation is from October 2017 to November 2018.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_peak.png}
+    \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of one year. RWY-19 is the preferred runway, followed by RWY-01 and RWY-10. The RWY-01 is equipped with fast-exit TWY~A-1 and RWY-28 with fast-exit TWY~B-1.}
+    \label{fig:runway_usage_peak}
+\end{figure}
+BIKF airfield is equipped currently with two fast-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was built on 26~July,~2017 and the later on 4~October,~2017. The date A-1 became operational was chosen as the beginning for the data set considered for analysis in this project. The reason behind this is the beneficial effect that fast-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a fast-exit track to the left for RWY-01, in the south-north landing direction, and B-1 serves RWY-28 exiting to the right in the east-west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This reduction was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the fast exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the fast-exit was avoided altogether in peak hours.\\
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[h]
+\begin{table}[]
 \centering
 \resizebox{0.8\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
 \cline{3-9}
-                             & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
+ & \multicolumn{1}{l|}{} & \multicolumn{7}{c|}{AROT [s]} \\ \hline
 \multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 963 & 85 & 21 & 46 & 68 & 88 & 100 & 152 \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 852 & 85 & 11 & 61 & 78 & 84 & 91 & 155 \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 1511 & 67 & 10 & 46 & 61 & 66 & 71 & 155 \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 401 & 68 & 14 & 49 & 60 & 66 & 72 & 155 \\ \hline
+\multicolumn{1}{|l|}{RWY 01} & 1247 & 86 & 23 & 46 & 66 & 88 & 101 & 153 \\ \hline
+\multicolumn{1}{|l|}{RWY 10} & 1185 & 87 & 12 & 61 & 79 & 86 & 93 & 155 \\ \hline
+\multicolumn{1}{|l|}{RWY 19} & 1762 & 68 & 10 & 46 & 62 & 66 & 71 & 155 \\ \hline
+\multicolumn{1}{|l|}{RWY 28} & 470 & 69 & 14 & 49 & 61 & 66 & 74 & 155 \\ \hline
 \end{tabular}%
 }
-\caption[AROTs for the air traffic mix by runway for the summer]{AROT statistics for the air traffic mix at KEF by runway for the summer of 2018. The count is the number of landings in peak hours.}
-\label{my-label3}
+\caption[AROTs in peak hours by runway]{AROT statistics for the air traffic mix at BIKF in peak hours by runway. The count is the number of landings in peak hours.}
+\label{tab:all_RWY_AROT_stats}
 \end{table}
-\fxnote{Include a schematic of the airport, overview for runway and taxiway reference}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[h]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
-                             & \multicolumn{1}{l|}{}      & \multicolumn{7}{c|}{AROT [s]}                                                                                                                                                                      \\ \hline
-\multicolumn{1}{|l|}{runway} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 284 & 88 & 26 & 47 & 63 & 90 & 106 & 153 \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 333 & 93 & 12 & 70 & 85 & 91 & 99 & 144 \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 251 & 72 & 12 & 51 & 65 & 70 & 75 & 140 \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & 69 & 73 & 13 & 49 & 63 & 72 & 79 & 105 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by runway for the winter]{AROT statistics for the air traffic mix at KEF by runway for the winter season. The count is the number of landings in peak hours since October 2017}
-\label{my-label4}
-\end{table}
-
-
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
- & \multicolumn{1}{l|}{} & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
-\multicolumn{1}{|l|}{month} & \multicolumn{1}{l|}{count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}January} & 95 & 86 & 20 & 54 & 70 & 85 & 96 & 136 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}February} & 80 & 87 & 16 & 52 & 75 & 86 & 93 & 144 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}March} & 215 & 84 & 18 & 47 & 70 & 85 & 95 & 150 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}April} & 221 & 82 & 17 & 47 & 69 & 81 & 93 & 139 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}May} & 386 & 75 & 13 & 46 & 67 & 74 & 83 & 140 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}June} & 647 & 73 & 16 & 47 & 62 & 68 & 80 & 155 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}July} & 729 & 72 & 16 & 46 & 61 & 68 & 77 & 155 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}August} & 724 & 80 & 18 & 46 & 64 & 81 & 91 & 148 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}September} & 632 & 78 & 18 & 46 & 64 & 75 & 88 & 152 \\ \hline
-\rowcolor[HTML]{FFFC9E} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFC9E}October} & 609 & 79 & 17 & 46 & 66 & 76 & 91 & 155 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}November} & 220 & 84 & 23 & 48 & 66 & 82 & 99 & 151 \\ \hline
-\rowcolor[HTML]{DAE8FC} 
-\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}December} & 106 & 87 & 23 & 51 & 69 & 86 & 99 & 153 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs for the air traffic mix by month]{AROT statistics for the air traffic mix at BIKF by month. The count is the number of landings in peak hours from October 2017 til November 2018. The colour fields indicate a subjective separation of the data into summer and winter season, based on mean AROT value. Months with mean AROT $\leq$ 80 seconds are classified as summer, and the remaining as winter.}
-\label{my-label5}
-\end{table}
-
-
-
-\fxnote{Looked ar ROT, boxplot, seasonal and by RWY, fast exit effect}\\
-
+Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 10,1$\%$ share of landing aircraft (Figure~\ref{fig:runway_usage_peak}). The preferred runway was RWY~19, servicing 37,8$\%$ of the arrivals. A statistical summary for all the runways is shown in Figure~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds.
 
 
 % ---------------------------
-\subsection{Landing Time Intervals}
-
+\subsection{Landing Time Interval}\label{ssec:LTI}
+The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI required to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised.    
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
