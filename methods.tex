@@ -1,11 +1,11 @@
 
 
 \chapter{Methods\label{cha:methods}}
-Data collection on flights through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy and landing intervals.
+Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy and landing intervals.
 
 \section{Data Collecting and Data Filtering}
-More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik Internetional Airport because of improved signal accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
-The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certhttps://www.overleaf.com/read/whpxcswcrgytain filtering of the ADS-B data is applied before commencing measurements and calculations~\cite{isavia_wiki}: 
+More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik International Airport because of improved signal accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
+The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied before commencing measurements and calculations~\cite{isavia_wiki}: 
 \begin{itemize}
     \item All records with no latitude, longitude and/or time data are omitted.
     \item The records are filtered with regards to quality, i.e. filtered with regards to Target Surveillance status, MOPS version, NUC/NIC, NACp, SIL and PIC.
@@ -25,8 +25,8 @@ Who measures and who checks them and how???}
 The data was obtained from the database using SQL server and stored as csv files. The manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
 The reference table was provided by Eurocontrol. 
 The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
-After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003~quantile and above the 0,997~quantile were regarded as anomalies removed from data set based on AROT values. 
-The resulting data frame was used for the analysis in this project. 
+After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003~quartile and above the 0,997~quartile were regarded as anomalies and removed from the data-set, based on AROT values. 
+The resulting data frame was used for initial analysis in this project. 
 It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. Consequently the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11 2018) because of the effect of fast-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
 
 
@@ -60,7 +60,7 @@ Several approaches were used to look at the AROT at the airfield. First the runw
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_RECAT_AROTs_boxplot.png}
-    \caption[AROTs box-plot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year since October 2017. The coloured blocks indicate where 50\% of the data are or the interquartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile, upper edge is the 75\textsuperscript{th}~percentile. The whiskers are at $\pm$1,5$\times$IQR  The box plot shows the AROTs for all runways at BIKF.}
+    \caption[AROTs box-plot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year since October 2017. The coloured blocks indicate where 50\% of the data are or the inter-quartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile, upper edge is the 75\textsuperscript{th}~percentile. The whiskers are at $\pm$1,5$\times$IQR  The box plot shows the AROTs for all runways at BIKF.}
     \label{fig:RECAT_AROTs_boxplot}
 \end{figure}
 The analysis showed that none of the average runway occupancy values fulfils the 50~seconds limit for reduced MRS. Closest to the required time were the aircraft from the CAT-D and CAT-C with mean values of 75 and 78 seconds respectively (Table~\ref{tab:AROT_RECAT_stats}). Those results point to the necessity of setting the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
@@ -85,14 +85,14 @@ Another approach was to analyse the seasonal variations of the runway occupancy.
 \end{table}
 
 \subsubsection{Runway Usage and AROT\label{sssec:runway_usage_arot}}
-Runway occupancy for each of the runways was also examined both with regards to seasonal variations and fast-exit usage. The usage of the four runways in peak hours is shown in Figure~\ref{fig:runway_usage_peak}. The data for this observation is from October 2017 to November 2018.
+Runway occupancy for each of the runways was also examined both with regards to seasonal variations and fast-exit usage. The usage of the four runways in peak hours is shown in Figure~\ref{fig:runway_usage_peak}. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_peak.png}
     \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of one year. RWY-19 is the preferred runway, followed by RWY-01 and RWY-10. The RWY-01 is equipped with fast-exit TWY~A-1 and RWY-28 with fast-exit TWY~B-1.}
     \label{fig:runway_usage_peak}
 \end{figure}
-BIKF airfield is equipped currently with two fast-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was built on 26~July,~2017 and the later on 4~October,~2017. The date A-1 became operational was chosen as the beginning for the data set considered for analysis in this project. The reason behind this is the beneficial effect that fast-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a fast-exit track to the left for RWY-01, in the south-north landing direction, and B-1 serves RWY-28 exiting to the right in the east-west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This reduction was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the fast exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the fast-exit was avoided altogether in peak hours.\\
+BIKF airfield is equipped currently with two fast-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July,~2017 and the later on 4~October,~2017. The date A-1 became operational was chosen as the beginning for the data set considered for analysis in this project. The reason behind this is the beneficial effect that fast-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a fast-exit track to the left for RWY-01, in the south-north landing direction, and B-1 serves RWY-28 exiting to the right in the east-west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This decrease was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the fast exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the fast-exit was avoided altogether in peak hours.\\
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
 \begin{table}[]
@@ -151,12 +151,11 @@ Another important metric derived from the data, together with the distance separ
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of inter-arrival time separation for ICAO pairs]{Distribution of the WTC inter-arrival time separation for selected ICAO pair categories. The red line indicates the a liberal time reference estimate for the particular pair category.}
+    \caption[Distribution of inter-arrival time separation for ICAO pairs]{Distribution of inter-arrival time separation for selected ICAO pair categories. The red line indicates a liberal time reference estimate for the particular pair category.}
     \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
 
-Begin the results chapter....
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
