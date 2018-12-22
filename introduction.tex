@@ -175,10 +175,6 @@ The noticeable changes in Table~\ref{tab:RECAT-dist} from Table~\ref{tab:ICAO_WT
 
 \section{Runway Occupancy Time\label{sec:ROT}}
 
-\fxnote{describe rot in general and what factors have influence on rot, theory, models for rot, see validation for rot model paper}
-
-
-
 The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway~\cite{ROT_definition}. \\
 This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway~\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
 The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes (Figure~\ref{fig:Peak_Diagram}). This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it. The AROT metric is essential for the project because a following aircraft is not allowed to land on the same runway before it has been vacated by the leading aircraft. The interval to the next landing aircraft is specified as the Landing Time Interval (LTI) which is directly linked to the inter-arrival distance or in other words the wake turbulence separation.

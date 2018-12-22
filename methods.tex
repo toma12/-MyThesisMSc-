@@ -31,8 +31,8 @@ It contained over 11500 arrivals for the time period of almost four years (from 
 
 
 \subsection{Aircraft Traffic Mix\label{ssec:traffic_mix}}
-The aircraft traffic mix is one of the components that affect runway capacity as mentioned in Section~\ref{sec:runway_capacity}. Sorting the aircraft fleet arriving at BIKF into ICAO WTC reveals that the majority of flights~(85,4\%) are in the Medium wake category (Figure~\ref{fig:post_fast_exit_mix_pie_v2}) and the rest are mainly in the Heavy category~(14,2\%) with less than one percent Light aircraft. The small portion of Light flights can be explained with the policy of ATM at BIKF to avoid servicing those flights during the morning and afternoon peaks. This distribution of the three categories implies that combining the aircraft into arriving pairs would produce primarily Medium-Medium pairs. This is confirmed by the analysis of the number of arrival pairs in the ICAO categories (Table~\ref{tab:mix_to_wtc}).\\
-When this same fleet is presented using the RECAT categories, the prevailing category is CAT-C (73,7\%), followed by CAT-D (22,1\%). The percentage of each of the remaining categories varies within 2\%. The expectation that this distribution of the RECAT categories would result in primarily in C-C pairs is confirmed later on by the analysis presented in Table~\ref{tab:mix_to_recat}. \\
+The aircraft traffic mix is one of the components that affect runway capacity as mentioned in Section~\ref{sec:runway_capacity}. Sorting the aircraft fleet arriving at BIKF into ICAO WTC reveals that the majority of flights~(85,4\%) are in the Medium wake category (Figure~\ref{fig:post_fast_exit_mix_pie_v2}) and the rest are mainly in the Heavy category~(14,2\%) with less than one percent Light aircraft. The small portion of Light flights can be explained with the policy of ATM at BIKF to avoid servicing those flights during the morning and afternoon peaks. This distribution of the three categories implies that combining the aircraft into arriving pairs would produce primarily Medium-Medium pairs. This is confirmed by the analysis of the number of arrival pairs in the ICAO categories (Table~\ref{tab:pairs_mix_to_wtc}).\\
+When this same fleet is presented using the RECAT categories, the prevailing category is CAT-C (73,7\%), followed by CAT-D (22,1\%). The percentage of each of the remaining categories varies within 2\%. The expectation that this distribution of the RECAT categories would result in primarily in C-C pairs is confirmed later on by the analysis presented in Table~\ref{tab:pairs_mix_to_recat}. \\
 The method of of re-categorising the traffic mix is a prerequisite for assembling the RECAT pairs later on and determining the main aircraft categories that will be considered for analysis along with estimating the inter arrival distances characteristic of each pair.
 \begin{figure}[h]
     \centering
@@ -116,7 +116,56 @@ Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 
 
 % ---------------------------
 \subsection{Landing Time Interval}\label{ssec:LTI}
-The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI required to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised.    
+The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI required to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised.\\
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{ssec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium groups. Those four pair types formed the subset of data to be further analysed and split into RECAT categories. The rest of the pairs containing a Light aircraft were discarded as being inconsistent because of their limited number. 
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{tabular}{cc|r|r|r|}
+\cline{3-5}
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{3}{c|}{Follower} \\ \cline{3-5} 
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{L} \\ \hline
+\multicolumn{1}{|c|}{} & H & \cellcolor[HTML]{FFCC67}56 & \cellcolor[HTML]{FE996B}332 & \cellcolor[HTML]{FFFFC7}2 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{} & M & \cellcolor[HTML]{FE996B}367 & \cellcolor[HTML]{FD6864}1795 & \cellcolor[HTML]{FFFFC7}7 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{\multirow{-3}{*}{\rotatebox[origin=c]{90}{Leader}}} & L & \cellcolor[HTML]{FFFFC7}3 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 \\ \hline
+\end{tabular}%
+}
+\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF arranged into the corresponding wake categories.}
+\label{tab:pairs_mix_to_wtc}
+\end{table}
+
+SeparationsWTC + figure...\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
+    \caption[list of figures caption]{Caption}
+    \label{fig:dist_separ_HH_HM_MH_MM_pairs}
+\end{figure}
+
+
+
+
+
+Interarrival times + fig...\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
+    \caption[list of figures caption]{Caption}
+    \label{fig:time_separ_HH_HM_MH_MM_pairs}
+\end{figure}
+
+Recat pairs tab...\\
+
+
+
+Begin the results chapter....
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -141,26 +190,7 @@ The landing time interval (LTI) in this project is also referred to as inter-arr
 \end{table}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h]
-\centering
-\resizebox{0.4\textwidth}{!}{%
-\begin{tabular}{cc|r|r|r|}
-\cline{3-5}
-\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{3}{c|}{Follower} \\ \cline{3-5} 
-\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{L} \\ \hline
-\multicolumn{1}{|c|}{} & H & \cellcolor[HTML]{FFCC67}56 & \cellcolor[HTML]{FE996B}332 & \cellcolor[HTML]{FFFFC7}2 \\ \cline{2-5} 
-\multicolumn{1}{|c|}{} & M & \cellcolor[HTML]{FE996B}367 & \cellcolor[HTML]{FD6864}1795 & \cellcolor[HTML]{FFFFC7}7 \\ \cline{2-5} 
-\multicolumn{1}{|c|}{\multirow{-3}{*}{\rotatebox[origin=c]{90}{Leader}}} & L & \cellcolor[HTML]{FFFFC7}3 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 \\ \hline
-\end{tabular}%
-}
-\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF arranged into the corresponding wake categories. It is apparent that the majority of arrival pairs are classified as Medium-Medium}
-\label{tab:mix_to_wtc}
-\end{table}
+
 
 
 % Please add the following required packages to your document preamble:
@@ -184,25 +214,11 @@ The landing time interval (LTI) in this project is also referred to as inter-arr
 \end{tabular}%
 }
 \caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT pairs from the traffic mix at BIKF arranged into the corresponding wake categories. The majority of arrival pairs are classified as C-C.}
-\label{tab:mix_to_recat}
+\label{tab:pairs_mix_to_recat}
 \end{table}
 
 
 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
-    \caption[list of figures caption]{Caption}
-    \label{fig:dist_separ_HH_HM_MH_MM_pairs}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
-    \caption[list of figures caption]{Caption}
-    \label{fig:time_separ_HH_HM_MH_MM_pairs}
-\end{figure}
 
 
 
