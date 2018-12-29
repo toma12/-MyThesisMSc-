@@ -147,7 +147,7 @@ The ICAO WTC scheme specifies a distance separation minima as prescribed in  Tab
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval, that indicates whether AROT or the separation requirement is a limiting factor for airfield capacity. As stated in the study objective \ref{sec:study_objective} the LTI measures the time separation between aircraft calculated from the distance separation and the final approach speed. This measurement was done for each of the observed pairs and presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. Thus the reference time is a more liberally specified constraint. 
+Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval, that indicates whether AROT or the separation requirement is a limiting factor for airfield capacity. As stated in the study objective \ref{sec:study_objective} the LTI measures the time separation between aircraft calculated from the distance separation and the final approach speed. This measurement was done for each of the observed pairs and presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower time reference. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
@@ -157,27 +157,27 @@ Another important metric derived from the data, together with the distance separ
 
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-\begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
-\multicolumn{2}{|c|}{}                                 & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
-\multirow{6}{*}{\rotatebox[origin=c]{90}{Leader}}             & CAT-A            &        & 100s  & 120s  & 140s  & 160s  & 180s  \\ \cline{2-8} 
-                                    & CAT-B            &        &       &       & 100s  & 120s  & 140s  \\ \cline{2-8} 
-                                    & CAT-C            &        &       &       & 80s   & 100s  & 120s  \\ \cline{2-8} 
-                                    & CAT-D            &        &       &       &       &       & 120s  \\ \cline{2-8} 
-                                    & CAT-E            &        &       &       &       &       & 100s  \\ \cline{2-8} 
-                                    & CAT-F            &        &       &       &       &       & 80s   \\ \hline
-\end{tabular}%
-}
-\caption[RECAT-EU time-based separation minima]{RECAT-EU WT time-based separation minima on approach and departure~\cite{rooseleer2015recat}\fxnote{This table is not referenced, maybe unnecessary, maybe move to LTI chapter!}}
-\label{tab:RECAT-time}
-\end{table}
+% % Please add the following required packages to your document preamble:
+% % \usepackage{multirow}
+% % \usepackage{graphicx}
+% \begin{table}[h]
+% \centering
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|c|c|c|c|c|c|c|c|}
+% \hline
+% \multicolumn{2}{|c|}{\multirow{2}{*}{RECAT-EU scheme}} & \multicolumn{6}{c|}{Follower}                   \\ \cline{3-8} 
+% \multicolumn{2}{|c|}{}                                 & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+% \multirow{6}{*}{\rotatebox[origin=c]{90}{Leader}}             & CAT-A            &        & 100s  & 120s  & 140s  & 160s  & 180s  \\ \cline{2-8} 
+%                                     & CAT-B            &        &       &       & 100s  & 120s  & 140s  \\ \cline{2-8} 
+%                                     & CAT-C            &        &       &       & 80s   & 100s  & 120s  \\ \cline{2-8} 
+%                                     & CAT-D            &        &       &       &       &       & 120s  \\ \cline{2-8} 
+%                                     & CAT-E            &        &       &       &       &       & 100s  \\ \cline{2-8} 
+%                                     & CAT-F            &        &       &       &       &       & 80s   \\ \hline
+% \end{tabular}%
+% }
+% \caption[RECAT-EU time-based separation minima]{RECAT-EU WT time-based separation minima on approach and departure~\cite{rooseleer2015recat}\fxnote{This table is not referenced, maybe unnecessary, maybe move to LTI chapter!}}
+% \label{tab:RECAT-time}
+% \end{table}
 
 
 
