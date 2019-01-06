@@ -1063,7 +1063,7 @@ Fax +354 599 6201}%
           \documenttype@ruthesis{} %
           \ifbool{doctorate}{}{of \ects@ruthesis{} ECTS credits }%
           submitted to the \School@ruthesis\ \\%
-          at \Institution{} in partial fulfillment\\% 
+          at \Institution{} in partial fulfilment\\% 
           of the requirements for the degree of \\%
           \ifbool{doctorate}{\textbf{\degreelong@ruthesis}}{
             \DegreeAndDepartment@ruthesis}\\
