@@ -1,43 +1,20 @@
 \chapter{Introduction\label{cha:introduction}}
-%% \ifdraft only shows the text in the first argument if you are in draft mode.
-%% These directions will disappear in other modes.
-% \ifdraft{State the objectives of the exercise. Ask yourself:
-%   \underline{Why} did I design/create the item? What did I aim to
-%   achieve? What is the problem I am trying to solve?  How is my
-%   solution interesting or novel?}{}
+
 
 Keflavík International Airport (IATA: KEF, ICAO: BIKF) is the major gateway to Iceland currently with two functioning runways. The runways operate in both directions and are designated as RWY-01 (South-North), RWY-19 (North-South), RWY-10 (West-East) and RWY-28 (East-West). 
-There has been a unforeseen increase of passengers travelling through Keflavík Airport in the recent years with over eight million passengers and 62.300 air transport movements in 2017~\cite{isavia_facts_2017}, where a movement is defined by the International Civil Aviation Organisation (ICAO) as an aircraft take-off or landing at an airport. For airport traffic purposes one arrival and one departure is counted as two movements~\cite{aircraft_movement}. For 2018 the passenger numbers show an yearly growth of 13.44\% (at the time of writing, for the same time period) from the previous year~\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can and does experience constrained capacity of the runways during peak traffic periods. 
-A significant constraint of airport capacity is caused by distance separation regulations of aircraft due to wake turbulence. This term describes the effect of the rotating air masses generated behind the wing tips of large jet aircraft. 
-
-These are specified by rules established by the European Aviation Safety Agency (EASA) for each type of aircraft based primarily on the weight of the aircraft. The general flight safety requirements are established by the International Civil Aviation Organisation (ICAO) for maintaining safe distance between aircraft.\fxnote{Introduction needs more work, incomplete.}
+There has been an unforeseen increase of passengers travelling through Keflavík Airport in the recent years, with over eight million passengers and 62.300 air transport movements in 2017~\cite{isavia_facts_2017}, where a movement is defined as an aircraft take-off or landing at an airport~\cite{aircraft_movement}. For 2018 the passenger numbers show an yearly growth of 13.44\% (at the time of writing) for the same time period from the previous year~\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can and does experience constrained capacity of the runways during peak traffic periods. Airport capacity is generally defined as the number of movements per unit of time that can be accepted~\cite{airport_capacity_methodology}.  \\
+A significant constraint of airport capacity is caused by distance separation regulations between aircraft in flight due to wake turbulence. The term "wake turbulence" describes the effect of the rotating air masses generated behind the wing tips of large jet aircraft~\cite{doc4444full}. A smaller aircraft can experience loss of control in close proximity behind a larger aircraft because of those swirling air masses. The general flight safety requirements for maintaining safe distance between aircraft are established by the International Civil Aviation Organisation (ICAO)~\cite{doc4444full}. The European Aviation Safety Agency (EASA) provides oversight of those requirements and their application by the Air Traffic Management (ATM). \\
+The wake separation due to wake turbulence is especially critical during take-off and on approach for landing. ICAO has specified wake separation minima requirements that are applied to aircraft in the flight-path of another aircraft. Those requirements classify each aircraft in a wake turbulence category (WTC) and the wake separation is applied to a following aircraft based on the wake category of a leading aircraft. Thus the aircraft form a pair composed of a "leader" and a "follower", that observes a certain wake separation distance in nautical miles (NM). Generally the ICAO wake categories are three - Heavy, Medium and Light. The classification is based primarily on the weight of the aircraft, but this can vary slightly for different states.\\
+The ICAO WTC categorisation is based on observations and calculations performed on aircraft models that are some 50 years old. Even though those separations are considered reliable, they are often conservative and outdated for newer aircraft models and as such generate unnecessary over-separation in some cases.
+In recent years, a wake turbulence re-categorisation scheme known as RECAT-EU~\cite{rooseleer2015recat} or just RECAT has been devised by EUROCONTROL~\cite{EUROCONTROL_who_is}, an intergovernmental organisation assisting in safe and efficient air traffic operations. RECAT is based on the ICAO wake turbulence categories, but takes into account the wake specifications of current aircraft models. The RECAT scheme splits aircraft into six wake categories, generally referred to as CAT-A, CAT-B, CAT-C, CAT-D, CAT-E and CAT-F. Mostly, re-categorisation leads to decreased wake separation requirements for aircraft pairs, which in turn can lead to accommodating more landing and departures per time interval and increase airport capacity (throughput).\\
+Apart from wake separation, the other major element that affects capacity is runway occupancy time (ROT), which is the time interval an aircraft occupies a runway during landing or departure. The rule of thumb is that no aircraft can use a runway before the previous aircraft has vacated it and runway occupancy, per se, can limit the throughput of a runway. The emphasis in this project will be on runway occupancy times for arriving aircraft (AROT) during peak traffic hours at the airport\\
+The runway occupancy time and the wake separation requirements are the two main metrics that directly influence the throughput of a runway. The aim of this study is to estimate the constraints for implementing the RECAT wake turbulence categorisation and separation minima for Keflavík International Airport, the effect this can produce for airfield throughput and when is the runway occupancy a limiting factor for increased capacity. 
 
 \section{Background and Literature Review}
-The research parameters for the literate review included but were not limited to the following concepts: runway occupancy time, runway capacity, wake vortex separation. The project addresses in particular the arrival runway occupancy and its seasonal fluctuations as well as the variations between the different runways at Keflavík International Airport.
-%\ifdraft{Provide background about the subject matter (e.g. %How was morse code developed?  How is it used today?). 
-%This is a place where there are usually many citations.
-%It is suspicious when there is not.
-%Include the purpose of the different equipment and your %design intent. 
-%Include references to relevant scientific/technical work and %books.
-%What other examples of similar designs exist?
-%How is your approach distinctive?
-
-%If you have specifications or related standards, these %mustscribed and cited also.  As an example, you might cite %the specific
-%RoboSub competition website (and documents) if working on the %lighting system for an AUV
-
-%%% Glossary is broken, do not use --foley
-%% \gls{auv}\footnote{Autonomous Undersea Vehicle}.
-%
-%% Notice that there is now information on the AUV in the %Index %and Acronyms.
-%% It isn't in the \gls{glossary} because we didn't put it %there.
-%\index{AUV}
-%}{}
-
-
 
 \subsection{Current Understandings of Wake Vortex Behaviour}
-Wake vortices describe the nature of the air flow generated behind the wing tips of a jet aircraft~\cite{doc44444}.
-The lift effect on an aircraft wing is created by the differential pressure between the lower and the upper surface of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and combine into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards. Those vortices are also known as wake turbulence. 
+Wake vortices describe the nature of the air flow generated behind the wing tips of a jet aircraft~\cite{doc4444full}.
+The lift effect on an aircraft wing is created by the differential pressure between the lower and the upper surface of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and are combined into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards. Those vortices are also known as wake turbulence. 
 The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360$ km/h and the vortices can stay effective up to hundred wing spans, which can result in wake vortices lasting for several minutes and up to $30$ km behind larger aircraft~\cite{Breitsamter2011Feb, gerz_commercial_2002}. 
 
 \begin{figure}[ht]
@@ -52,7 +29,7 @@ Wake vortices tend to descend slowly to an altitude of about one half of the ini
 Upon reaching this point the descent will stop and then ascend slowly. This "re-bounce" effect is caused by the presence of the ground and carries with it the formation of a second pair of induced vortices outside and bellow the main vortex. 
 In the presence of stable cross-wind conditions the decay of the downwind vortex is not identical to the upwind vortex and the descent rate may vary significantly~\cite{Hallock2018Apr}. 
 The trajectories of the vortex pair may be modified and the upwind vortex could stall over the runway while the downwind vortex ascends and decays faster (Figure~\ref{fig:vortex_ground_effect}).
-Measurements have shown that the lateral/sideways motion of a vortex in an airport environment could range between $229$~m and $518$~m and in some cases even $762$~m, which is the basis for the "2500-foot"  rule separation in parallel runways configuration~\cite{Hallock2018Apr, hallock2004summary, hallock2003wake}. The vertical descent rate of vortices for medium commercial aircraft in stable atmosphere  is shown to be around $1.5-2.5$~m/s for the first $30$~s after which the descent slows and eventually approaches zero at $152-274$ m below the flight path, and for heavier aircraft decaying vortices have been observed at $305$~m and below of the flight path~\cite{lissaman1973aircraft, Hallock2018Apr}. 
+Measurements have shown that the lateral/sideways motion of a vortex in an airport environment could range between $229$~m and $518$~m and in some cases even $762$~m, which is the basis for the "2500-foot" rule separation in parallel runway configurations~\cite{Hallock2018Apr, hallock2004summary, hallock2003wake}. The vertical descent rate of vortices for medium commercial aircraft in stable atmosphere  is shown to be around $1.5-2.5$~m/s for the first $30$~s after which the descent slows and eventually approaches zero at $152-274$ m below the flight path, and for heavier aircraft decaying vortices have been observed at $305$~m and below of the flight path~\cite{lissaman1973aircraft, Hallock2018Apr}. 
 Aerodynamic properties of the aircraft govern the vortex roll-up process and ambient atmospheric conditions dominate the behaviour of the vortices forcing instability and eventual decay of the vortices~\cite{Hallock2018Apr}.
 Several factors that drive the decay rate of the vortex pair have been formulated:
 \begin{itemize}
@@ -72,7 +49,9 @@ Several factors that drive the decay rate of the vortex pair have been formulate
 
 
 \subsection{Wake Vortex Separation}
-An aircraft affected by the wake vortex can experience loss of lift or an induced rolling moment and velocity fluctuations (Figure~\ref{fig:vortex_encounter}).
+A second aircraft following the aircraft generating wake vortices can experience loss of lift or an induced rolling moment and velocity fluctuations (Figure~\ref{fig:vortex_encounter}).
+
+
 This can lead to the up-set and potentially loss of control of an aircraft following the flight path of a preceding aircraft.
 To diminish the effect of such vortices the trailing aircraft must be maintained at a safe distance behind the leading aircraft as the vortices spread laterally to either side of the flight path and are dissipated~\cite{Breitsamter2011Feb}.
 The distance between aircraft pairs in view of safety is referred to as wake vortex separation. 
@@ -194,7 +173,7 @@ The peak traffic hours are characterised by the time intervals when the airport 
 
 ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions~\cite{airport_capacity_methodology}. 
 Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
-R. de Neufville~\cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in one hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system~\cite{de_neufville_airport_2013}.
+R. de Neufville~\cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure is maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in one hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system~\cite{de_neufville_airport_2013}.
 The Capacity Envelope method used by Isavia to estimate the throughput capacity at BIKF takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure~\ref{fig:capacity_evnelope} for a 15~minute time interval. 
 
 \begin{figure}[h]
