@@ -4,28 +4,29 @@
 Keflavík International Airport (IATA: KEF, ICAO: BIKF) is the major gateway to Iceland currently with two functioning runways. The runways operate in both directions and are designated as RWY-01 (South-North), RWY-19 (North-South), RWY-10 (West-East) and RWY-28 (East-West). 
 There has been an unforeseen increase of passengers travelling through Keflavík Airport in the recent years, with over eight million passengers and 62.300 air transport movements in 2017~\cite{isavia_facts_2017}, where a movement is defined as an aircraft take-off or landing at an airport~\cite{aircraft_movement}. For 2018 the passenger numbers show an yearly growth of 13.44\% (at the time of writing) for the same time period from the previous year~\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can and does experience constrained capacity of the runways during peak traffic periods. Airport capacity is generally defined as the number of movements per unit of time that can be accepted~\cite{airport_capacity_methodology}.  \\
 A significant constraint of airport capacity is caused by distance separation regulations between aircraft in flight due to wake turbulence. The term "wake turbulence" describes the effect of the rotating air masses generated behind the wing tips of large jet aircraft~\cite{doc4444full}. A smaller aircraft can experience loss of control in close proximity behind a larger aircraft because of those swirling air masses. The general flight safety requirements for maintaining safe distance between aircraft are established by the International Civil Aviation Organisation (ICAO)~\cite{doc4444full}. The European Aviation Safety Agency (EASA) provides oversight of those requirements and their application by the Air Traffic Management (ATM). \\
-The wake separation due to wake turbulence is especially critical during take-off and on approach for landing. ICAO has specified wake separation minima requirements that are applied to aircraft in the flight-path of another aircraft. Those requirements classify each aircraft in a wake turbulence category (WTC) and the wake separation is applied to a following aircraft based on the wake category of a leading aircraft. Thus the aircraft form a pair composed of a "leader" and a "follower", that observes a certain wake separation distance in nautical miles (NM). Generally the ICAO wake categories are three - Heavy, Medium and Light. The classification is based primarily on the weight of the aircraft, but this can vary slightly for different states.\\
+The distance separation due to wake turbulence is especially critical during take-off and on approach for landing. ICAO has specified wake separation minima requirements that are applied to aircraft in the flight-path of another aircraft. Those requirements classify each aircraft in a wake turbulence category (WTC) and the wake separation is applied to a following aircraft based on the wake category of a leading aircraft. Thus the aircraft form a pair composed of a "leader" and a "follower", that observes a certain wake separation distance in nautical miles (NM). Generally the ICAO wake categories are three - Heavy, Medium and Light. The classification is based primarily on the weight of the aircraft, but this can vary slightly for different states.\\
 The ICAO WTC categorisation is based on observations and calculations performed on aircraft models that are some 50 years old. Even though those separations are considered reliable, they are often conservative and outdated for newer aircraft models and as such generate unnecessary over-separation in some cases.
 In recent years, a wake turbulence re-categorisation scheme known as RECAT-EU~\cite{rooseleer2015recat} or just RECAT has been devised by EUROCONTROL~\cite{EUROCONTROL_who_is}, an intergovernmental organisation assisting in safe and efficient air traffic operations. RECAT is based on the ICAO wake turbulence categories, but takes into account the wake specifications of current aircraft models. The RECAT scheme splits aircraft into six wake categories, generally referred to as CAT-A, CAT-B, CAT-C, CAT-D, CAT-E and CAT-F. Mostly, re-categorisation leads to decreased wake separation requirements for aircraft pairs, which in turn can lead to accommodating more landing and departures per time interval and increase airport capacity (throughput).\\
 Apart from wake separation, the other major element that affects capacity is runway occupancy time (ROT), which is the time interval an aircraft occupies a runway during landing or departure. The rule of thumb is that no aircraft can use a runway before the previous aircraft has vacated it and runway occupancy, per se, can limit the throughput of a runway. The emphasis in this project will be on runway occupancy times for arriving aircraft (AROT) during peak traffic hours at the airport\\
 The runway occupancy time and the wake separation requirements are the two main metrics that directly influence the throughput of a runway. The aim of this study is to estimate the constraints for implementing the RECAT wake turbulence categorisation and separation minima for Keflavík International Airport, the effect this can produce for airfield throughput and when is the runway occupancy a limiting factor for increased capacity. 
 
 \section{Background and Literature Review}
+This section briefly reviews the necessity of adopting a wake vortex separation scheme for aircraft from the perspective of fluid dynamics. Wake vortex characteristics of conventional aircraft have been studied for several decades now and "it is generally acknowledged that the near wake of a large jet airliner poses a significant hazard to any smaller aircraft that follows it into of out of an air terminal"~\cite{dup._donamdson_vortex_1975}. 
 
 \subsection{Current Understandings of Wake Vortex Behaviour}
 Wake vortices describe the nature of the air flow generated behind the wing tips of a jet aircraft~\cite{doc4444full}.
-The lift effect on an aircraft wing is created by the differential pressure between the lower and the upper surface of the wing. At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and are combined into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards. Those vortices are also known as wake turbulence. 
+The lift effect on an aircraft wing is created by the differential pressure between the lower and the upper surface of the wing. 
+At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and are combined into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards.\\
+The effect of wake vortices on air masses is known as wake turbulence. 
 The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360$ km/h and the vortices can stay effective up to hundred wing spans, which can result in wake vortices lasting for several minutes and up to $30$ km behind larger aircraft~\cite{Breitsamter2011Feb, gerz_commercial_2002}. 
-
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/WakeVortexPlane.png}
     \caption[Wake vortex roll-up process]{Wing vortex evolution and roll-up process. Two main vortices form behind the aircraft turning in opposite directions, clockwise behind the left wing (seen from behind) and anti-clockwise behind the right one~\cite[p.~043]{magazine_aibus_safety}} \label{fig:vortex_develop}
 \end{figure}
 
 \subsection{Ground Effect and Decay Process}
-
-Wake vortices tend to descend slowly to an altitude of about one half of the initial separation, near ground on approach for landing,.
+Wake vortices tend to descend slowly to an altitude of about one half of the initial separation, near ground on approach for landing.
 Upon reaching this point the descent will stop and then ascend slowly. This "re-bounce" effect is caused by the presence of the ground and carries with it the formation of a second pair of induced vortices outside and bellow the main vortex. 
 In the presence of stable cross-wind conditions the decay of the downwind vortex is not identical to the upwind vortex and the descent rate may vary significantly~\cite{Hallock2018Apr}. 
 The trajectories of the vortex pair may be modified and the upwind vortex could stall over the runway while the downwind vortex ascends and decays faster (Figure~\ref{fig:vortex_ground_effect}).
@@ -36,11 +37,9 @@ Several factors that drive the decay rate of the vortex pair have been formulate
     \item Atmospheric turbulence extracts energy from the vortex and reduces its strength leading to a faster wake decay ~\cite{Hallock2018Apr}.
     \item Viscosity of the atmosphere also draws out energy from the vortex but at a slower rate than the atmospheric turbulence. The so called dissipative action of viscosity  effectively removes energy from a disturbance, in this case a vortex, thereby causing it to decay~\cite{Hallock2018Apr, houghton2012aerodynamics}.
     \item Buoyancy force acts on the vortex in a thermally stable stratified environment as a result of the lesser air density inside the vortex system and may causes stall or rebound to the flight level~\cite{Holzapfel2001Feb, gerz_commercial_2002}.
-    \item Vortex instability in the form of long wave sinusoidal fluctuations of the vortex core (Crow instability) may occur due to light turbulence in the atmosphere and may cause the vortices to link and decay faster~\cite{Hallock2018Apr, crow2003stability}.
+    \item Vortex instability in the form of long wave sinusoidal fluctuations of the vortex core (Crow instability) may occur due to light turbulence in the atmosphere and may cause the vortices to link and decay faster~\cite{dup._donamdson_vortex_1975, Hallock2018Apr, crow2003stability}.
     \item Secondary vorticity structures, vertical rib-like counter rotating flow formations may appear between the vortex pair and eventually wrap around the main vortices, leading to turbulence build inside the system and rapid circulation decay~\cite{Holzapfel2001Feb, Holzapfel2003Jun}.
 \end{itemize}
-
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/Hallock_vortex_evolution.jpg}
@@ -48,22 +47,23 @@ Several factors that drive the decay rate of the vortex pair have been formulate
 \end{figure}
 
 
-\subsection{Wake Vortex Separation}
-A second aircraft following the aircraft generating wake vortices can experience loss of lift or an induced rolling moment and velocity fluctuations (Figure~\ref{fig:vortex_encounter}).
-
-
+\section{Wake Vortex Separation}
+Distance separation between aircraft is necessary to mitigate the effect of the wake vortices.
+This is especially true for aircraft in approach for landing or take-off, "since practically all serious problems associated with wake hazard occur in the vicinity of airports"~\cite{dup._donamdson_vortex_1975}. 
+The wake vortices generated by a leading aircraft (leader) can cause loss of lift or an induced rolling moment and velocity fluctuations in a following aircraft (follower) if the follower enters the wake turbulence region near the leader~(Figure~\ref{fig:vortex_encounter}).
 This can lead to the up-set and potentially loss of control of an aircraft following the flight path of a preceding aircraft.
 To diminish the effect of such vortices the trailing aircraft must be maintained at a safe distance behind the leading aircraft as the vortices spread laterally to either side of the flight path and are dissipated~\cite{Breitsamter2011Feb}.
 The distance between aircraft pairs in view of safety is referred to as wake vortex separation. 
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/reaction_in_wake.jpg}
-    \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft. (A) induced rolling moment, (B) upward motion, (C) loss of lift~\cite[p.~33]{Hallock2018Apr}} \label{fig:vortex_encounter}
+    \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft: induced rolling moment (A), upward motion (B), loss of lift (C)~\cite[p.~33]{Hallock2018Apr}} \label{fig:vortex_encounter}
 \end{figure}
 
-Traditional separation standards, introduced in the seventies, are defined by ICAO  on the basis of certificated maximum take-off mass (MTOM) as shown in Table~\ref{tab:WTC}. The prescribed categories are three i.e. Heavy, Medium and Light. In addition for aircraft in the order of $560000$~kg ICAO provides a subcategory to the Heavy types called Super Heavy. Some states have chosen to further increase the number of categories to adapt the wake turbulence categories (WTC) to specific airport requirements. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table~\ref{tab:WTC}), while the Federal Aviation Administration (FAA) places Boeing B757 into a separate category and increases the upper weight limit of the Light category.~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}
-
+Traditional separation standards, introduced in the seventies, are defined by ICAO on the basis of certificated maximum take-off mass (MTOM) of aircraft (Table~\ref{tab:WTC}) and must be observed when the airport operates under instrument flight rules (IFR)~\cite{gerz_commercial_2002}. The IFR allow properly equipped aircraft to be flown under impaired visibility conditions~\cite{icao_annex_2005}. The prescribed categories are three i.e. Heavy, Medium and Light.
+The Heavy category includes aircraft with MTOM larger than $136.000$~kg. The aircraft in the Medium category have MTOM between $7.000$~and~$136.000$~kg and the Light category includes the aircraft with maximum take-off mass less than or equal to $7.000$~kg.
+In addition, for aircraft in the order of $560.000$~kg, ICAO provides a subcategory to the Heavy types called Super Heavy. \\
+Some states have chosen to further increase the number of the wake turbulence categories in light of safe airport operational experience. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table~\ref{tab:WTC}), while the Federal Aviation Administration (FAA) places Boeing B757 into a separate category and increases the upper weight limit of the Light category. The Boeing 757s are known to generate unusually high core vortex speed.~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}
 \begin{table}[h]
     \centering
     \resizebox{1\textwidth}{!} {
@@ -71,17 +71,17 @@ Traditional separation standards, introduced in the seventies, are defined by IC
     ~    & \multicolumn{6}{c}{Category} \\ \hline
     ICAO & Super Heavy & Heavy (H) & \multicolumn{2}{c|}{Medium (M)} & \multicolumn{2}{c}{Light (L)} \\
     
-    ~    & A380-800    & $ > 136000 $  & \multicolumn{2}{c|}{$ 136000-7000 $ } & \multicolumn{2}{c}{$ \leq 7000 $} \\ \hline
+    ~    & A380-800    & > 136.000  & \multicolumn{2}{c|}{ 136.000 -- 7.000 } & \multicolumn{2}{c}{$ \leq 7.000$} \\ \hline
     
     ICAO (UK)   & ~  & Heavy (H) & Upper Medium (UM) & Lower Medium (LM) & Small (S)  & Light (L) \\
     
-    ~    & A380-800    & $ > 136000 $  & $ 136000-104000 $     & $ 104000-40000 $      & $ 40000-17000 $ & $ \leq 17000 $   \\ \hline
+    ~    & A380-800    & > 136.000  & 136.000 -- 104.000     & 104.000 -- 40.000      & 40.000 -- 17.000 & $ \leq 17.000 $   \\ \hline
     
-    ICAO \& FAA (US)   & Super      & Heavy (H) & B757   & Large   & \multicolumn{2}{c}{Small} \\
+    FAA (US)   & Super      & Heavy & B757   & Large   & \multicolumn{2}{c}{Small} \\
     
-    ~    & A380        & $ > 136000 $  & ~                 & $ 136000-18600 $      & \multicolumn{2}{c}{$ \leq 18600 $} \\ 
+    ~    & A380        &  > 136.000   & ~                 &  136.000 -- 18.600       & \multicolumn{2}{c}{$ \leq 18.600 $} \\ 
     \end{tabular}}
-    \caption[ICAO wake turbulence categories based on maximum take-off mass]{ICAO wake turbulence categories based on maximum take-off mass (MTOM) in kg~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, kolos2013influence}.} \label{tab:WTC}
+    \caption[ICAO wake turbulence categories based on maximum take-off mass]{ICAO wake turbulence categories of transport aircraft based on maximum take-off mass (MTOM) in~kg~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, kolos2013influence}.} \label{tab:WTC}
 \end{table}
 
 The ICAO wake turbulence categories (Table~\ref{tab:ICAO_WTC}) outline the worst case for each category and thus generate over-separation in many cases~\cite{noauthor_recat_2018}. The separation distances for instrumental flight rules are observed for the follower aircraft and are conventionally expressed in nautical miles (NM). The separation reverts to radar separation minimum (MRS) when wake turbulence restrictions are not required. As  prescribed  by  ICAO  the  horizontal MRS is 3~NM (or a reduced separation minimum of 2.5~NM may be applied under given conditions described in ICAO Doc 4444 PANS-AM~\cite{doc44444}), which translates to 79~s (66~s) time separation between leader and follower at final approach speed of 70~m/s.
