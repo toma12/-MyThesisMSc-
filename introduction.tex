@@ -1,22 +1,65 @@
 \chapter{Introduction\label{cha:introduction}}
 
-
 Keflavík International Airport (IATA: KEF, ICAO: BIKF) is the major gateway to Iceland currently with two functioning runways. The runways operate in both directions and are designated as RWY-01 (South-North), RWY-19 (North-South), RWY-10 (West-East) and RWY-28 (East-West). 
-There has been an unforeseen increase of passengers travelling through Keflavík Airport in the recent years, with over eight million passengers and 62.300 air transport movements in 2017~\cite{isavia_facts_2017}, where a movement is defined as an aircraft take-off or landing at an airport~\cite{aircraft_movement}. For 2018 the passenger numbers show an yearly growth of 13.44\% (at the time of writing) for the same time period from the previous year~\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can and does experience constrained capacity of the runways during peak traffic periods. Airport capacity is generally defined as the number of movements per unit of time that can be accepted~\cite{airport_capacity_methodology}.  \\
-A significant constraint of airport capacity is caused by distance separation regulations between aircraft in flight due to wake turbulence. The term "wake turbulence" describes the effect of the rotating air masses generated behind the wing tips of large jet aircraft~\cite{doc4444full}. A smaller aircraft can experience loss of control in close proximity behind a larger aircraft because of those swirling air masses. The general flight safety requirements for maintaining safe distance between aircraft are established by the International Civil Aviation Organisation (ICAO)~\cite{doc4444full}. The European Aviation Safety Agency (EASA) provides oversight of those requirements and their application by the Air Traffic Management (ATM). \\
-The distance separation due to wake turbulence is especially critical during take-off and on approach for landing. ICAO has specified wake separation minima requirements that are applied to aircraft in the flight-path of another aircraft. Those requirements classify each aircraft in a wake turbulence category (WTC) and the wake separation is applied to a following aircraft associated with the wake category of a leading aircraft. Thus the aircraft form a pair composed of a "leader" and a "follower", that observes a certain wake separation distance in nautical miles (NM). Generally the ICAO wake categories are three - Heavy, Medium and Light. The classification is based primarily on the weight of the aircraft, but this can vary slightly for different states.\\
-The ICAO WTC categorisation is based on observations and calculations performed on aircraft models that are some 50 years old. Even though those separations are considered reliable, they are often conservative and outdated for newer aircraft models and as such generate unnecessary over-separation in some cases.
-In recent years, a wake turbulence re-categorisation scheme known as RECAT-EU~\cite{rooseleer2015recat} or just RECAT has been devised by European Organisation for the Safety of Air Navigation (EUROCONTROL)~\cite{EUROCONTROL_recat_eu}, an intergovernmental organisation assisting in safe and efficient air traffic operations. RECAT is based on the ICAO wake turbulence longitudinal separation minima on approach and departure, but takes into account the wake specifications of current aircraft models. The RECAT scheme splits aircraft into six wake categories, generally referred to as CAT-A, CAT-B, CAT-C, CAT-D, CAT-E and CAT-F. Mostly, re-categorisation leads to decreased wake separation minima requirements for aircraft pairs, which in turn can lead to accommodating more landing and departures in peak traffic periods and increase airport capacity (throughput).\\
-Apart from wake separation, the other major element that affects capacity is runway occupancy time (ROT), which is the time interval an aircraft occupies a runway during landing or departure. The rule of thumb is that no aircraft can use a runway before the previous aircraft has vacated it and runway occupancy, per se, can limit the throughput of a runway. The emphasis in this project will be on runway occupancy times for arriving aircraft (AROT) during peak traffic hours at the airport\\
-The runway occupancy time and the wake separation requirements are the two main metrics that directly influence the throughput of a runway. The aim of this study is to estimate the constraints for implementing the RECAT wake turbulence categorisation and separation minima for Keflavík International Airport, the effect this can produce for airfield throughput and when is the runway occupancy a limiting factor for increased capacity. 
+There has been an unforeseen increase of passengers travelling through Keflavík Airport in recent years, with over eight million passengers and 62.300 air transport movements in 2017~\cite{isavia_facts_2017}, where a movement is defined as an aircraft take-off or landing at an airport~\cite{aircraft_movement}. For 2018 the passenger numbers show an yearly growth of 13.44\% (at the time of writing) for the same time period from the previous year~\cite{isavia_pass_statistics_2018}. The increase in traffic at Keflavík Airport can and does experience constrained capacity of the runways during peak traffic periods. Airport capacity is generally defined as the number of movements per unit of time that can be accepted~\cite{airport_capacity_methodology}.  
 
-\section{Background and Literature Review}
-This section briefly reviews the necessity of adopting a wake vortex separation scheme for aircraft from the perspective of fluid dynamics. Wake vortex characteristics of conventional aircraft have been studied for several decades now and "it is generally acknowledged that the near wake of a large jet airliner poses a significant hazard to any smaller aircraft that follows it into of out of an air terminal"~\cite[p.~5]{dup._donamdson_vortex_1975}. 
+A significant constraint of airport capacity is caused by distance separation regulations between aircraft in flight due to wake turbulence. The term "wake turbulence" describes the effect of the rotating air masses generated behind the wing tips of large jet aircraft~\cite{doc4444full}. A smaller aircraft can experience loss of control in close proximity behind a larger aircraft because of those swirling air masses. The general flight safety requirements for maintaining safe distance between aircraft are established by the International Civil Aviation Organisation (ICAO)~\cite{doc4444full}. The European Aviation Safety Agency (EASA) provides oversight of those requirements and their application by the Air Traffic Management (ATM). 
+
+The distance separation due to wake turbulence is especially critical during take-off and on approach for landing. ICAO has specified wake separation minima requirements that are applied to aircraft in the flight-path of another aircraft. Those requirements classify each aircraft in a wake turbulence category (WTC) and the wake separation is applied to a following aircraft associated with the wake category of a leading aircraft. Thus the aircraft form a pair composed of a "leader" and a "follower", that observes a certain wake separation distance in nautical miles (NM). Generally the ICAO wake categories are three - Heavy, Medium and Light. The classification is based primarily on the weight of the aircraft, but this can vary slightly for different states.
+
+The ICAO WTC categorisation is based on observations and calculations performed on aircraft models that are some 50 years old. Even though those separations are considered reliable, they are often conservative and outdated in view of newer aircraft models and as such generate unnecessary over-separation in some cases.
+In recent years, a wake turbulence re-categorisation scheme known as RECAT-EU~\cite{rooseleer2015recat} or just RECAT has been devised by European Organisation for the Safety of Air Navigation (EUROCONTROL)~\cite{EUROCONTROL_recat_eu}, an intergovernmental organisation assisting in safe and efficient air traffic operations. 
+
+RECAT is based on the ICAO wake turbulence longitudinal separation minima on approach and departure, but takes into account the wake specifications of current aircraft models. The RECAT scheme splits aircraft into six wake categories, generally referred to as CAT-A, CAT-B, CAT-C, CAT-D, CAT-E and CAT-F. Re-categorisation leads mostly to decreased wake separation minima requirements for aircraft pairs, which in turn can lead to accommodating more landing and departures in peak traffic periods and increase airport capacity (throughput).
+
+Apart from wake separation, the other major element that affects capacity is runway occupancy time (ROT), which is the time interval an aircraft occupies a runway during landing or departure. The rule of thumb is that no aircraft can use a runway before the previous aircraft has vacated it and runway occupancy, per se, can limit the throughput of a runway. The emphasis in this project will be on runway occupancy times for arriving aircraft (AROT) during peak traffic hours at the airport. The peak traffic hours are determined by the time intervals when the airport operates at high capacity load.
+
+The runway occupancy time and the wake separation requirements are the two main metrics that directly influence the throughput of a runway. The aim of this study is to estimate the constraints for implementing the RECAT wake turbulence categorisation and separation minima for Keflavík International Airport, the effect this can produce for airfield throughput and when is the runway occupancy a limiting factor for increased capacity.
+
+\section{Runway Capacity\label{sec:runway_capacity}}
+
+ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions~\cite{airport_capacity_methodology}. 
+Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
+
+R. de Neufville~\cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure is maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in one hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the (ATM) system~\cite{de_neufville_airport_2013}.
+
+The Capacity Envelope method used by Isavia to estimate the throughput capacity at BIKF takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure~\ref{fig:capacity_evnelope} for a 15~minute time interval. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
+    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed~Mode~A) or two times more arrivals than departures (Mixed Mode B), the latter being a tendency during the afternoon peaks. The figure is from Isavia's internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
+\end{figure}
+
+This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed~Mode~A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in section~\ref{sec:ROT}
+
+There are many aspects of a runway system that can affect the number of aircraft that can land or depart from an airfield and some of those are listed below~\cite{de_neufville_airport_2013, kim_validation_2010}.
+\begin{itemize}
+    \item Number and geometric layout of the runways.
+    \item State and performance of the ATM system.
+    \item Separation requirements between aircraft pairs imposed by the ATM.
+    \item Weather conditions (visibility, precipitation, cloud ceiling). 
+    \item Wind direction and strength.
+    \item Mix of aircraft using the airport.
+    \item Sequence of movement on each runway (arrivals -- departures split)
+    \item Type and location of taxiway exits from the runway.
+    \item Runway occupancy time.
+    \item Controller workload.
+    \item Noise-related constraints and other environmental considerations.
+\end{itemize}
+
+Two of the above mentioned factors are principal in determining airfield capacity, namely the wake vortex separation requirements and runway occupancy time~\cite{kolos2013influence}. Those are in turn influenced by traffic mix, seasonal factors and runway exits, to mention a few. The following Chapter~\ref{cha:methods} on Methods will deal with some of those aspects. 
+
+\fxnote{equipment specifications in the tower that might influence the WTC separtarion decision-talk to Haraldur, Talk to Hjalti about the 2,5~-~3~NM MRS issue!}
+
+\section{Wake Turbulence Separation}
+This section briefly reviews the necessity of adopting a wake vortex separation scheme for aircraft from the perspective of fluid dynamics and the overall benefits of the RECAT-EU wake separation scheme in comparison to the ICAO WTC.
 
 \subsection{Current Understandings of Wake Vortex Behaviour}
 Wake vortices describe the nature of the air flow generated behind the wing tips of a jet aircraft~\cite{doc4444full}.
 The lift effect on an aircraft wing is created by the differential pressure between the lower and the upper surface of the wing. 
-At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and are combined into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards.\\
+At the wing tips the high pressure flow from the lower side leaks around the tip and to the upper side of the wing. Thus the streamlines over the wing are pushed inwards, while the streamlines under the wing are pushed outwards. When the two streams combine at the trailing edge of a lifting wing, the difference in span-wise velocity causes the air to roll up into a number of small stream-wise vortices distributed along the span of the wing that eventually mix together and are combined into two main counter-rotating vortices aft of the wing as illustrated in Figure~\ref{fig:vortex_develop} ~\cite{houghton2012aerodynamics,magazine_aibus_safety, Breitsamter2011Feb, gerz_commercial_2002}. Between the vortices the induced flow is downwards (downwash) while outside the air moves upwards.
+
 The effect of wake vortices on air masses is known as wake turbulence. 
 The kinetic energy contained in the vortices is dependent on the weight and aerodynamics of the generating aircraft. The cross flow velocities in the core region of the trailing vortices can reach $360$ km/h and the vortices can stay effective up to hundred wing spans, which can result in wake vortices lasting for several minutes and up to $30$ km behind larger aircraft~\cite{Breitsamter2011Feb, gerz_commercial_2002}. 
 \begin{figure}[h]
@@ -25,12 +68,16 @@ The kinetic energy contained in the vortices is dependent on the weight and aero
     \caption[Wake vortex roll-up process]{Wing vortex evolution and roll-up process. Two main vortices form behind the aircraft turning in opposite directions, clockwise behind the left wing (seen from behind) and anti-clockwise behind the right one~\cite[p.~043]{magazine_aibus_safety}} \label{fig:vortex_develop}
 \end{figure}
 
-\subsection{Ground Effect and Decay Process}
+\subsection{Ground Effect and Vortex Decay Rate}
 Wake vortices tend to descend slowly to an altitude of about one half of the initial separation, near ground on approach for landing.
 Upon reaching this point the descent will stop and then ascend slowly. This "re-bounce" effect is caused by the presence of the ground and carries with it the formation of a second pair of induced vortices outside and bellow the main vortex. 
+
 In the presence of stable cross-wind conditions the decay of the downwind vortex is not identical to the upwind vortex and the descent rate may vary significantly~\cite{Hallock2018Apr}. 
 The trajectories of the vortex pair may be modified and the upwind vortex could stall over the runway while the downwind vortex ascends and decays faster (Figure~\ref{fig:vortex_ground_effect}).
-Measurements have shown that the lateral/sideways motion of a vortex in an airport environment could range between $229$~m and $518$~m and in some cases even $762$~m, which is the basis for the "2500-foot" rule separation in parallel runway configurations~\cite{Hallock2018Apr, hallock2004summary, hallock2003wake}. The vertical descent rate of vortices for medium commercial aircraft in stable atmosphere  is shown to be around $1.5-2.5$~m/s for the first $30$~s after which the descent slows and eventually approaches zero at $152-274$ m below the flight path, and for heavier aircraft decaying vortices have been observed at $305$~m and below of the flight path~\cite{lissaman1973aircraft, Hallock2018Apr}. 
+Measurements have shown that the lateral/sideways motion of a vortex in an airport environment could range between $229$~m and $518$~m and in some cases even $762$~m, which is the basis for the "2500-foot" rule separation in parallel runway configurations~\cite{Hallock2018Apr, hallock2004summary, hallock2003wake}.
+
+The vertical descent rate of vortices for medium commercial aircraft in stable atmosphere is shown to be around $1.5-2.5$~m/s for the first $30$~seconds after which the descent slows and eventually approaches zero at $152-274$ m below the flight path, and for heavier aircraft decaying vortices have been observed at $305$~m and below of the flight path~\cite{lissaman1973aircraft, Hallock2018Apr}. 
+
 Aerodynamic properties of the aircraft govern the vortex roll-up process and ambient atmospheric conditions dominate the behaviour of the vortices forcing instability and eventual decay of the vortices~\cite{Hallock2018Apr}.
 Several factors that drive the decay rate of the vortex pair have been formulated:
 \begin{itemize}
@@ -46,8 +93,7 @@ Several factors that drive the decay rate of the vortex pair have been formulate
     \caption[Wake vortex and ground effect]{Vortex evolution and ground effect~\cite[p.~29]{Hallock2018Apr}.} \label{fig:vortex_ground_effect}
 \end{figure}
 
-
-\section{Wake Turbulence Separation Minima}
+Wake vortex characteristics of conventional aircraft have been studied for several decades now and "it is generally acknowledged that the near wake of a large jet airliner poses a significant hazard to any smaller aircraft that follows it into of out of an air terminal"~\cite[p.~5]{dup._donamdson_vortex_1975}.
 Distance separation between aircraft is necessary to mitigate the effect of the wake vortices.
 This is especially true for aircraft in approach for landing or take-off, "since practically all serious problems associated with wake hazard occur in the vicinity of airports"~\cite[p.~5]{dup._donamdson_vortex_1975}. 
 The wake vortices generated by a leading aircraft (leader) can cause loss of lift or an induced rolling moment and velocity fluctuations in a following aircraft (follower), if the follower enters the wake turbulence region near the leader~(Figure~\ref{fig:vortex_encounter}).
@@ -57,12 +103,15 @@ The distance between aircraft pairs in view of safety is referred to as wake vor
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/reaction_in_wake.jpg}
-    \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft: induced rolling moment (A), upward motion (B), loss of lift (C)~\cite[p.~33]{Hallock2018Apr}} \label{fig:vortex_encounter}
+    \caption[Wake vortex encounter]{Effect of wake vortex flow field on an aircraft: induced rolling moment (A), upward motion (B), loss of lift (C), yaw motion (D)~\cite[p.~33]{Hallock2018Apr}} 
+    \label{fig:vortex_encounter}
 \end{figure}
 
-Traditional separation standards, introduced in the seventies, are defined by ICAO based on certificated maximum take-off mass (MTOM) of aircraft. The MTOM criteria allocates each aircraft in a wake turbulence category. The prescribed categories are three i.e. Heavy, Medium and Light.
+\subsection{Wake Categorisation}
+Traditional separation standards, introduced in the 1970s, are defined by ICAO based on certificated maximum take-off mass (MTOM) of aircraft. The MTOM criteria allocates each aircraft in a wake turbulence category. The prescribed categories are three i.e. Heavy, Medium and Light.
 The Heavy category includes aircraft with MTOM larger than $136.000$~kg. The aircraft in the Medium category have MTOM between $7.000$~and~$136.000$~kg and the Light category includes the aircraft with maximum take-off mass less than or equal to $7.000$~kg.
-In addition, for aircraft in the order of $560.000$~kg, ICAO provides a subcategory to the Heavy types called Super Heavy (Table~\ref{tab:WTC}). \\
+In addition, for aircraft in the order of $560.000$~kg, ICAO provides a subcategory to the Heavy types called Super Heavy (Table~\ref{tab:WTC}). 
+
 \begin{table}[ht]
     \centering
     \resizebox{1\textwidth}{!} {
@@ -83,8 +132,10 @@ In addition, for aircraft in the order of $560.000$~kg, ICAO provides a subcateg
     \caption[ICAO wake turbulence categories based on maximum take-off mass]{ICAO wake turbulence categories of transport aircraft based on maximum take-off mass (MTOM) in~kg~\cite{doc4444full, uk_aeronautical_information_services_wake_2017, kolos2013influence}.} \label{tab:WTC}
 \end{table}
 
-Some states have chosen to further increase the number of the ICAO wake turbulence categories in light of safe airport operational experience. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table~\ref{tab:WTC}), while the Federal Aviation Administration (FAA) places Boeing~B757 into a separate category and increases the upper weight limit of the Small (Light) category to $18.600$~kg. The Boeing~757s are known to generate unusually high core vortex speed.~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}\\
-Under standard ICAO criteria, each aircraft is allocated in a wake category and the categories form pairs: a combination of a leader and a follower aircraft. Each pair is assigned a distance separation minima, depending on the wake turbulence generated by the leader and applied to the follower. Conventionally the separations are expressed in nautical miles (NM). The leader-follower combinations can be charted as a wake separation matrix~(Table~\ref{tab:ICAO_WTC}), in which the elements indicate the minimum wake separation for each pair.\\
+Some states have chosen to further increase the number of the ICAO wake turbulence categories in light of safe airport operational experience. Aerodromes in the UK split the Medium and Light categories each into two subcategories (Table~\ref{tab:WTC}), while the Federal Aviation Administration (FAA) places Boeing~B757 into a separate category and increases the upper weight limit of the Small (Light) category to $18.600$~kg. The Boeing~757s are known to generate unusually high core vortex speed.~\cite{icao_wtc, uk_aeronautical_information_services_wake_2017, noauthor_recat_2018}
+
+Under standard ICAO criteria, each aircraft is allocated in a wake category and the categories form pairs: a combination of a leader and a follower aircraft. Each pair is assigned a distance separation minima, depending on the wake turbulence generated by the leader and applied to the follower. Conventionally the separations are expressed in nautical miles (NM). The leader-follower combinations can be charted as a wake separation matrix~(Table~\ref{tab:ICAO_WTC}), in which the elements indicate the minimum wake separation for each pair.
+
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
@@ -104,20 +155,23 @@ Under standard ICAO criteria, each aircraft is allocated in a wake category and 
 \caption[ICAO wake turbulence categories and separation minima]{ICAO wake turbulence categories and separation minima to avoid wake vortex encounter.(*) indicate radar separation minimum (MRS)~\cite{noauthor_recat_2018, rooseleer2015recat}.} \label{tab:ICAO_WTC}
 \end{table}
 
-The wake separation must be observed, for arrival and departure, when the airport operates under instrument flight rules (IFR). The IFR allow properly equipped aircraft to be flown under impaired visibility conditions. When visual flight rules (VFR) are in effect (flight visibility 5 km, clear of clouds and in sight of the surface), the separation may be decided by the pilot within observed safety limits.~\cite{gerz_commercial_2002, icao_annex_2005} \\
-When wake separation requirements are not specified and a surveillance system like radar is used, the longitudinal separation minimum may be reduced by the air traffic management (ATM), if the surveillance systems' capabilities at a given location permit this~\cite{MRS_separation_standard}. The radar separation minimum (MRS) for aircraft established on the same final approach track is 3~NM (or 2,5~NM under given conditions) as prescribed by ICAO Doc 4444 PANS-AM~\cite{doc44444}.\\
+The wake separation must be observed, for arrival and departure, when the airport operates under instrument flight rules (IFR). The IFR allow properly equipped aircraft to be flown under impaired visibility conditions. When visual flight rules (VFR) are in effect (flight visibility 5 km, clear of clouds and in sight of the surface), the separation may be decided by the pilot within observed safety limits.~\cite{gerz_commercial_2002, icao_annex_2005} 
+
+When wake separation requirements are not specified and a surveillance system like radar is used, the longitudinal separation minimum may be reduced by the air traffic management (ATM), if the surveillance system's capabilities at a given location permit this~\cite{MRS_separation_standard}. The radar separation minimum (MRS) for aircraft established on the same final approach track is 3~NM (or 2,5~NM under given conditions) as prescribed by ICAO Doc 4444 PANS-AM~\cite{doc44444}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/Criteria_RECAT.png}
     \caption[RECAT-EU categorisation criteria]{Categorisation process and criteria for assigning an existing aircraft type into RECAT-EU scheme~\cite[p.~15]{rooseleer2015recat}} \label{fig:RECAT_criteria}
 \end{figure}
+
 The ICAO wake turbulence separation rules outline the "worst case" for each category and thus generate over-separation in many cases~\cite{noauthor_recat_2018, rooseleer2015recat}. The categorisation was implemented over 40 years ago and has become out-of-date in view of the newer aircraft models. Consequently EUROCONTROL has developed the European Wake Vortex Re-categorisation (RECAT-EU) as a more precise categorisation of aircraft compared to ICAO WTC. The objective was to safely help increase airport capacity and reduce delays by redefining wake turbulence categories and their associated separation 
 minima. RECAT-EU is based on the ICAO scheme and takes into account maximum take-off weight (MTOW) and the wing span of the aircraft (Figure~\ref{fig:RECAT_criteria}).
 
 According to EUROCONTROL the expected immediate benefits from RECAT-EU deployment are: increased runway throughput around 5\% and operational efficiency during peak periods. The runway capacity increase with RECAT-EU "comes from the categorisation and separation reduction for aircraft types which are predominant in European traffic"~\cite[p.~22]{rooseleer2015recat}. Implementation of RECAT-EU will mean a minimum ATM system update and does not require deployment of new technologies.
 
-The resulting categories following the criteria for re-categorisation are six:\\
+The resulting categories following the re-categorisation criteria from Figure~\ref{fig:RECAT_criteria} are six:
+
 \begin{tabular}{l}
     \textbullet \space CAT A -- "Super Heavy" \\
     \textbullet \space CAT B -- "Upper Heavy"\\
@@ -127,10 +181,8 @@ The resulting categories following the criteria for re-categorisation are six:\\
     \textbullet \space CAT F -- "Light"\\ 
 \end{tabular}
 
-The RECAT-EU wake separation matrix combining leader and follower into pairs with assigned wake separation minima for each pair is shown in Table~\ref{tab:RECAT-dist}.
-    
-
-
+The RECAT-EU wake separation matrix combining leader and follower into pairs with assigned wake separation minima for each pair is shown in Table~\ref{tab:RECAT-dist}. The application of instrumental or visual flight rules and the MRS procedures remain identical to the ICAO WTC scheme. The introduction of RECAT-EU alters only the spacing between 
+certain aircraft in a pair, which is applied to arrivals as well as departures.
 
 \begin{table}[h]
 \centering
@@ -147,96 +199,12 @@ The RECAT-EU wake separation matrix combining leader and follower into pairs wit
                                     & CAT-F            &    (*)    &   (*)    &    (*)   &   (*)    &   (*)    & 3 NM  \\ \hline
 \end{tabular}%
 }
-\caption[RECAT-EU distance-based separation minima]{RECAT-EU wake turbulence distance-based separation minima on approach and departure. (*) means minimum radar separation (MRS), set at 2.5 NM, applicable as per current ICAO doc 4444 provisions \cite{doc44444, rooseleer2015recat, noauthor_recat_2018}.}
+\caption[RECAT-EU distance-based separation minima]{RECAT-EU wake turbulence distance-based separation minima on approach and departure. (*) indicates minimum radar separation (MRS), set at 3~NM (2,5~NM under given conditions), applicable as per current ICAO doc 4444 provisions \cite{doc44444, rooseleer2015recat, noauthor_recat_2018}.}
 \label{tab:RECAT-dist}
 \end{table}
 
-It must be noted that the division of ICAO WTC into the RECAT scheme (Table~\ref{tab:RECAT-dist}) is not achieved by splitting each category in half.
-The criteria used for categorisation of existing and new aircraft types are provided in detail in~\cite{rooseleer2015recat}. The case from the traffic mix at BIKF presents the arrangement shown in Table~\ref{tab:wtc2recat_division}. A more detailed illustration of the re-categorisation is presented in the upcoming section \ref{ssec:traffic_mix} on aircraft traffic mix (Figure~\ref{fig:post_fast_exit_mix_pie_v2}).
+The noticeable changes in wake separation under RECAT-EU from ICAO WTC are systematised in Table~\ref{tab:delta_distance_wtc2recat}. A beneficial change in wake separation experiences for example a Heavy leader -- Medium follower aircraft pair, which after re-categorisation form a CAT-C -- CAT-D pair. In this case, the separation from the leader can be reduced by up to 2~NM. 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h]
-\centering
-\resizebox{0.7\textwidth}{!}{%
-\begin{tabular}{clcllc}
-\multicolumn{3}{c}{\cellcolor[HTML]{34CDF9}HEAVY} &  &  & \cellcolor[HTML]{FD6864}LIGHT \\ \hline
-\multicolumn{1}{|c|}{\cellcolor[HTML]{34CDF9}CAT-A} & \multicolumn{1}{c|}{\cellcolor[HTML]{34CDF9}CAT-B} & \multicolumn{1}{c|}{\cellcolor[HTML]{32CB00}CAT-C} & \multicolumn{1}{c|}{\cellcolor[HTML]{F8FF00}CAT-D} & \multicolumn{1}{c|}{\cellcolor[HTML]{F8FF00}CAT-E} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFC702}CAT-F} \\ \hline
-\multicolumn{1}{l}{} &  & \multicolumn{4}{c}{\cellcolor[HTML]{F8FF00}MEDIUM}
-\end{tabular}%
-}
-\caption[Transition from ICAO WTC to RECAT-EU categories]{Transition from ICAO WTC to RECAT-EU categories. The categorisation process and criteria for assigning an existing aircraft type into RECAT-EU scheme is illustrated in detail in~\cite{rooseleer2015recat}}.
-\label{tab:wtc2recat_division}
-\end{table}
-
-The noticeable changes in Table~\ref{tab:RECAT-dist} from Table~\ref{tab:ICAO_WTC} affect a follower aircraft, whose relative position from the ICAO scheme is shifted to the left in the new table after re-categorisation. Such benefit experiences for example a Heavy follower aircraft that is re-categorised as CAT-C, in which case the separation from the leader is reduced with up to 3 NM. 
-
-%There is an RU logo in Figure~\ref{fig:ru-logo}.
-%This logo will scale according to the width of the text on the page.
-
-
-
-The different category code names in this study will also be referred to on a single letter basis for simplification e.g. "CAT-C" will be abbreviated to "C", "CAT-D" to "D", "Heavy" to "H", Medium to "M" and so forth. This applies to pair categories by abbreviating e.g. "CAT-C leader - CAT-D follower"  to "C-D pair" or simply "C-D", and "Medium-Medium" pair to "M-M".
-
-\section{Runway Occupancy Time\label{sec:ROT}}
-
-The Runway Occupancy Time (ROT) is defined by Eurocontrol as the amount of time that each aircraft occupies the runway~\cite{ROT_definition}. \\
-This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway~\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
-The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes (Figure~\ref{fig:Peak_Diagram}). This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it. The AROT metric is essential for the project because a following aircraft is not allowed to land on the same runway before it has been vacated by the leading aircraft. The interval to the next landing aircraft is specified as the Landing Time Interval (LTI) which is directly linked to the inter-arrival distance or in other words the wake turbulence separation.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/Peak_Diagram.png}
-    \caption[Rules defining a peak hour]{Rules used by Isavia to identify a high load interval as peak or not. The time separating each two aircraft in a peak cluster (red) is set as less than or equal to 4 minutes. The last red aircraft in the peak cluster is not counted as part of the peak. Cluster separators are defined as time intervals larger than four minutes.}
-    \label{fig:Peak_Diagram}
-\end{figure}
-
-
-\section{Runway Capacity\label{sec:runway_capacity}}
-
-ICAO generally defines airport capacity as the number of movements per unit of time that can be accepted during different meteorological conditions~\cite{airport_capacity_methodology}. 
-Several measures are currently used to estimate the amount of aircraft movements on the runways of an airport in a specified time interval.
-R. de Neufville~\cite{de_neufville_airport_2013} states that the capacity of runway systems determines the ultimate capacity of an airport and that its principal measure is maximum throughput capacity. It indicates the average number of movements that can be performed on the runway system in one hour in the presence of continuous demand, while adhering to all the separation requirements imposed by the air traffic management (ATM) system~\cite{de_neufville_airport_2013}.
-The Capacity Envelope method used by Isavia to estimate the throughput capacity at BIKF takes into consideration the number of arrivals and departures within a selected time frame. This approach allows to measure the throughput capacity and model the maximum possible values or the potential of the airfield. A summary of the capacity envelope for a period of one year is shown in Figure~\ref{fig:capacity_evnelope} for a 15~minute time interval. 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{graphics/fig_Capacity_Envelope_2017-10-04_to_2018-11-30_15min_occurrences_limits.png}
-    \caption[Capacity envelope for BIKF]{Capacity envelope at BIKF since October 2017. The measured time interval is 15 minutes and includes both the morning and afternoon peaks. The capacity limits of the airfield are also defined and noted on the figure for various sequence modes. The mixed modes indicate equal arrivals and departures (Mixed~Mode~A) or two times more arrivals than departures (Mixed Mode B), the later being a tendency during the afternoon peaks. The figure is from Isavia´s internal GUI Víkingaskipið.}  \label{fig:capacity_evnelope}
-\end{figure}
-
-This approach indicates a maximum measured capacity of four arrivals to four departures in a "Mixed~Mode~A". This equilibrium mode is defined as the primary measure for the throughput capacity of BIKF. The values are in accord with the defined peak hour intervals in the previous section~\ref{sec:ROT}
-
-There are many aspects of a runway system that can affect the number of aircraft that can land or depart from an airfield and some of those are listed bellow~\cite{de_neufville_airport_2013, kim_validation_2010}.
-\begin{itemize}
-    \item Number and geometric layout of the runways.
-    \item State and performance of the ATM system.
-    \item Separation requirements between aircraft pairs imposed by the ATM.
-    \item Weather conditions (visibility, precipitation, cloud ceiling). 
-    \item Wind direction and strength.
-    \item Mix of aircraft using the airport.
-    \item Sequence of movement on each runway (arrivals - departures split)
-    \item Type and location of taxiway exits from the runway.
-    \item Runway occupancy time.
-    \item Controller workload.
-    \item Noise-related constraints and other environmental considerations.
-\end{itemize}
-
-Two of the above mentioned factors are principal in determining airfield capacity, namely the wake vortex separation requirements and runway occupancy~\cite{kolos2013influence}. Those are in turn influenced by traffic mix, seasonal factors and runway exits, to mention a few. The following chapter~\ref{cha:methods} on Methods  will deal with some of those aspects. 
-
-\fxnote{equipment specifications in the tower that might influence the WTC separtarion decision-talk to Haraldur, Talk to Hjalti about the 2,5~-~3~NM MRS issue!}
-
-\section{Runway Occupancy and Landing Time Interval Study Objective}\label{sec:study_objective}
-The goal of examining the arrival runway occupancy times and the landing time intervals (LTI) is to determine whether the implementation of the RECAT-EU scheme at BIKF under certain conditions, would affect the throughput of the airfield. 
-LTI is the a measure of the time separation between aircraft pairs derived from the distance separation between the aircraft and the final approach speed (time travelled is distance travelled divided by velocity).
-% The LTI is directly influenced by the distance separation of arrival pairs and the final approach speed of the aircraft .
-Additionally the analysis could indicate whether the limiting element is the runway occupancy or the separation requirement. The proposed transition by Eurocontrol from ICAO WTS to RECAT-EU scheme suggests a decrease in distance separation for a number of the aircraft pairs (Table~\ref{tab:delta_distance_wtc2recat}).
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -256,29 +224,27 @@ Additionally the analysis could indicate whether the limiting element is the run
 \label{tab:delta_distance_wtc2recat}
 \end{table}
 
+The different category code names in this study will be referred to on a single letter basis for simplification e.g. "CAT-C" will be abbreviated to "C", "CAT-D" to "D", "Heavy" to "H", Medium to "M" and so forth. This applies to pair categories as well by abbreviating e.g. "CAT-C leader -- CAT-D follower"  to "C-D pair" or just "C-D", and "Medium--Medium" pair to "M-M".
+
+\section{Runway Occupancy Time\label{sec:ROT}}
+
+The Runway Occupancy Time (ROT) is defined by EUROCONTROL as the length of time that each aircraft occupies the runway~\cite{ROT_definition}. 
+This project focuses on Arrivals Runway Occupancy Time (AROT) in peak traffic hours, that is the time interval between the aircraft crossing the threshold and its tail vacating the runway~\cite{AROT_definition}. The threshold is the beginning of that portion of the runway that is available for landing.
+The peak traffic hours are characterised by the time intervals when the airport operates at high load. High load interval or window is at least 15 minutes in length and has four or more flights arriving or departing from Keflavík Airport. The time between flights during the high load interval is set at $\leq$4~minutes (Figure~\ref{fig:Peak_Diagram}). This value is based on statistical data by Isavia in order to achieve two distinct peak hours: one in the morning and one in the afternoon. The last flight in a high load window that fulfils these requirements is not considered to be a part of the peak as its behaviour is not affected by an instantaneous next flight after it. The AROT metric is essential for the project because a following aircraft is not allowed to land on the same runway before it has been vacated by the leading aircraft. The interval to the next landing aircraft is specified as the Landing Time Interval (LTI) which is directly linked to the inter-arrival distance or in other words the wake turbulence separation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/Peak_Diagram.png}
+    \caption[Rules defining a peak hour]{Rules used by Isavia to identify a high load interval as peak or not. The time separating each two aircraft in a peak cluster (red) is set as less than or equal to 4 minutes. The last red aircraft in the peak cluster is not counted as part of the peak. Cluster separators are defined as time intervals larger than four minutes.}
+    \label{fig:Peak_Diagram}
+\end{figure}
 
 
-% % Please add the following required packages to your document preamble:
-% % \usepackage{multirow}
-% % \usepackage{graphicx}
-% \begin{table}[]
-% \centering
-% \resizebox{\textwidth}{!}{%
-% \begin{tabular}{|c|c|c|c|c|c|c|c|}
-% \hline
-% \multicolumn{2}{|c|}{}                                          & \multicolumn{6}{c|}{Follower}                                                                                                             \\ \cline{3-8} 
-% \multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B                        & CAT-C & CAT-D                        & CAT-E                        & CAT-F                        \\ \hline
-%                                                         & CAT-A &       & \cellcolor[HTML]{67FD9A}-20s &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
-%                                                         & CAT-B &       &                              &       & \cellcolor[HTML]{67FD9A}-20s &                              & \cellcolor[HTML]{FD6864}+20s \\ \cline{2-8} 
-%                                                         & CAT-C &       &                              &       & \cellcolor[HTML]{67FD9A}-40s & \cellcolor[HTML]{67FD9A}-20s &                              \\ \cline{2-8} 
-%                                                         & CAT-D &       &                              &       &                              &                              &                              \\ \cline{2-8} 
-%                                                         & CAT-E &       &                              &       &                              &                              & \cellcolor[HTML]{67FD9A}-20s \\ \cline{2-8} 
-% \multirow{-6}{*}{Leader}                                & CAT-F &       &                              &       &                              &                              & \cellcolor[HTML]{FD6864}+20s \\ \hline
-% \end{tabular}
-% }
-% \caption[Time difference between reference ICAO and RECAT-EU schemes]{Time difference in wake separation on departure between reference ICAO and RECAT-EU schemes(full proposal) \cite{rooseleer2015recat}}
-% \label{tab:delta_times_wtc2recat}
-% \end{table}
+\section{Runway Occupancy and Landing Time Interval Study Objective}\label{sec:study_objective}
+The goal of examining the arrival runway occupancy times and the landing time intervals (LTI) is to determine whether the implementation of the RECAT-EU scheme at BIKF under certain conditions, would affect the throughput of the airfield. 
+LTI is the a measure of the time separation between aircraft pairs derived from the distance separation between the aircraft and the final approach speed (time travelled is distance travelled divided by velocity).
+% The LTI is directly influenced by the distance separation of arrival pairs and the final approach speed of the aircraft .
+Additionally the analysis could indicate whether the limiting element is the runway occupancy or the separation requirement. The proposed transition by Eurocontrol from ICAO WTS to RECAT-EU scheme suggests a decrease in distance separation for a number of the aircraft pairs (Table~\ref{tab:delta_distance_wtc2recat}).
 
 The implementation of RECAT shifts the wake separation minima for arrival and departure pairs thus creating the potential for reduced time separation between the aircraft. The reduction of the time interval between landings facilitates increase in the throughput capacity of the runways. 
 Figure~\ref{fig:AROT_LTI_rwy19_H_M} may be used to illustrate the hypothesis. The current ICAO time reference separation, indicated by the red vertical line for BIKF RWY-19 will be relocated to the left for some of the aircraft pairs under the RECAT scheme. This relocation will be more noticeable for RECAT C-C and C-D pairs formed from the ICAO HEAVY-MEDIUM pairs, in which case the separation is reduced from 5 NM to 3 NM. A shift of the reference separation line creates the potential for shift in the distribution of the LTI, as long as it does not overlap with the ROT. Furthermore study on the runway capacity of significantly larger airports~\cite{kolos2013influence} suggests that the frequency distribution of LTI tends to compress or squeeze to the right of the reference line with less standard deviation about the mean when the air traffic is intensified.
