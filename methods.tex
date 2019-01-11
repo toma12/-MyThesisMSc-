@@ -1,10 +1,10 @@
 
 
 \chapter{Methods\label{cha:methods}}
-Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy and landing intervals.
+Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy times and landing time intervals.
 
 \section{Data Collecting and Data Filtering}
-More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik International Airport because of improved signal accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
+More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik International Airport because of improved accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
 The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied before commencing measurements and calculations~\cite{isavia_wiki}: 
 \begin{itemize}
     \item All records with no latitude, longitude and/or time data are omitted.
@@ -23,11 +23,11 @@ Who measures and who checks them and how???}
 
 \section{Data Manipulation}
 The data was obtained from the database using SQL server and stored as csv files. The manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
-The reference table was provided by Eurocontrol. 
+The reference table was provided by EUROCONTROL. 
 The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
-After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF in peak hours. Outliers bellow the 0,003~quartile and above the 0,997~quartile were regarded as anomalies and removed from the data-set, based on AROT values. 
+After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF during peak hours. Outliers below the 0,003~quantile and above the 0,997~quantile were regarded as anomalies and removed from the data-set, based on AROT values. 
 The resulting data frame was used for initial analysis in this project. 
-It contained over 11500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake category. Consequently the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11 2018) because of the effect of fast-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
+It contained over 11.500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake turbulence category. Later in the project the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11.2018) because of the effect of rapid-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
 
 
 \subsection{Aircraft Traffic Mix\label{ssec:traffic_mix}}
@@ -52,44 +52,51 @@ The case from the traffic mix at BIKF presents the arrangement shown in Table~\r
 \end{table}
 
 
-The aircraft traffic mix is one of the components that affect runway capacity as mentioned in Section~\ref{sec:runway_capacity}. Sorting the aircraft fleet arriving at BIKF into ICAO WTC reveals that the majority of flights~(85,4\%) are in the Medium wake category (Figure~\ref{fig:post_fast_exit_mix_pie_v2}) and the rest are mainly in the Heavy category~(14,2\%) with less than one percent Light aircraft. The small portion of Light flights can be explained with the policy of ATM at BIKF to avoid servicing those flights during the morning and afternoon peaks. This distribution of the three categories implies that combining the aircraft into arriving pairs would produce primarily Medium-Medium (M-M) pairs. This is confirmed by the analysis of the number of arrival pairs in the ICAO categories (Table~\ref{tab:pairs_mix_to_wtc}).\\
-When this same fleet is presented using the RECAT categories, the prevailing category is CAT-C (73,7\%), followed by CAT-D (22,1\%). The percentage of each of the remaining categories varies within 2\%. The expectation that this distribution of the RECAT categories would result in primarily in C-C pairs is confirmed later on by the analysis presented in Table~\ref{tab:pairs_mix_to_recat}. \\
-The method of of re-categorising the traffic mix is a prerequisite for assembling the RECAT pairs later on and determining the main aircraft categories that will be considered for analysis along with estimating the inter arrival distances characteristic of each pair.
+The aircraft traffic mix is one of the components that affect runway capacity as mentioned in Section~\ref{sec:runway_capacity}. Sorting the aircraft fleet arriving at BIKF into ICAO WTC reveals that the majority of flights~(85,4\%) are in the Medium wake category (Figure~\ref{fig:post_fast_exit_mix_pie_v2}) and the rest are mainly in the Heavy category~(14,2\%) with less than one percent Light aircraft. The small portion of Light flights can be explained with the policy of ATM at BIKF to avoid servicing those flights during the morning and afternoon peaks. This distribution of the three categories implies that combining the aircraft into arriving pairs would produce primarily Medium-Medium (M-M) pairs. This is confirmed by the analysis of the number of arrival pairs in the ICAO categories (Table~\ref{tab:pairs_mix_to_wtc}).
+
+When this same fleet is presented using the RECAT-EU categories, the prevailing category is CAT-C (73,7\%), followed by CAT-D (22,1\%). The percentage of each of the remaining categories varies but does not exceed 2\%. The expectation that this distribution of the RECAT-EU categories would result in primarily in C-C pairs is confirmed later on by the numbers presented in Table~\ref{tab:pairs_mix_to_recat}. 
+
+The method of re-categorising the traffic mix is a prerequisite for assembling the RECAT-EU pairs later on and determining the main aircraft categories that will be considered for analysis along with estimating the inter arrival distance characteristic of each pair.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_post_fast_exit_mix_pie_v2.png}
-    \caption[Traffic mix in RECAT-EU and ICAO WTC]{The traffic mix at Keflavik Airport represented in RECAT-EU categories alongside ICAO WTC categories.}
+    \caption[Traffic mix in RECAT-EU and ICAO WTC]{The traffic mix at Keflavik Airport during peak hours, represented in RECAT-EU categories alongside ICAO WTC. The observed time period is 13 months starting October 2017.}
     \label{fig:post_fast_exit_mix_pie_v2}
 \end{figure}
-Another approach for classification of the traffic fleet mix at BIKF in peak hours is to identify the aircraft types or models. The traffic data contains ICAO aircraft type designator, that is a two-, three- or four-character code comprising of numbers and letters. This designator is unique for each aircraft type. The top fifteen ICAO types of the aircraft mix are presented in Figure~\ref{fig:traffic_mix_by_model}. Dominating the scene (56,8\% of all arrivals) is the Boeing~757-200 model (ICAO:B752), followed by the Boeing~767-300 (ICAO:B763).
+
+Another approach for classification of the traffic fleet mix at BIKF during peak hours is to identify the aircraft types or models. The traffic data contains ICAO aircraft type designator, which is a two-, three- or four-character code composed of numbers and letters. This designator is unique for each aircraft type. The top fifteen aircraft types of the aircraft mix with their ICAO and RECAT-EU categories are presented in Figure~\ref{fig:traffic_mix_by_model}. Dominating the scene (56,8\% of all arrivals) is the Boeing~757-200 model (ICAO: B752), followed by the Boeing~767-300 (ICAO: B763).
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_traffic_mix_by_model.png}
-    \caption[Traffic mix by aircraft model.]{The traffic mix at Keflavik Airport grouped by aircraft type are shown alongside the ICAO WTC and RECAT-EU designators. The top three models comprise the major part of the Icelandair fleet.}
+    \caption[Traffic mix by aircraft model.]{The traffic mix at Keflavik Airport during peak hours, grouped by aircraft type are shown alongside the ICAO WTC and RECAT-EU designators. The top three models comprise the major part of the Icelandair fleet. The observed time period is 13 months starting October 2107.}
     \label{fig:traffic_mix_by_model}
 \end{figure}
- Those models represent a major part of the Icelandair fleet and the share of the Boeing~737~MAX~8 (ICAO:B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018~\cite{icelandair_fleet}. The aircraft types are shown with their ICAO and RECAT categories and the tendency is towards increasing the share of the Medium-Medium pairs, or the C-D and D-C RECAT pairs respectively, with the addition of the new Icelandair aircraft.
+
+ Those models represent a major part of the Icelandair fleet and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018~\cite{icelandair_fleet}. The tendency is towards increasing the share of the Medium-Medium pairs, or the C-D and D-C RECAT-EU pairs respectively, with the addition of the new Icelandair aircraft.
 
 % -----------------------
 
 \subsection{Arrival Runway Occupancy Time Considerations}\label{ssec:AROT_considerations} 
 
-The ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that the radar separation minimum (MRS) between succeeding aircraft which are established on the same final approach track, may be reduced from 3~NM to 2,5~NM under certain conditions. One of the requirements is that the average runway occupancy time of landing aircraft is proven, by means such as data collection and statistical analysis and methods based on theoretical model, not to exceed 50 seconds. 
+The ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that the radar separation minimum (MRS) between succeeding aircraft which are established on the same final approach track, may be reduced from 3~NM to 2,5~NM under certain conditions. One of the requirements is that the average runway occupancy time of landing aircraft is proven, by means such as data collection and statistical analysis and/or methods based on theoretical models, not to exceed 50 seconds. 
 
 \subsubsection{Traffic Mix and AROT\label{sssec:mix_effect_arot}}
-Several approaches were used to look at the AROT at the airfield. First the runway occupancy was inspected based on the RECAT category of the aircraft (Figure~\ref{fig:RECAT_AROTs_boxplot}). 
+Several approaches were used to look at the AROT at the airfield. First the runway occupancy was inspected based on the RECAT-EU category of the aircraft (Figure~\ref{fig:RECAT_AROTs_boxplot}). 
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_RECAT_AROTs_boxplot.png}
-    \caption[AROTs box-plot for RECAT categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period of one year since October 2017. The coloured blocks indicate where 50\% of the data are or the inter-quartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile, upper edge is the 75\textsuperscript{th}~percentile. The whiskers are at $\pm$1,5$\times$IQR.  The box plot shows the AROTs for all runways at BIKF.}
+    \caption[AROTs box-plot for RECAT-EU categories, all runways]{Arrival Runway Occupancy Times for the different RECAT-EU categories based on data gathered for a period 13 months since October 2017. The coloured blocks indicate where 50\% of the data are located, or the inter-quartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile (Q1), upper edge is the 75\textsuperscript{th}~percentile (Q3). The whiskers are at Q1-1,5$\times$IQR and Q3+1,5$\times$IQR.  The box plot shows the AROTs for all runways at BIKF during peak hours.}
     \label{fig:RECAT_AROTs_boxplot}
 \end{figure}
-The analysis showed that none of the average runway occupancy values fulfils the 50~seconds limit for reduced MRS. Closest to the required time were the aircraft from the CAT-D and CAT-C with mean values of 75 and 78 seconds respectively (Table~\ref{tab:AROT_RECAT_stats}). Those results point to the necessity of setting the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
+
+The analysis showed that none of the average runway occupancy values fulfils the 50~seconds limit for reduced MRS. Closest to the required time were the aircraft from the CAT-D and CAT-C with mean values of 75 and 78 seconds respectively, as described in Appendix~\ref{app:AROTs} (Table~\ref{tab:AROT_RECAT_stats}). Those results point to the necessity of setting the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
 
 \subsubsection{Seasonal Variation of AROT\label{sssec:seasonal_arot}}
-Another approach was to analyse the seasonal variations of the runway occupancy. The differentiation between summer and winter months was based on AROT for a period of one year (Table~\ref{tab:month2season_arot}). Months with average AROT~$\leq$80~seconds formed the summer season and the rest were selected as winter months. This separation is purely subjective but succeeds in forming two seasons with equal number of months. On average the seasonal variation of runway occupancy times was eight seconds as seen in Table~\ref{tab:summer_winter_arot}. Sill the seasonal variation should be taken into consideration as they can effect the AROT significantly, especially in the winter months when adverse weather conditions could impair the runway surface by accumulated slush, snow or ice, thus diminishing braking action. Good braking action due to runway surface condition is also one of the requirements for reduced MRS as provided by the procedures for navigation services of Air Traffic Management~\cite{doc44444}.
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+Another approach was to analyse the seasonal variations of the runway occupancy. The differentiation between summer and winter months was based on AROT for a period of one year (Table~\ref{tab:month2season_arot}). Months with average AROT~$\leq$80~seconds formed the summer season and the rest were selected as winter months. This separation is purely subjective but succeeds in forming two seasons with equal number of months. On average the seasonal variation of runway occupancy times was eight seconds as seen in Table~\ref{tab:summer_winter_arot}. Still the seasonal variation should be taken into consideration as it can affect the AROT significantly, especially in the winter months when adverse weather conditions may impair the runway surface by accumulated slush, snow or ice, thus diminishing braking action. Good braking action due to runway surface condition is also one of the requirements for reduced MRS as provided by the procedures for navigation services of Air Traffic Management~\cite{doc44444}.
+
 \begin{table}[h]
 \centering
 \resizebox{0.8\textwidth}{!}{%
@@ -101,21 +108,31 @@ Another approach was to analyse the seasonal variations of the runway occupancy.
 \multicolumn{1}{|l|}{WINTER} & \multicolumn{1}{r|}{937}  & 84  & 20 & 45 & 69  & 84 & 96  & 153 \\ \hline
 \end{tabular}%
 }
-\caption[AROTs for the air traffic mix by season]{AROT statistics for the air traffic mix at KEF by season. The count is the number of landings in peak hours since October 2017}
+\caption[AROTs for the air traffic mix by season]{AROT statistics for the air traffic mix at BIKF by season. The count is the number of landings during peak hours over a 13 month period starting October 2017.}
 \label{tab:summer_winter_arot}
 \end{table}
 
 \subsubsection{Runway Usage and AROT\label{sssec:runway_usage_arot}}
-Runway occupancy for each of the runways was also examined both with regards to seasonal variations and fast-exit usage. The usage of the four runways in peak hours is shown in Figure~\ref{fig:runway_usage_peak}. 
+Runway occupancy for each of the runways was also examined both with regard to seasonal variations and rapid-exit taxiway usage. The usage of the four runways during peak hours is shown in Figure~\ref{fig:runway_usage_peak}. 
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_peak.png}
-    \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of one year. RWY-19 is the preferred runway, followed by RWY-01 and RWY-10. The RWY-01 is equipped with fast-exit TWY~A-1 and RWY-28 with fast-exit TWY~B-1.}
+    \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of 13 months starting October 2107. RWY-19 is the most frequently used runway, followed by RWY-01 and RWY-10. The RWY-01 is connected to rapid-exit TWY~A-1 and RWY-28 to rapid-exit TWY~B-1.}
     \label{fig:runway_usage_peak}
 \end{figure}
-BIKF airfield is equipped currently with two fast-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July,~2017 and the later on 4~October,~2017. The day that A-1 became operational was chosen as the beginning for the data set considered for analysis in this project. The reason behind this is the beneficial effect that fast-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a fast-exit track to the left for RWY-01, in the south-north landing direction, and B-1 serves RWY-28 exiting to the right in the east-west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This decrease was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the fast exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the fast-exit was avoided altogether in peak hours.\\
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
+BIKF airfield is currently equipped with two rapid-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July~2017 and the latter on 4~October~2017. The day that A-1 became operational was chosen as the starting time for the data set considered for analysis in this project. The reason behind this is the beneficial effect that rapid-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a rapid-exit track to the left for RWY-01, in the north landing direction, and B-1 serves RWY-28 exiting to the right in the west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This decrease was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the rapid-exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit was avoided altogether during peak hours.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/BIKF_schematic.png}
+    \caption[BIKF schematic]{BIKF schematic with four marked runways in perpendicular configuration (dashed yellow lines) and two rapid-exit taxiways (red arrows): TWY~A-1 on RWY~01 and TWY~B-1 on RWY~28 (source:~ Isavia).}
+    \label{fig:BIKF_schematic}
+\end{figure}
+
+Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 10,1$\%$ share of landing aircraft (Figure~\ref{fig:runway_usage_peak}). The preferred runway was RWY~19, servicing 37,8$\%$ of the arrivals. A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds.
+
 \begin{table}[]
 \centering
 \resizebox{0.8\textwidth}{!}{%
@@ -129,16 +146,17 @@ BIKF airfield is equipped currently with two fast-exit taxiways designated as TW
 \multicolumn{1}{|l|}{RWY 28} & 470 & 69 & 14 & 49 & 61 & 66 & 74 & 155 \\ \hline
 \end{tabular}%
 }
-\caption[AROTs in peak hours by runway]{AROT statistics for the air traffic mix at BIKF in peak hours by runway. The count is the number of landings in peak hours.}
+\caption[AROTs during peak hours by runway]{AROT statistics for the air traffic mix at BIKF during peak hours by runway. The count is the number of landings during peak hours from October 2017 to November 2018.}
 \label{tab:all_RWY_AROT_stats}
 \end{table}
-Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 10,1$\%$ share of landing aircraft (Figure~\ref{fig:runway_usage_peak}). The preferred runway was RWY~19, servicing 37,8$\%$ of the arrivals. A statistical summary for all the runways is shown in Figure~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds.
 
 
 % ---------------------------
 \subsection{Landing Time Interval}\label{ssec:LTI}
-The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI required to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised and assigned RECAT designator.\\
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{ssec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M) as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium groups (H-H, H-M, M-H). Those four pair types formed the subset of data to be further analysed and split into RECAT categories. The rest of the pairs containing a Light aircraft were discarded as being inconsistent because of their limited number. 
+The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI requires to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised and assigned a RECAT-EU designator.
+
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{ssec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M) as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium groups (H-H, H-M, M-H). Those four pair types formed the subset of data to be further analysed and split into RECAT-EU categories. The rest of the pairs containing a Light aircraft were discarded as being inconsistent because of their limited number. 
+
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 % \usepackage{graphicx}
@@ -156,19 +174,22 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 \multicolumn{1}{|c|}{\multirow{-3}{*}{\rotatebox[origin=c]{90}{Leader}}} & L & \cellcolor[HTML]{FFFFC7}3 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 \\ \hline
 \end{tabular}%
 }
-\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF arranged into the corresponding wake categories.}
+\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The observation period is from October 2017 to November 2018.}
 \label{tab:pairs_mix_to_wtc}
 \end{table}
 
-The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC} ~\cite{rooseleer2015recat}. The probability distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation.  \fxnote{Why are some data to the left of the red line???}
+The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC} ~\cite{rooseleer2015recat}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation. 
+
+\fxnote{Why are some data to the left of the red line???}
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of distance separation for ICAO pairs]{Distribution of the WTC distance separation between selected ICAO pair categories. The red reference line indicates the separation minima for the particular pair category.}
+    \caption[Distribution of distance separation for ICAO pairs]{Distribution of the WTC distance separation between selected ICAO pair categories. The red reference line indicates the separation minima for the particular pair category. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval, that indicates whether AROT or the separation requirement is a limiting factor for airfield capacity. As stated in the study objective \ref{sec:study_objective} the LTI measures the time separation between aircraft calculated from the distance separation and the final approach speed. This measurement was done for each of the observed pairs and presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
+Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval, that indicates whether AROT or the separation requirement is a limiting factor for airfield capacity. As stated in the study objective \ref{sec:arot_and_study_objective} the LTI measures the time separation between aircraft calculated from the distance separation and the final approach speed. This measurement was done for each of the observed pairs and presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
