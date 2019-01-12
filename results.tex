@@ -4,38 +4,12 @@
 % difficult, or an important learning experience, put it here.  This is
 % also a good place to put additional figures and data.}{}
 
-The results chapter deals with presenting the different metrics discussed so far, within the RECAT-EU scheme. The data subset for the analysis was limited to four pair categories from the ICAO scheme: H-H, H-M, M-H, M-M. This simplification was done in order to filter out the small number of data points for the other pairs, insufficient for any valid estimations. 
+The results chapter deals with presenting the different metrics discussed so far, within the RECAT-EU scheme. The data subset for the analysis was limited to four pair categories from the ICAO scheme: H-H, H-M, M-H and M-M. This simplification was done in order to filter out the small number of data points for other pairs, insufficient for any valid estimations of the distribution of inter-arrival distance or the landing time intervals. 
 
-Each of the ICAO pairs were re-categorised, the data-set was reduced once more, again filtering out the pair categories with insufficient number of data points. 
 The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The LTI and AROT for particular pairs were compared to identify the limiting factor for throughput capacity, using the method already introduced in section \ref{ssec:LTI}.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{cc|c|c|c|c|c|c|}
-\cline{3-8}
-\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{6}{c|}{Follower} \\ \cline{3-8} 
-\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
-\multicolumn{1}{|c|}{} & CAT-A &  &  &  & \cellcolor[HTML]{FFFFC7}1 &  &  \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-B &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}17 & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}2 &  \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-C &  & \cellcolor[HTML]{FFFC9E}19 & \cellcolor[HTML]{FD6864}1697 & \cellcolor[HTML]{FE996B}242 & \cellcolor[HTML]{FFCE93}41 & \cellcolor[HTML]{FFFC9E}14 \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-D & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FE996B}229 & \cellcolor[HTML]{FE996B}200 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FFFFC7}5 \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-E &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFCE93}44 & \cellcolor[HTML]{FFFFC7}10 &  &  \\ \cline{2-8} 
-\multicolumn{1}{|c|}{\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}} & CAT-F &  &  & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}10 & \cellcolor[HTML]{FFFFC7}1 &  \\ \hline
-\end{tabular}%
-}
-\caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The majority of arrival pairs are classified as C-C. The observation period is from October 2017 to November 2018.}
-\label{tab:pairs_mix_to_recat}
-\end{table}
-
 \section{Inter-arrival Distance Separation of RECAT-EU pairs}\label{sec:interarrival_dist_sep_RECAT}
-The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation are presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in \ref{ssec:traffic_mix}, most of the aircraft combined into C-C pairs. The rest of the more significant traffic pairs were variations from CAT-C, CAT-D and CAT-E categories.\\
-The resulting pairs from the ICAO H-H pairs were re-categorised primarily as C-C (87,5\%) and C-B (10,7\%) into the RECAT-EU scheme (Table~\ref{fig:HH_to_RECAT_pairs_dist_separ}). It is apparent that for those pairs the RECAT-EU scheme would decrease the required separation minima by one nautical mile (from 4 NM to 3 NM). The share of the H-H pairs was 2,2\% of all observed pairs at BIKF.
+The resulting pairs from the ICAO H-H pairs were re-categorised primarily as C-C (87,5\%) and C-B (10,7\%) into the RECAT-EU scheme (Table~\ref{fig:HH_to_RECAT_pairs_dist_separ}). It is apparent that for those two pairs the RECAT-EU scheme would decrease the required separation minima by one nautical mile (from 4 NM to 3 NM). The share of the H-H pairs was 2,2\% of all observed pairs at BIKF.
 
 \begin{figure}[h]
     \centering
@@ -44,7 +18,7 @@ The resulting pairs from the ICAO H-H pairs were re-categorised primarily as C-C
     \label{fig:HH_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-For the aircraft pairs of the ICAO H-M category the transition to the RECAT-EU scheme will decrease the separation minima requirements more noticeably. The reduction for aircraft pairs that were re-categorised as B-C or B-D category is from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Here again the C-C pairs were predominant with 73,8\% and C-D pairs with 10,8\%. The share of the B-C and B-D pairs was around 5\%. Provided that the MRS requirements allow for reduced minima, the D-D pairs from the ICAO H-M pair category would have potentially 2,5~NM reduction, but only three of those pairs were present in the observed data subset (Figure~\ref{fig:HM_to_DD_pairs_dist_separ}). The share of the H-M pair category from the whole BIKF traffic during peak hours is 12,9\%.
+For the aircraft pairs of the ICAO H-M category, the transition to the RECAT-EU scheme will decrease the separation minima requirements more significantly. The reduction for aircraft pairs that were re-categorised as B-C or B-D category is from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Here again the C-C pairs were predominant with 73,8\% and C-D pairs with 10,8\%. The share of the B-C and B-D pairs was around 5\%. Provided that the MRS requirements allow for reduced minima, the D-D pairs from the ICAO H-M pair category would potentially result in 2,5~NM reduction, but only three of those pairs were present in the observed data subset (Figure~\ref{fig:HM_to_DD_pairs_dist_separ}). The share of the H-M pair category from the whole BIKF traffic during peak hours is 12,9\%.
 
 \begin{figure}[h]
     \centering

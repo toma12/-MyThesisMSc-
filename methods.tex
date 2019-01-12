@@ -1,10 +1,18 @@
 
 
 \chapter{Methods\label{cha:methods}}
-Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis. The statistical analysis for this project was done in Python and used to determine the fleet mix at BIKF, runway occupancy times and landing time intervals.
+ 
 
 \section{Data Collecting and Data Filtering}
-More detailed data collection commences on 21 November 2014 with the implementation of the Automatic Dependent Surveillance-Broadcast (ADS-B) system by Isavia. ADS-B was preferred to radar at Keflavik International Airport because of improved accuracy~\cite{isavia_wiki}. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}.
+Isavia deploys the Automatic Dependent Surveillance-Broadcast (ADS-B) system \cite{ads_b} on 21~November~2014. ADS-B is a surveillance technology that determine the position of aircraft via navigation satellites, combines that position with other aircraft data items, such as air speed, magnetic heading, altitude and flight number and broadcast this information simultaneously to other ADS-B capable aircraft and to ADS-B ground stations. The information is then relayed to Air Traffic Control centres in real time. ADS-B was preferred to radar at Keflavik International Airport because of improved accuracy~\cite{isavia_wiki}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}. The standard data items for transmissions of ADS-B are defined in Appendix~\ref{app:adsb_items}.
+\fxnote{what data is relevant to this study, maybe show part of data table}
+
+
+The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}.
+
+Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis.
+
+
 The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied before commencing measurements and calculations~\cite{isavia_wiki}: 
 \begin{itemize}
     \item All records with no latitude, longitude and/or time data are omitted.
@@ -22,7 +30,12 @@ The reading from the position of the ADS-B antenna of the aircraft is used inste
 Who measures and who checks them and how???}
 
 \section{Data Manipulation}
-The data was obtained from the database using SQL server and stored as csv files. The manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
+
+The statistical analysis of the data for this project was done in Python~3~\cite{python} programming language with the use of Jupyter Notebook~\cite{jupyter}, an open-source web application.
+
+with the and used to determine the fleet mix at BIKF, frequency distributions of the runway occupancy times and the landing time intervals.
+
+The data was obtained from the database using MySQL and stored as csv files. The manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
 The reference table was provided by EUROCONTROL. 
 The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
 After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF during peak hours. Outliers below the 0,003~quantile and above the 0,997~quantile were regarded as anomalies and removed from the data-set, based on AROT values. 
@@ -153,9 +166,9 @@ Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 
 
 % ---------------------------
 \subsection{Landing Time Interval}\label{ssec:LTI}
-The landing time interval (LTI) in this project is also referred to as inter-arrival time. The method used to determine the LTI requires to examine the aircraft in pairs - a leader and a follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised and assigned a RECAT-EU designator.
+The method used to determine the landing time interval (LTI) requires the examination of aircraft pairs -- i.e. leader and follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised and assigned a RECAT-EU designator.
 
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{ssec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M) as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium groups (H-H, H-M, M-H). Those four pair types formed the subset of data to be further analysed and split into RECAT-EU categories. The rest of the pairs containing a Light aircraft were discarded as being inconsistent because of their limited number. 
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{ssec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M) as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories -- H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and split into RECAT-EU categories. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -178,7 +191,7 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 \label{tab:pairs_mix_to_wtc}
 \end{table}
 
-The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC} ~\cite{rooseleer2015recat}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation. 
+The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation minima. 
 
 \fxnote{Why are some data to the left of the red line???}
 \begin{figure}[h]
@@ -188,14 +201,42 @@ The ICAO WTC scheme specifies a distance separation minima as prescribed in  Tab
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval, that indicates whether AROT or the separation requirement is a limiting factor for airfield capacity. As stated in the study objective \ref{sec:arot_and_study_objective} the LTI measures the time separation between aircraft calculated from the distance separation and the final approach speed. This measurement was done for each of the observed pairs and presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
+Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As stated in the study objective \ref{sec:arot_and_study_objective} the LTI quantifies the time separation between aircraft in a pair, calculated from the distance separation and the final approach speed of the following aircraft. This measurement was computed for each of the observed pairs and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. 
+
+The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of inter-arrival time separation for ICAO pairs]{Distribution of inter-arrival time separation for selected ICAO pair categories. The red line indicates a liberal time reference estimate for the particular pair category.}
+    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{Distribution of of landing time interval (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for the particular pair category. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
     \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
+
+Each of the ICAO pairs were re-categorised, the data-set was reduced by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in \ref{ssec:traffic_mix}, most of the aircraft combined into C-C pairs. The rest of the more significant traffic pairs were variations from CAT-C, CAT-D and CAT-E categories.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{6}{c|}{Follower} \\ \cline{3-8} 
+\multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+\multicolumn{1}{|c|}{} & CAT-A &  &  &  & \cellcolor[HTML]{FFFFC7}1 &  &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-B &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}17 & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}2 &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-C &  & \cellcolor[HTML]{FFFC9E}19 & \cellcolor[HTML]{FD6864}1697 & \cellcolor[HTML]{FE996B}242 & \cellcolor[HTML]{FFCE93}41 & \cellcolor[HTML]{FFFC9E}14 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-D & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FE996B}229 & \cellcolor[HTML]{FE996B}200 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FFFFC7}5 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-E &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFCE93}44 & \cellcolor[HTML]{FFFFC7}10 &  &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}} & CAT-F &  &  & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}10 & \cellcolor[HTML]{FFFFC7}1 &  \\ \hline
+\end{tabular}%
+}
+\caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The vast majority of arrival pairs are classified as C-C. The observation period is from October 2017 to November 2018.}
+\label{tab:pairs_mix_to_recat}
+\end{table}
 
 
 
