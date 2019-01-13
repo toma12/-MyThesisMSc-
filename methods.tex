@@ -4,23 +4,36 @@
  
 
 \section{Data Collecting and Data Filtering}
-Isavia deploys the Automatic Dependent Surveillance-Broadcast (ADS-B) system \cite{ads_b} on 21~November~2014. ADS-B is a surveillance technology that determine the position of aircraft via navigation satellites, combines that position with other aircraft data items, such as air speed, magnetic heading, altitude and flight number and broadcast this information simultaneously to other ADS-B capable aircraft and to ADS-B ground stations. The information is then relayed to Air Traffic Control centres in real time. ADS-B was preferred to radar at Keflavik International Airport because of improved accuracy~\cite{isavia_wiki}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}. The standard data items for transmissions of ADS-B are defined in Appendix~\ref{app:adsb_items}.
-\fxnote{what data is relevant to this study, maybe show part of data table}
+Isavia deploys the Automatic Dependent Surveillance-Broadcast (ADS-B) system \cite{ads_b} on 21~November~2014. ADS-B is a surveillance technology used to determine the position of aircraft via navigation satellites, combines that position with other aircraft data items, such as air speed, magnetic heading, altitude and flight number and broadcast this information simultaneously to other ADS-B capable aircraft and to ADS-B ground stations. The information is then relayed to Air Traffic Control centres in real time. The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}. ADS-B was preferred to radar at Keflavik International Airport because of improved accuracy~\cite{isavia_wiki}. The aircraft surveillance data specifications used for measurements are in the Eurocontrol ASTERIX Category 21 standard~\cite{ASTERIX_ADS-B_specs}. The standard data items for transmissions of ADS-B are defined in Appendix~\ref{app:adsb_items}.
+All the information from the ADS-B transmissions on flights passing through the airspace monitored and controlled by Isavia is stored on the company's database servers, for reference and analysis.\fxnote{Hvaða database?
+Hver heldur utan um hann og hvar er hann geymdur?-Atli}
 
+The data relevant to this study provides information about the arriving flights at Keflavík International Airport during peak hours from the last four years, starting January~1,~2015. The information on flights includes data items such as aircraft type, wake turbulence category, final approach speed, landing time, runway and taxiway and AROT~(Table~\ref{tab:sample_df}).
 
-The ADS-B equipped aircraft through Keflavik Airport are estimated to be around~$90\%$~\cite{isavia-rounardeild_rannsoknir_2018}.
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllllllll}
+id & name & ICAO & WTC & AROT & runway & taxiway & peak & landing & threshold\_speed & final\_approach\_speed \\ \hline
+13 & Boeing 767-300 & B763 & H & 42.953 & RWY 01 & TWY A-1 & Y & 2018-11-14 15:17:57 & 147.696 & 169.179 \\
+13 & Boeing 767-300 & B763 & H & 75.594 & RWY 01 & TWY RWY 28 & Y & 2018-11-14 15:21:16 & 142.051 & 171.158 \\
+150 & Boeing 757-200 & B752 & M & 55.852 & RWY 19 & TWY S-2 & Y & 2018-11-14 15:26:06 & 135.372 & 154.001 \\
+107 & Boeing 757-300 & B753 & M & 59.288 & RWY 19 & TWY S-2 & Y & 2018-11-14 15:29:49 & 142.973 & 153.118 \\
+79 & Raytheon Hawker 800 & H25B & M & 93.391 & RWY 19 & TWY S-1 & Y & 2018-11-14 17:40:12 & 119.583 & 171.378
+\end{tabular}%
+}
+\caption[Sample data frame table from arrivals at BIKF during peak hours]{Abridged sample of the data frame table from the arrivals at BIKF during peak hours used for the analysis in this study.}
+\label{tab:sample_df}
+\end{table}
 
-Data collection on flights passing through the airspace monitored and controlled by Isavia has been going on for several years now. This data is filtered and stored on company servers for reference and analysis.
-
-
-The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied before commencing measurements and calculations~\cite{isavia_wiki}: 
+The reading from the position of the ADS-B antenna of the aircraft is used instead of the tail and nose positions when determining the AROT for example. This simplification could result in a few seconds difference. Certain filtering of the ADS-B data is applied by Isavia \fxnote{how to formulate this - ask Atli, filtering, who does what} before commencing measurements and calculations, such as~\cite{isavia_wiki}: 
 \begin{itemize}
     \item All records with no latitude, longitude and/or time data are omitted.
     \item The records are filtered with regards to quality, i.e. filtered with regards to Target Surveillance status, MOPS version, NUC/NIC, NACp, SIL and PIC.
     \item An ADS-B data record within 0,5~second from another is omitted, i.e. if there are less than 0,5~seconds between two successive locations one of the records is omitted.
     \item An algorithm is used to analyse the data and determine if it originates from two different flights (the flight stops for 15 minutes or more after/before taxiing). If so the data for the second flight is omitted
     \item The velocity is calculated from ADS-B location data and ADS-B time data (velocity = distance travelled/time). The ADS-B velocity record is optional in the ASTERIX category 21 standard and is therefore unreliable in measurements. Since the velocity is calculated from measured data, it can exhibit spikes. To get a more realistic velocity curve, a Savitzky-Golay filter is applied to smooth the data.
-    \item An aircraft main gear lift-off is considered to be the point where the ADS-B ground bit is removed, i.e. the ADS-B ground bit goes from a value of 1 to a value of 0.
+    \item An algorithm is used to analyse the ADS-B data and estimate the runway occupancy time (ROT) from timestamp and/or location.
     \item An aircraft touchdown is considered to be the point where the ADS-B ground bit is set, i.e. the ADS-B ground bit goes from a value of 0 to a value of 1.
     \item An aircraft is considered to be stationary when the velocity is below 0,5~knots and to be moving if the velocity is greater than 0,5~knots.
     
@@ -31,16 +44,31 @@ Who measures and who checks them and how???}
 
 \section{Data Manipulation}
 
-The statistical analysis of the data for this project was done in Python~3~\cite{python} programming language with the use of Jupyter Notebook~\cite{jupyter}, an open-source web application.
+The statistical computations for this project were done in Python~3~\cite{python} programming language through the use of Jupyter Notebook~\cite{jupyter}, an open-source web application. The data was read from a MySQL~\cite{mysql} server into a data frame and the manipulations on the data frame were performed using the functionality of Pandas~\cite{pandas} and NumPy~\cite{numpy} data analysis tools and computing packages for Python.
 
-with the and used to determine the fleet mix at BIKF, frequency distributions of the runway occupancy times and the landing time intervals.
+A key table containing information about 2300 aircraft models, including ICAO type designator and RECAT-EU wake turbulence categories for each model, was also used as reference (Table~\ref{tab:sample_key_RECAT}). The reference table was provided to Isavia by EUROCONTROL. 
 
-The data was obtained from the database using MySQL and stored as csv files. The manipulations on the data frames were performed using the functionality of Pandas and NumPy data analysis tools and computing packages for Python. A key table containing information about 2300 aircraft models, including ICAO and RECAT-EU wake turbulence categories for each model, was also used as reference. 
-The reference table was provided by EUROCONTROL. 
-The Isavia aircraft data was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels, the mutual characteristic in both data sets. 
-After cross-referencing a RECAT-EU category was assigned to each of the aircraft arriving at BIKF during peak hours. Outliers below the 0,003~quantile and above the 0,997~quantile were regarded as anomalies and removed from the data-set, based on AROT values. 
-The resulting data frame was used for initial analysis in this project. 
-It contained over 11.500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO wake turbulence category. Later in the project the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11.2018) because of the effect of rapid-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{0.7\textwidth}{!}{%
+\begin{tabular}{lllll}
+\multicolumn{1}{c}{Manufacturer} & \multicolumn{1}{c}{Model} & \multicolumn{1}{c}{ICAO Type Designator} & \multicolumn{1}{c}{WTC} & \multicolumn{1}{c}{RECAT-EU} \\ \hline
+AIRBUS & A-350-1000 XWB & A35K & H & CAT-B \\
+CESSNA & A-37 Dragonfly & A37 & L & CAT-F \\
+AIRBUS & A-380-800 & A388 & H & CAT-A \\
+SATIC & A-300ST Beluga & A3ST & H & CAT-C \\
+SINGAPORE & A-4 Super Skyhawk & A4 & M & CAT-F
+\end{tabular}%
+}
+\caption[Eurocontrol key reference table]{Abridged sample of the key reference table from EUROCONTROL used for assigning a RECAT-EU category to aircraft.}
+\label{tab:sample_key_RECAT}
+\end{table}
+
+The information on arriving flights at BIKF during peak hours was cross-referenced with the Eurocontrol key table based on ICAO aircraft type labels -- the mutual characteristic in both data tables. After cross-referencing a RECAT-EU category was assigned to each of the aircraft models.
+
+The data-set was filtered from unreliable information bits after examining the distribution of the arrival runway occupancy times -- one of the key metrics in this project. Outliers below the 0,003~quantile and above the 0,997~quantile were regarded as anomalies and removed from the data-set. The AROT in the data-set now contained values between 45 seconds and 156 seconds. The resulting data frame was used for initial analysis in this project. It contained over 11.500 arrivals for the time period of almost four years (from 01.01.2015 until 30.11.2018). The data frame contained unique information about the AROT of each aircraft, landing time and runway, along with the ICAO and RECAT-EU wake turbulence category. Later in the project the time frame for the analysis was reduced to 13 months (from 04.10.2017 to 30.11.2018) because of the effect of rapid-exits on AROT, which is explained in the upcoming section \ref{sssec:runway_usage_arot}
 
 
 \subsection{Aircraft Traffic Mix\label{ssec:traffic_mix}}
@@ -83,11 +111,11 @@ Another approach for classification of the traffic fleet mix at BIKF during peak
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_traffic_mix_by_model.png}
-    \caption[Traffic mix by aircraft model.]{The traffic mix at Keflavik Airport during peak hours, grouped by aircraft type are shown alongside the ICAO WTC and RECAT-EU designators. The top three models comprise the major part of the Icelandair fleet. The observed time period is 13 months starting October 2107.}
+    \caption[Traffic mix by aircraft type.]{The traffic mix at Keflavik Airport during peak hours, grouped by aircraft type are shown alongside the ICAO WTC and RECAT-EU designators. The top three type comprise the major part of the Icelandair fleet. The observed time period is 13 months starting October 2107.}
     \label{fig:traffic_mix_by_model}
 \end{figure}
 
- Those models represent a major part of the Icelandair fleet and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018~\cite{icelandair_fleet}. The tendency is towards increasing the share of the Medium-Medium pairs, or the C-D and D-C RECAT-EU pairs respectively, with the addition of the new Icelandair aircraft.
+ Those aircraft types represent a major part of the Icelandair fleet and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018~\cite{icelandair_fleet}. The tendency is towards increasing the share of the Medium-Medium pairs, or the C-D and D-C RECAT-EU pairs respectively, with the addition of the new Icelandair aircraft.
 
 % -----------------------
 
