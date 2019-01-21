@@ -41,7 +41,7 @@ Another approach for classification of the traffic fleet mix at BIKF during peak
     \label{fig:traffic_mix_by_model}
 \end{figure}
 
- Those aircraft types represent a major part of the Icelandair fleet~\cite{icelandair_fleet} and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018. Flights operated by Icelandair for the observed period are 76.2\% of all arrivals during peak hours and 6,3\% of those are B38M flights. The tendency is towards increasing the share of the Medium WTC (or the CAT-D RECAT-EU category respectively), with the addition of the new aircraft to the Icelandair fleet.
+ Those aircraft types represent a major part of the Icelandair fleet~\cite{icelandair_fleet} and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018. Flights arriving during peak hours for the observed period and operated by Icelandair are 76.2\% with 6,3\% of those being B38M flights. The tendency is towards increasing the share of the Medium WTC (or the CAT-D RECAT-EU category respectively), with the addition of the new aircraft to the Icelandair fleet.
 
 
 \section{Arrival Runway Occupancy Time Considerations}\label{sec:AROT_considerations} 
@@ -101,16 +101,50 @@ Another approach was to analyse the seasonal variations of the runway occupancy 
 \end{table}
 
 \subsection{Runway Usage and AROT\label{ssec:runway_usage_arot}}
-Runway occupancy for each of the runways was also examined both with regard to seasonal variations and rapid-exit taxiway usage. The usage of the four runways during peak hours is shown in Figure~\ref{fig:runway_usage_peak}. 
+Runway usage for each of the runways was also examined both with regard to seasonal variations and rapid-exit taxiway usage. The usage of the four runways during peak hours is shown in Figure~\ref{fig:runway_usage_peak}. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/fig_runway_usage_peak.png}
-    \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of 14 months starting October 2107. RWY-19 is the most frequently used runway, followed by RWY-01 and RWY-10. The RWY-01 is connected to rapid-exit TWY~A-1 and RWY-28 to rapid-exit TWY~B-1.}
+    \caption[Runway usage at BIKF during peak hours]{Runway usage at BIKF during peak hours for a period of 14 months starting October 2017. RWY-19 is the most frequently used runway, followed by RWY-01 and RWY-10. The RWY-01 is connected to rapid-exit TWY~A-1 and RWY-28 to rapid-exit TWY~B-1.}
     \label{fig:runway_usage_peak}
 \end{figure}
 
-BIKF airfield is currently equipped with two rapid-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July~2017 and the latter on 4~October~2017. The day that A-1 became operational was chosen as the starting time for the data set considered for analysis in this project. The reason behind this is the beneficial effect that rapid-exits have on reducing arrival runway occupancy time. Taxiway A-1 provides a rapid-exit track to the left for RWY-01, in the north landing direction, and B-1 serves RWY-28 exiting to the right in the west direction. The statistical analysis points to decreased AROT on average for RWY-01 after the start of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). This decrease was primarily during the winter season (12 seconds) but trivial for the summer months. The data for RWY-28 presented a different picture. The average AROT has been reduced by 31 seconds for the summer months and by 37 seconds for the winter, after the implementation of the rapid-exit (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). The minor gain of RWY~01 with TWY~A-1 can be explained with its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit was avoided altogether during peak hours.
+BIKF airfield is currently equipped with two rapid-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July~2017 and the latter on 4~October~2017. Taxiway A-1 provides a rapid-exit track to the left for RWY-01, in the north landing direction, and B-1 serves RWY-28 exiting to the right in the west direction. The day that B-1 became operational was chosen as the starting time for the data set considered for analysis in this project. The reason behind this is the beneficial effect that rapid-exits have on reducing arrival runway occupancy time. 
+
+The statistical analysis points to decreased AROT on average for RWY-01 with the use of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). 
+
+\begin{table}[h]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{lr|r|r|r|r|r|r|r|}
+\cline{3-9}
+\multicolumn{2}{l|}{RWY01}  & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
+\multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
+\multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{1346} & 94 & 15 & 48 & 84 & 93 & 103 & 152 \\ \hline
+\multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{192} & 103 & 19 & 50 & 90 & 100 & 115 & 153 \\ \hline
+\end{tabular}%
+}
+\caption[AROTs RWY-01 without rapid-exit by season]{AROTs for runway RWY-01 without rapid-exit, by season. The count is the number of landings during peak hours from July 2017 to November 2018.}
+\label{tab:season_AROT_stats_RWY01_pre_fast_exit}
+\end{table}
+
+\begin{table}[h]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{lr|r|r|r|r|r|r|r|}
+\cline{3-9}
+\multicolumn{2}{l|}{RWY01, TWY A-1}  & \multicolumn{7}{c|}{AROT  {[}s{]}} \\ \hline
+\multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
+\multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{533} & 57 & 8 & 46 & 52 & 56 & 60 & 130 \\ \hline
+\multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{98} & 60 & 10 & 47 & 54 & 58 & 64 & 101 \\ \hline
+\end{tabular}%
+}
+\caption[AROTs RWY-01 with rapid-exit by season]{AROTs for runway RWY-01 with rapid-exit TWY A-1 by season. The count is the number of landings during peak hours from July 2017 to November 2018.}
+\label{tab:season_AROT_stats_RWY01_post_fast_exit}
+\end{table}
+
+This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. The comparatively lower usage of RWY~01 with TWY~A-1 to that without rapid-exit, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit is avoided altogether during peak hours.
 
 \begin{figure}[h]
     \centering
@@ -119,7 +153,43 @@ BIKF airfield is currently equipped with two rapid-exit taxiways designated as T
     \label{fig:BIKF_schematic}
 \end{figure}
 
-Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 10,1$\%$ share of landing aircraft (Figure~\ref{fig:runway_usage_peak}). The preferred runway was RWY~19, servicing 37,8$\%$ of the arrivals. A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds.
+The data for RWY-28 present a somewhat different picture. After the implementation of TWY~B-1 in the end of 2017, arriving flights use almost exclusively the rapid-exit. The average AROT is being reduced by 33\% for the summer months and by 34\% for the winter, with the usage of rapid-exit taxiway (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). 
+
+\begin{table}[h]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{lr|r|r|r|r|r|r|r|}
+\cline{3-9}
+\multicolumn{2}{l|}{RWY28} & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
+\multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
+\multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{550} & 99 & 13 & 46 & 90 & 98 & 105 & 155 \\ \hline
+\multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{250} & 110 & 13 & 60 & 100 & 108 & 117 & 155 \\ \hline
+\end{tabular}%
+}
+\caption[AROTs RWY-28 without rapid-exit by season]{AROTs for runway RWY-28 without rapid-exit, by season. The count is the number of landings during peak hours from October 2015 to November 2018. The time frame was intentionally increased to include more data points, as the flights that are not exiting through TWY~B-1 are drastically reduced after the implementation of the rapid-exit. The distribution of AROT does not present significant differences within the longer time frame}
+\label{tab:season_AROT_stats_RWY28_pre_fast_exit}
+\end{table}
+
+\begin{table}[h]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{lr|r|r|r|r|r|r|r|}
+\cline{3-9}
+\multicolumn{2}{l|}{RWY28, TWY B-1} & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
+\multicolumn{1}{|l|}{season} & {count} & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
+\multicolumn{1}{|l|}{Summer} & 376 & 66 & 8 & 49 & 60 & 65 & 70 & 92 \\ \hline
+\multicolumn{1}{|l|}{Winter} & 67 & 73 & 12 & 49 & 63 & 71 & 79 & 100 \\ \hline
+\end{tabular}%
+}
+\caption[AROTs RWY-28 with rapid-exit by season]{AROTs for runway RWY-28 with rapid-exit TWY~B-1 by season. The count is the number of landings during peak hours from October 2017 to November 2018.}
+\label{tab:season_AROT_stats_RWY28_post_fast_exit}
+\end{table}
+
+Despite the reduced AROT, runway RWY~28 remains least used, servicing only 10$\%$ of landing aircraft (Figure~\ref{fig:runway_usage_peak}). One explanation for the small share of landings on RWY-28 is that flights on approach for landing from the east are generally uncommon for BIKF. 
+
+The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger share of RWY~19 and RWY-01 over the other two runways could be explained with the direction of approaching traffic during peak hours and the frequent northerly winds (\ref{fig:BIKF_wind_rose}), facilitating landing and decreased AROT, especially for RWY-01. Landings and take-offs are typically conducted into the wind and runways are usually designed so that the effect of the cross-wind component is mitigated~\cite[p.~301]{de_neufville_airport_2013}~\cite{manual1991_doc9157}.
+
+A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds with average standard deviation about the mean of 14.6 seconds. Overall, half of the landing aircraft occupy the runways between 67 and 85 seconds on average. 
 
 \begin{table}[]
 \centering
@@ -134,7 +204,7 @@ Despite the reduced AROT, RWY~28 remained the least used runway, servicing only 
 \multicolumn{1}{|l|}{RWY 28} & 470 & 69 & 14 & 49 & 61 & 66 & 74 & 155 \\ \hline
 \end{tabular}%
 }
-\caption[AROTs during peak hours by runway]{AROT statistics for the air traffic mix at BIKF during peak hours by runway. The count is the number of landings during peak hours from October 2017 to November 2018.}
+\caption[AROTs during peak hours by runway]{AROT statistics for the air traffic mix at BIKF by runway. The count is the number of landings during peak hours from October 2017 to November 2018.}
 \label{tab:all_RWY_AROT_stats}
 \end{table}
 
