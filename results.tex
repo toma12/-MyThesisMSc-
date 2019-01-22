@@ -144,7 +144,7 @@ The statistical analysis points to decreased AROT on average for RWY-01 with the
 \label{tab:season_AROT_stats_RWY01_post_fast_exit}
 \end{table}
 
-This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. The comparatively lower usage of RWY~01 with TWY~A-1 to that without rapid-exit, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit is avoided altogether during peak hours.
+This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. Still, judging by the number of arrivals during peak hours, the rapid-exit is used by less than 1/3 of the flights. The comparatively lower usage of rapid-exit TWY~A-1, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit is avoided altogether during peak hours.
 
 \begin{figure}[h]
     \centering
@@ -185,13 +185,11 @@ The data for RWY-28 present a somewhat different picture. After the implementati
 \label{tab:season_AROT_stats_RWY28_post_fast_exit}
 \end{table}
 
-Despite the reduced AROT, runway RWY~28 remains least used, servicing only 10$\%$ of landing aircraft (Figure~\ref{fig:runway_usage_peak}). One explanation for the small share of landings on RWY-28 is that flights on approach for landing from the east are generally uncommon for BIKF. 
+Despite the reduced AROT, runway RWY~28 remains least used, servicing only 10$\%$ of landing aircraft (Figure~\ref{fig:runway_usage_peak}). One explanation for the small share of landings on RWY-28 is that flights on approach for landing westwards are generally uncommon for BIKF. 
 
 The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger share of RWY~19 and RWY-01 over the other two runways could be explained with the direction of approaching traffic during peak hours and the frequent northerly winds (\ref{fig:BIKF_wind_rose}), facilitating landing and decreased AROT, especially for RWY-01. Landings and take-offs are typically conducted into the wind and runways are usually designed so that the effect of the cross-wind component is mitigated~\cite[p.~301]{de_neufville_airport_2013}~\cite{manual1991_doc9157}.
 
-A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats}. The average AROT for the BIKF airfield amounted to 77,5 seconds with average standard deviation about the mean of 14.6 seconds. Overall, half of the landing aircraft occupy the runways between 67 and 85 seconds on average. 
-
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{0.8\textwidth}{!}{%
 \begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -208,7 +206,14 @@ A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_ARO
 \label{tab:all_RWY_AROT_stats}
 \end{table}
 
+A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats} and visualised in Figure~\ref{fig:runway_AROTs_boxplot}. The average AROT for the BIKF airfield amounted to 78 seconds with average standard deviation about the mean of 18 seconds. Overall, half of the landing aircraft occupy the runways between 67 and 85 seconds on average. 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_runway_AROTs_boxplot.png}
+    \caption[AROTs box-plot per runway/taxiway]{Arrival Runway Occupancy Times at BIKF during peak hours for all runways with or without rapid-exit. The height coloured blocks indicate the inter-quartile range (IQR). The box-plots for RWY~01 and RWY~28 exclude arrivals using rapid-exit taxiways. TWY~A-1 and TWY~B-1 represent exclusively arrivals that use a runway's rapid-exit. The approximate share of arriving aircraft using a rapid-exit to those using the whole length of a runway is visualised by the width of the coloured blocks (not to scale). The average AROT value for BIKF is 78 seconds (dotted red line). The plot shows the AROTs based on data gathered for a period 14 months starting October 2017 with the exception of RWY~28 that includes arrivals since October 2015.}
+    \label{fig:runway_AROTs_boxplot}
+\end{figure}
 % ---------------------------
 
 \section{Inter-arrival Distance Separation}\label{sec:interarrival_dist_sep_RECAT}
