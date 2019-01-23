@@ -211,20 +211,33 @@ A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_ARO
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_runway_AROTs_boxplot.png}
-    \caption[AROTs box-plot per runway/taxiway]{Arrival Runway Occupancy Times at BIKF during peak hours for all runways with or without rapid-exit. The height coloured blocks indicate the inter-quartile range (IQR). The box-plots for RWY~01 and RWY~28 exclude arrivals using rapid-exit taxiways. TWY~A-1 and TWY~B-1 represent exclusively arrivals that use a runway's rapid-exit. The approximate share of arriving aircraft using a rapid-exit to those using the whole length of a runway is visualised by the width of the coloured blocks (not to scale). The average AROT value for BIKF is 78 seconds (dotted red line). The plot shows the AROTs based on data gathered for a period 14 months starting October 2017 with the exception of RWY~28 that includes arrivals since October 2015.}
+    \caption[AROTs box-plot per runway/taxiway]{Arrival Runway Occupancy Times at BIKF during peak hours for all runways with or without rapid-exit. The height coloured blocks indicate the inter-quartile range (IQR). The box-plots for RWY~01 and RWY~28 exclude arrivals using rapid-exit taxiways. TWY~A-1 and TWY~B-1 represent exclusively arrivals that use a runway's rapid-exit. The approximate share of arriving aircraft using a rapid-exit to those using the whole length of a runway is visualised by the width of the coloured blocks (not to scale). The average AROT value for BIKF is 78 seconds (dotted red line). The plot shows the AROTs based on data gathered for a period 14 months starting October 2017 with the exception of RWY~28 that includes arrivals since October 2015 (because of insufficient data points).}
     \label{fig:runway_AROTs_boxplot}
 \end{figure}
 % ---------------------------
 
 \section{Inter-arrival Distance Separation}\label{sec:interarrival_dist_sep_RECAT}
 
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the traffic mix discussed previously in \ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M) as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories -- H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and split into RECAT-EU categories. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
+The data set used for the analysis of the inter-arrival distances and the landing time interval combined information on landing aircraft from three data tables. A script in Isavia's internal GUI Vikingaskipið sorted the arrivals into a \textit{table of pairs} (leader and follower), with spacing and time interval between a leader and a follower calculated at the threshold. That table was merged with the \textit{key reference table}~(\ref{tab:sample_key_RECAT}) from EUROCONTROL to assign a RECAT-EU category to the leader and the follower. The \textit{data table of arrivals}~(\ref{tab:sample_df}) at BIKF added information about flights such as runway, taxiway and season. The resulting data-frame (Table~\ref{tab:sample_pairs}) contained the necessary information to allow estimate of the distribution of inter-arrival distances and LTI, based on wake turbulence category, for arriving pairs during peak hours.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllllllllll}
+lead\_type & follow\_type & lead\_wtc & follow\_wtc & arrival\_dist & time\_diff & lead\_recat & follow\_recat & runway & taxiway & oper & year & season \\ \hline
+B752 & DH8D & M & M & 7.374 & 198 & CAT-C & CAT-E & RWY 19 & TWY S-2 & ICE & 2017  & summer \\
+B752 & B763 & M & H & 6.682 & 161 & CAT-C & CAT-C & RWY 19 & TWY S-2 & ICE & 2017  & summer \\
+B763 & B763 & H & H & 9.568 & 237 & CAT-C & CAT-C & RWY 19 & TWY S-2 & ICE & 2017  & summer \\
+B763 & B752 & H & M & 7.365 & 208 & CAT-C & CAT-C & RWY 28 & TWY B-1 & ICE & 2017  & winter \\
+B752 & GLF4 & M & M & 5.086 & 132 & CAT-C & CAT-E & RWY 01 & TWY A-1 & ICE & 2017  & winter
+\end{tabular}%
+}
+\caption[Data table sample for arrival pairs at BIKF during peak hours]{Data table sample (abridged) used in the analysis of inter-arrival distance and landing time interval for aircraft pairs arriving at BIKF during peak hours. The units of the LTI (time\_diff) are seconds, distance (arrival\_dist) is measured in nautical miles.}
+\label{tab:sample_pairs}
+\end{table}
+
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
+
 \begin{table}[h]
 \centering
 \resizebox{0.3\textwidth}{!}{%
@@ -243,17 +256,16 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 
 The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation minima. 
 
-\fxnote{Why are some data to the left of the red line???}
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of distance separation for ICAO pairs]{Distribution of the WTC distance separation between selected ICAO pair categories. The red reference line indicates the separation minima for a particular pair category. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[Distribution of distance separation for ICAO pairs]{Distribution of the WTC distance separation between selected ICAO pair categories. The red reference line indicates the separation minima for a particular pair category. The blue horizontal line indicates 1 standard deviation about the mean.}
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
+The portion of aircraft pairs that exhibit distance separation to the left of the ICAO reference minima can be attributed to flights operating under visual flight rules (VFR), according to Air Traffic Control (ATC) at BIKF. When visual flight rules are in effect, the separation may be decided by the pilot. Most of those flights are Icelandair operated aircraft of B736 and B752 type, which are Heavy and Medium ICAO wake category respectively, but end up in the same CAT-C category under the  RECAT-EU scheme. Practice at Keflavík airport has shown that the distance separation for this particular pair can be reduced under VFR by allowing the follower closer, but over the final approach flight path of the leader, hence the reduced spacing within some H-M pairs.
 
-
-Each of the ICAO pairs were re-categorised, the data-set was reduced by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in \ref{sec:traffic_mix}, most of the aircraft combined into C-C pairs. The rest of the more significant traffic pairs were variations from CAT-C, CAT-D and CAT-E categories.
+Each of the ICAO aircraft pairs were re-categorised and the data-set was reduced by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in \ref{sec:traffic_mix}, most of the aircraft combined into C-C pairs. The rest of the more significant traffic pairs were variations from CAT-C, CAT-D and CAT-E categories.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
