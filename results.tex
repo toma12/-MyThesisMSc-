@@ -115,33 +115,25 @@ BIKF airfield is currently equipped with two rapid-exit taxiways designated as T
 The statistical analysis points to decreased AROT on average for RWY-01 with the use of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). 
 
 \begin{table}[h]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
-\cline{3-9}
-\multicolumn{2}{l|}{RWY01}  & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
-\multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
-\multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{1346} & 94 & 15 & 48 & 84 & 93 & 103 & 152 \\ \hline
-\multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{192} & 103 & 19 & 50 & 90 & 100 & 115 & 153 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs RWY-01 without rapid-exit by season]{AROTs for runway RWY-01 without rapid-exit, by season. The count is the number of landings during peak hours from July 2017 to November 2018.}
-\label{tab:season_AROT_stats_RWY01_pre_fast_exit}
-\end{table}
-
-\begin{table}[h]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{tabular}{lr|r|r|r|r|r|r|r|}
+    \centering
+    \subfloat[\label{tab:season_AROT_stats_RWY01_pre_fast_exit}]{\resizebox{0.8\textwidth}{!}{\begin{tabular}{lr|r|r|r|r|r|r|r|}
+    \cline{3-9}
+    \multicolumn{2}{l|}{RWY01}  & \multicolumn{7}{c|}{AROT {[}s{]}} \\ \hline
+    \multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
+    \multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{1346} & 94 & 15 & 48 & 84 & 93 & 103 & 152 \\ \hline
+    \multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{192} & 103 & 19 & 50 & 90 & 100 & 115 & 153 \\ \hline
+    \end{tabular}}}
+    
+    \subfloat[\label{tab:season_AROT_stats_RWY01_post_fast_exit}]{\resizebox{0.8\textwidth}{!}{\begin{tabular}{lr|r|r|r|r|r|r|r|}
 \cline{3-9}
 \multicolumn{2}{l|}{RWY01, TWY A-1}  & \multicolumn{7}{c|}{AROT  {[}s{]}} \\ \hline
 \multicolumn{1}{|l|}{season} & count & \multicolumn{1}{l|}{mean} & \multicolumn{1}{l|}{std} & \multicolumn{1}{l|}{min} & \multicolumn{1}{l|}{25\%} & \multicolumn{1}{l|}{50\%} & \multicolumn{1}{l|}{75\%} & \multicolumn{1}{l|}{max} \\ \hline
 \multicolumn{1}{|l|}{Summer} & \multicolumn{1}{r|}{533} & 57 & 8 & 46 & 52 & 56 & 60 & 130 \\ \hline
 \multicolumn{1}{|l|}{Winter} & \multicolumn{1}{r|}{98} & 60 & 10 & 47 & 54 & 58 & 64 & 101 \\ \hline
-\end{tabular}%
-}
-\caption[AROTs RWY-01 with rapid-exit by season]{AROTs for runway RWY-01 with rapid-exit TWY A-1 by season. The count is the number of landings during peak hours from July 2017 to November 2018.}
-\label{tab:season_AROT_stats_RWY01_post_fast_exit}
+\end{tabular}}}
+
+\caption[AROTs RWY-01 with and without rapid-exit by season]{AROTs for runway RWY-01 by season: \protect\subref{tab:season_AROT_stats_RWY01_pre_fast_exit} without rapid-exit and \protect\subref{tab:season_AROT_stats_RWY01_post_fast_exit} with rapid-exit TWY A-1. The count is the number of landings during peak hours from July 2017 to November 2018.}
+
 \end{table}
 
 This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. Still, judging by the number of arrivals during peak hours, the rapid-exit is used by less than 1/3 of the flights. The comparatively lower usage of rapid-exit TWY~A-1, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit is avoided altogether during peak hours.
@@ -236,7 +228,7 @@ B752 & GLF4 & M & M & 5.086 & 132 & CAT-C & CAT-E & RWY 01 & TWY A-1 & ICE & 201
 \label{tab:sample_pairs}
 \end{table}
 
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in Section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
 
 \begin{table}[h]
 \centering
@@ -245,12 +237,12 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 \cline{3-5}
 \multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{3}{c|}{Follower} \\ \cline{3-5} 
 \multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{L} \\ \hline
-\multicolumn{1}{|c|}{} & H & \cellcolor[HTML]{FFCC67}56 & \cellcolor[HTML]{FE996B}334 & \cellcolor[HTML]{FFFFC7}2 \\ \cline{2-5} 
-\multicolumn{1}{|c|}{} & M & \cellcolor[HTML]{FE996B}368 & \cellcolor[HTML]{FD6864}1809 & \cellcolor[HTML]{FFFFC7}7 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{} & H & \cellcolor[HTML]{FFCC67}55 & \cellcolor[HTML]{FE996B}332 & \cellcolor[HTML]{FFFFC7}2 \\ \cline{2-5} 
+\multicolumn{1}{|c|}{} & M & \cellcolor[HTML]{FE996B}367 & \cellcolor[HTML]{FD6864}1799 & \cellcolor[HTML]{FFFFC7}7 \\ \cline{2-5} 
 \multicolumn{1}{|c|}{\multirow{-3}{*}{\rotatebox[origin=c]{90}{Leader}}} & L & \cellcolor[HTML]{FFFFC7}3 & \cellcolor[HTML]{FFFFC7}9 & \cellcolor[HTML]{FFFFC7}1 \\ \hline
 \end{tabular}%
 }
-\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The majority of  aircraft pairs is in the M-M category (79,9\%), followed by M-H (14,2\%), H-M (12,9\%) and H-H (2,2\%) pairs. The observation period is from October 2017 to November 2018.}
+\caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake category. The majority of aircraft pairs comprise the M-M category (69,9\%), followed by M-H (14,3\%), H-M (12,9\%) and H-H (2,1\%) pairs. The observation period is from October 2017 to November 2018.}
 \label{tab:pairs_mix_to_wtc}
 \end{table}
 
@@ -259,13 +251,13 @@ The ICAO WTC scheme specifies a distance separation minima as prescribed in  Tab
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_dist_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of distance separation for ICAO pairs]{Distribution of the WTC distance separation between selected ICAO pair categories. The red reference line indicates the separation minima for a particular pair category. The blue horizontal line indicates 1 standard deviation about the mean.}
+    \caption[Inter-arrival distance separation, main ICAO pairs]{Distribution of the inter-arrival distance separation for selected ICAO pair categories. The red reference line indicates the separation minima for a particular pair category. The blue horizontal line indicates 1 standard deviation about the mean.}
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-The portion of aircraft pairs that exhibit distance separation to the left of the ICAO reference minima can be attributed to flights operating under visual flight rules (VFR), according to Air Traffic Control (ATC) at BIKF. When visual flight rules are in effect, the separation may be decided by the pilot. Most of those flights are Icelandair operated aircraft of B736 and B752 type, which are Heavy and Medium ICAO wake category respectively, but end up in the same CAT-C category under the  RECAT-EU scheme. Practice at Keflavík airport has shown that the distance separation for this particular pair can be reduced under VFR by allowing the follower closer, but over the final approach flight path of the leader, hence the reduced spacing within some H-M pairs.
+The portion of aircraft pairs that exhibit distance separation to the left of the ICAO reference minima can be attributed to flights operating under visual flight rules (VFR), according to Air Traffic Control (ATC) at BIKF. When visual flight rules are in effect, the separation may be decided by the pilot. Most of those flights are Icelandair operated aircraft of B736 and B752 type, which are classified as Heavy and Medium ICAO wake category respectively, but end up in the same CAT-C category under the  RECAT-EU scheme. Practice at Keflavík airport has shown that the distance separation for this particular pair can be reduced under VFR by allowing the follower closer, but over the final approach flight path of the leader, hence the reduced spacing within some H-M pairs.
 
-Each of the ICAO aircraft pairs were re-categorised, based on the RECAT-EU scheme. The visual representation within figures was simplified and considers a reduced data-set, again by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in \ref{sec:traffic_mix}, most of the aircraft combined into C-C pairs. The rest of the more significant traffic pairs were combination of CAT-C, CAT-D and CAT-E categories. 
+Each of the ICAO aircraft pairs were re-categorised, based on the RECAT-EU scheme. The visual representation within figures was simplified and considers a reduced data-set, again by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in Section~\ref{sec:traffic_mix}, most of the aircraft formed C-C pairs. The rest of the more significantly presented traffic pairs were combinations of CAT-C, CAT-D and CAT-E categories. 
 
 \begin{table}[h]
 \centering
@@ -276,70 +268,116 @@ Each of the ICAO aircraft pairs were re-categorised, based on the RECAT-EU schem
 \multicolumn{1}{l}{} & \multicolumn{1}{l|}{} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
 \multicolumn{1}{|c|}{} & CAT-A &  &  &  & \cellcolor[HTML]{FFFFC7}1 &  &  \\ \cline{2-8} 
 \multicolumn{1}{|c|}{} & CAT-B &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}17 & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}2 &  \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-C &  & \cellcolor[HTML]{FFFC9E}19 & \cellcolor[HTML]{FD6864}1697 & \cellcolor[HTML]{FE996B}242 & \cellcolor[HTML]{FFCE93}41 & \cellcolor[HTML]{FFFC9E}14 \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-D & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FE996B}229 & \cellcolor[HTML]{FE996B}200 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FFFFC7}5 \\ \cline{2-8} 
-\multicolumn{1}{|c|}{} & CAT-E &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFCE93}44 & \cellcolor[HTML]{FFFFC7}10 &  &  \\ \cline{2-8} 
-\multicolumn{1}{|c|}{\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}} & CAT-F &  &  & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}10 & \cellcolor[HTML]{FFFFC7}1 &  \\ \hline
-\end{tabular}%
-}
-\caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The majority of arrival pairs are classified as C-C (65,5\%) followed by C-D (9,3\%), D-C (8,8\%) and D-D (7,7\%) pairs. The observation period is from October 2017 to November 2018.}
+\multicolumn{1}{|c|}{} & CAT-C &  & \cellcolor[HTML]{FFFC9E}19 & \cellcolor[HTML]{FD6864}1689 & \cellcolor[HTML]{FE996B}241 & \cellcolor[HTML]{FFCE93}41 & \cellcolor[HTML]{FFFC9E}14 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-D & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFFC9E}10 & \cellcolor[HTML]{FE996B}229 & \cellcolor[HTML]{FE996B}199 & \cellcolor[HTML]{FFFC9E}12 & \cellcolor[HTML]{FFFFC7}5 \\ \cline{2-8} 
+\multicolumn{1}{|c|}{} & CAT-E &  & \cellcolor[HTML]{FFFFC7}1 & \cellcolor[HTML]{FFCE93}42 & \cellcolor[HTML]{FFFFC7}10 &  &  \\ \cline{2-8} 
+\multicolumn{1}{|c|}{\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}}} & CAT-F &  &  & \cellcolor[HTML]{FFFC9E}16 & \cellcolor[HTML]{FFFFC7}8 & \cellcolor[HTML]{FFFFC7}1 &  \\ \hline
+\end{tabular}}
+
+\caption[BIKF traffic mix sorted into RECAT-EU categories]{Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. The majority of arrival pairs are classified as C-C (65,6\%) followed by C-D (9,4\%), D-C (8,9\%) and D-D (7,7\%) pairs. The observation period is from October 2017 to November 2018.}
 \label{tab:pairs_mix_to_recat}
 \end{table}
 
-The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The reference separation minima for those pair types, in both wake separation schemes, is specified as 3~NM. Considering this, the outcome of re-categorising the ICAO~M-M pairs shows no apparent advantage in terms of separation, for the newly formed RECAT-EU pairs, presented mainly by the C-C pair category(Figure~\ref{fig:MM_to_RECAT_pairs_dist_separ}). The RECAT-EU reference separation minima does not change its position after re-categorisation to allow for any shift of the separation distribution of aircraft pairs. Nearly 97\% of the ICAO~M-M pairs will experience no change of wake separation under the RECAT-EU scheme.
+The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The reference separation minima for those pair types, in both wake separation schemes, is specified as 3~NM. Considering this, the outcome of re-categorising the ICAO~M-M pairs shows no apparent advantage in terms of separation, for the newly formed RECAT-EU pairs, presented mainly by the C-C pair category(Figure~\ref{fig:MM_to_RECAT_pairs_dist_separ}). The RECAT-EU reference separation minima does not change its position after re-categorisation to allow for any shift of the separation distribution of aircraft pairs. Nearly 98\% of the ICAO~M-M pairs will experience no change of wake separation under the RECAT-EU scheme.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.0\textwidth]{graphics/fig_MM_to_RECAT_pairs_dist_separ.png}
-    \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU scheme]{Inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both schemes ICAO and RECAT-EU.}
+    \subfloat[]{\includegraphics[width=1.0\textwidth]{graphics/fig_MM_to_RECAT_pairs_dist_separ.png}\label{mm2recat}}
+    
+    \vspace{1cm}
+    
+    \subfloat[]{\resizebox{0.5\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{} & \multicolumn{4}{c|}{Follower} \\ \cline{3-6} 
+    \multicolumn{2}{|c|}{\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}ICAO M-M pairs\\into RECAT-EU\end{tabular}}} & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+     & CAT-C & {\color[HTML]{3531FF} \textbf{1109}} & {\color[HTML]{3531FF} \textbf{205}} & \cellcolor[HTML]{FFCCC9}{\color[HTML]{3531FF} \textbf{29}} & \cellcolor[HTML]{FFCCC9}{\color[HTML]{3531FF} \textbf{9}} \\ \cline{2-6} 
+     & CAT-D & {\color[HTML]{3531FF} \textbf{186}} & {\color[HTML]{3531FF} \textbf{194}} & 12 & \cellcolor[HTML]{FFCCC9}2 \\ \cline{2-6} 
+     & CAT-E & 31 & 10 &  &  \\ \cline{2-6} 
+    \multirow{-4}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F & 7 & 5 &  &  \\ \hline
+    \end{tabular}\label{number_mm2recat}}}
+    
+    \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU scheme]{\protect\subref{mm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both wake schemes ICAO and RECAT-EU.\\ \protect\subref{number_mm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in~\protect\subref{mm2recat} and in Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}. Red background pairs will experience increase in wake separation requirement compared to the same pairs under the ICAO scheme.}
     \label{fig:MM_to_RECAT_pairs_dist_separ}
+\end{figure}
+
+It is illustrative to mention also that some of the pair categories would suffer an increase in the required distance separation under the RECAT-EU scheme. Such example from the traffic at Keflavík airport would be the C-E and C-F pairs originating from the ICAO~M-M category~(Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}). The separation minima in the former case would be moved from 3 NM up to 4 NM and in the latter case the increase is double, from 3 NM to 6 NM. Those pairs were rare in the data set and insufficient to reach any accurate estimate about the distribution of the current distance separation. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/fig_MM_to_CE_and_CF_pairs_dist_separ.png}
+    \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs]{Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU C-E and C-F pairs. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
+    \label{fig:MM_to_CE_and_CF_pairs_dist_separ}
 \end{figure}
 
 Similarly, the reference separation minima for all M-H pairs remains unchanged after re-categorisation~(Figure~\ref{fig:MH_to_RECAT_pairs_dist_separ}), which brings no decrease of separation under the RECAT-EU scheme for aircraft pairs originating from the ICAO~M-H category. 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_MH_to_RECAT_pairs_dist_separ.png}
-    \caption[Inter-arrival distance separation of ICAO M-H pairs into the RECAT-EU scheme]{Inter-arrival distance separation after re-categorisation of ICAO M-H pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both schemes ICAO and RECAT-EU.}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_MH_to_RECAT_pairs_dist_separ.png}\label{mh2recat}}
+    
+    \vspace{1cm}
+    
+    \subfloat[]{\resizebox{0.5\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{} & \multicolumn{4}{c|}{Follower} \\ \cline{3-6} 
+    \multicolumn{2}{|c|}{\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}ICAO M-H pairs\\into RECAT-EU\end{tabular}}} & CAT-A & CAT-B & CAT-C & CAT-D \\ \hline
+     & CAT-C &  & {\color[HTML]{3531FF} \textbf{13}} & {\color[HTML]{3531FF} \textbf{287}} &  \\ \cline{2-6} 
+     & CAT-D & 1 & {\color[HTML]{3531FF} \textbf{10}} & {\color[HTML]{3531FF} \textbf{42}} & 2 \\ \cline{2-6} 
+     & CAT-E & 1 & 9 &  &  \\ \cline{2-6} 
+    \multirow{-4}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F &  & 2 &  &  \\ \hline
+    \end{tabular}\label{numbers_mh2recat}}}
+    
+    \caption[Inter-arrival distance separation of ICAO M-H pairs into the RECAT-EU scheme]{\protect\subref{mh2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-H pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both schemes ICAO and RECAT-EU.\\ \protect\subref{numbers_mh2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in \protect\subref{mh2recat}.}
     \label{fig:MH_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-It is illustrative to mention also that some of the pair categories would suffer an increase in distance separation under the RECAT-EU scheme. Such example from the traffic at Keflavík airport would be the C-F and D-F pairs originating from the ICAO~M-M category~(Figure~\ref{fig:MM_to_CF_and_DF_pairs_dist_separ}). The wake separation in the former case would double from 3 NM up to 6 NM and in the latter case the increase would be from 3 NM to 5 NM. Those pairs were rare in the data set and insufficient to reach any accurate estimate about the distribution of the distance separation. 
+For aircraft pairs of the ICAO H-M category, the transition to the RECAT-EU scheme results in reduced separation requirement. The reference separation minima for aircraft pairs that are re-categorised as B-C or B-D, shifts from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Approximately 99\% of the ICAO~H-M pairs will experience decrease of wake separation requirements under the RECAT-EU scheme.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_MM_to_CF_and_DF_pairs_dist_separ.png}
-    \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs]{Inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
-    \label{fig:MM_to_CF_and_DF_pairs_dist_separ}
-\end{figure}
-
-For aircraft pairs of the ICAO H-M category, the transition to the RECAT-EU scheme results in reduced separation requirement. The reference separation minima for aircraft pairs that are re-categorised as B-C or B-D, shifts from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Approximately 98\% of the ICAO~H-M pairs will experience decrease of wake separation requirements under the RECAT-EU scheme.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_HM_to_RECAT_pairs_dist_separ.png}
-    \caption[Inter-arrival distance separation of ICAO H-M pairs into the RECAT-EU scheme]{Inter-arrival distance separation after re-categorisation of ICAO H-M pairs into the RECAT-EU scheme. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_HM_to_RECAT_pairs_dist_separ.png}\label{hm2recat}}
+    
+    \vspace{1cm}
+    
+    \subfloat[]{\resizebox{0.5\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{} & \multicolumn{4}{c|}{Follower} \\ \cline{3-6} 
+    \multicolumn{2}{|c|}{\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}ICAO H-M pairs\\ into RECAT-EU\end{tabular}}} & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+     & CAT-A &  & 1 &  &  \\ \cline{2-6} 
+     & CAT-B & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{17}} & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{16}} & 2 &  \\ \cline{2-6} 
+     & CAT-C & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{245}} & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{36}} & \cellcolor[HTML]{9AFF99}10 & \cellcolor[HTML]{FFCCC9}1 \\ \cline{2-6} 
+    \multirow{-4}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-D & \cellcolor[HTML]{9AFF99}1 & \cellcolor[HTML]{9AFF99}3 &  &  \\ \hline
+    \end{tabular}\label{numbers_hm2recat}}}
+    
+    \caption[Inter-arrival distance separation of ICAO H-M pairs into the RECAT-EU scheme]{\protect\subref{hm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO H-M pairs into the RECAT-EU scheme. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).\\ \protect\subref{numbers_hm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in \protect\subref{hm2recat}. Green background pairs will experience reduced wake separation requirement under RECAT-EU and red background pairs will experience increase, compared to the same pairs under the ICAO scheme.}
     \label{fig:HM_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-
-The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU scheme (Figure~\ref{fig:HH_to_RECAT_pairs_dist_separ}). It is apparent that for those pairs the RECAT-EU scheme would decrease the separation minima by one nautical mile (from 4 NM to 3 NM). All of the H-H pairs at BIKF during peak hours will experience this decreased separation requirement.
+The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU scheme (Figure~\ref{fig:HH_to_RECAT_pairs_dist_separ}). In this case, under RECAT-EU, the separation minima is reduced with one nautical mile (from 4 NM to 3 NM). All of the H-H pairs at BIKF during peak hours will experience this decreased separation requirement.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_HH_to_RECAT_pairs_dist_separ.png}
-    \caption[Inter-arrival distance separation of ICAO H-H pairs into the RECAT-EU scheme]{Inter-arrival distance separation after re-categorisation of ICAO H-H pairs into the RECAT-EU scheme. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_HH_to_RECAT_pairs_dist_separ.png}\label{hh2recat}}
+    
+    \vspace{1cm}
+    
+    \subfloat[]{\resizebox{0.35\textwidth}{!}{\begin{tabular}{|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Follower} \\ \cline{3-4} 
+    \multicolumn{2}{|c|}{\multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}ICAO H-H pairs\\ into RECAT-EU\end{tabular}}} & CAT-B & CAT-C \\ \hline
+     & CAT-B & \cellcolor[HTML]{9AFF99}1 &  \\ \cline{2-4} 
+    \multirow{-2}{*}{Leader} & CAT-C & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{6}} & \cellcolor[HTML]{9AFF99}{\color[HTML]{3531FF} \textbf{48}} \\ \hline
+    \end{tabular}\label{numbers_hh2recat}}}
+    
+    \caption[Inter-arrival distance separation of ICAO H-H pairs into the RECAT-EU scheme]{\protect\subref{hh2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO H-H pairs into the RECAT-EU scheme. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).\\ \protect\subref{numbers_hh2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in \protect\subref{hh2recat}. Green background pairs will experience reduced wake separation requirement under RECAT-EU, compared to the same pairs under the ICAO scheme.}
     \label{fig:HH_to_RECAT_pairs_dist_separ}
 \end{figure}
 
+The share of the ICAO M-M pairs was the largest in the pair traffic mix at Keflaík International Airport. Most of those pairs end up in the C-C RECAT-EU category after re-categorisation and some experience change of the distance separation requirement. The share of aircraft pairs during peak hour traffic at BIKF, that will benefit from the re-categorisation, by reducing the required separation minima between aircraft is 14,9\%. An increase in separation requirement under RECAT-EU will suffer 1,6\% of the BIKF pairs. For the majority of pairs or 83,5\%, the re-categorisation will have no effect on the separation minima requirement between aircraft. 
 
+The figures above were also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement.
 
-
-\fxnote{Summarise percent of change for the whole BIKF traffic in peak hours.}
-
-
-The share of the M-H pairs from the whole BIKF traffic during peak hours is 14,3\%. The share of the M-M pairs on the other hand is the largest of all ICAO pairs - 69.8\%. The figures above were also evidence that incorporating the RECAT-EU scheme for the selected data subset, would potentially assist the aircraft pairs with a Heavy leader, but would not change the situation for pairs with a Medium leader. 
-The share of the H-M pair category from the whole BIKF traffic during peak hours is 12,9\%.
+\fxnote{Summarise percent of change for the whole BIKF traffic in peak hours. and table of which pairs experience how much reduction, connect with final velocity to come up with a time savings number.}
 
 
 
