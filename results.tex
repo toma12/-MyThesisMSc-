@@ -43,7 +43,6 @@ Another approach for classification of the traffic fleet mix at BIKF during peak
 
  Those aircraft types represent a major part of the Icelandair fleet~\cite{icelandair_fleet} and the share of the Boeing~737~MAX~8 (ICAO: B38M) is likely to increase as the Icelandair company plans to gradually add sixteen new B38M and B39M models from the beginning of 2018. Flights arriving during peak hours for the observed period and operated by Icelandair are 76.2\% with 6,3\% of those being B38M flights. The tendency is towards increasing the share of the Medium WTC (or the CAT-D RECAT-EU category respectively), with the addition of the new aircraft to the Icelandair fleet.
 
-
 \section{Arrival Runway Occupancy Time Considerations}\label{sec:AROT_considerations} 
 
 \subsection{Traffic Mix and AROT\label{ssec:mix_effect_arot}}
@@ -299,7 +298,7 @@ The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The re
     \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU scheme]{\protect\subref{mm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both wake schemes ICAO and RECAT-EU.\\ \protect\subref{number_mm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in~\protect\subref{mm2recat} and in Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}. Red background pairs will experience increase in wake separation requirement compared to the same pairs under the ICAO scheme.}
     \label{fig:MM_to_RECAT_pairs_dist_separ}
 \end{figure}
-
+\clearpage
 It is illustrative to mention also that some of the pair categories would suffer an increase in the required distance separation under the RECAT-EU scheme. Such example from the traffic at Keflavík airport would be the C-E and C-F pairs originating from the ICAO~M-M category~(Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}). The separation minima in the former case would be moved from 3 NM up to 4 NM and in the latter case the increase is double, from 3 NM to 6 NM. Those pairs were rare in the data set and insufficient to reach any accurate estimate about the distribution of the current distance separation. 
 
 \begin{figure}[h]
@@ -308,7 +307,7 @@ It is illustrative to mention also that some of the pair categories would suffer
     \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs]{Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU C-E and C-F pairs. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
     \label{fig:MM_to_CE_and_CF_pairs_dist_separ}
 \end{figure}
-
+\clearpage
 Similarly, the reference separation minima for all M-H pairs remains unchanged after re-categorisation~(Figure~\ref{fig:MH_to_RECAT_pairs_dist_separ}), which brings no decrease of separation under the RECAT-EU scheme for aircraft pairs originating from the ICAO~M-H category. 
 
 \begin{figure}[h]
@@ -375,21 +374,19 @@ The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU 
 
 The share of the ICAO M-M pairs was the largest in the pair traffic mix at Keflaík International Airport. Most of those pairs end up in the C-C RECAT-EU category after re-categorisation and some experience change of the distance separation requirement. The share of aircraft pairs during peak hour traffic at BIKF, that will benefit from the re-categorisation, by reducing the required separation minima between aircraft is 14,9\%. An increase in separation requirement under RECAT-EU will suffer 1,6\% of the BIKF pairs. For the majority of pairs or 83,5\%, the re-categorisation will have no effect on the separation minima requirement between aircraft. 
 
-The figures above were also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement.
-
-\fxnote{Summarise percent of change for the whole BIKF traffic in peak hours. and table of which pairs experience how much reduction, connect with final velocity to come up with a time savings number.}
-
-
-
-
+The figures of the separation distribution and the separation minima are also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement.
 
 \section{Landing Time Interval}\label{sec:LTI}
-The method used to determine the landing time interval (LTI) requires the examination of aircraft pairs -- i.e. leader and follower. The data-set for the analysis contained the ICAO type and WTC for the leader and the follower along with distance separation and time separation between the aircraft in each pair during peak hours. The time frame was identical with the one used in the previous sections. Additionally every leader and follower were re-categorised and assigned a RECAT-EU designator.
 
+Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required separation minima and the final approach speed of the following aircraft. 
 
-Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As stated in the study objective \ref{sec:arot_and_study_objective} the LTI quantifies the time separation between aircraft in a pair, calculated from the distance separation and the final approach speed of the following aircraft. This measurement was computed for each of the observed pairs and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}, where the reference line indicates the time that a follower takes to travel the distance minima for the respective pair category. 
+The final approach speed value of arriving aircraft is calculated in the \textit{bikf\_traffic} data table from the Isavia \textit{airport\_traffic} database.\fxnote{How is it calculated???}
 
-The final approach velocity for this calculation was set equal to the maximum average approach velocity from all four runways. This is done by finding the average velocity for each of four runways and using the maximum of the four values as the final approach velocity for the calculation of the LTI. Higher velocity value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach velocities. Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
+The final approach speed for the LTI calculation was set equal to the maximum average approach speed of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for the calculation of the LTI. Higher speed value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This estimate was computed for selected pairs (corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}. Those pairs represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The reference line indicates the time that a follower takes to travel the specified separation distance for the respective pair category. 
+
+Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
+
+\fxnote{Confidence intervals!}
 
 \begin{figure}[h]
     \centering
@@ -398,7 +395,7 @@ The final approach velocity for this calculation was set equal to the maximum av
     \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-
+\fxnote{Summarise percent of change for the whole BIKF traffic in peak hours. and table of which pairs experience how much reduction, connect with final velocity to come up with a time savings number.}
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
 
