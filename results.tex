@@ -2,7 +2,7 @@
 
 The results chapter deals with presenting the different metrics discussed so far, within the RECAT-EU scheme. The data subset for the analysis was limited to four pair categories from the ICAO scheme: H-H, H-M, M-H and M-M. This simplification was done in order to filter out the small number of data points for other pairs, insufficient for any valid estimations of the distribution of inter-arrival distance or the landing time intervals. 
 
-The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The AROT and LTI for particular pairs were compared to identify the limiting factor for throughput capacity, using the method already introduced in section LTI \fxnote{expoainagain how is lti and rot limiting. this secton comes later} .
+The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The AROT and LTI for particular pairs were compared to identify the limiting factor for throughput capacity. The AROT was considered limiting for the runway capacity if its distribution overlapped with the distribution of the landing time intervals. As mentioned earlier in the introduction section, no aircraft landing is allowed if another aircraft is present on a designated runway. An overlap of AROT and LTI can indicate a landing incursion and lead to missed approach.  
 
 \section{Aircraft Traffic Mix\label{sec:traffic_mix}}
 
@@ -380,20 +380,23 @@ The figures of the separation distribution and the separation minima are also ev
 
 Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required separation minima and the final approach speed of the following aircraft. 
 
-The final approach speed value of arriving aircraft is calculated in the \textit{bikf\_traffic} data table from the Isavia \textit{airport\_traffic} database.\fxnote{How is it calculated???}
+The final approach speed value of arriving aircraft is in the \textit{bikf\_traffic} data table in the Isavia \textit{airport\_traffic} database. Isavia uses a script to calculate the final approach speed based on the ground speed measurement 4 NM away from the runway threshold. 
 
-The final approach speed for the LTI calculation was set equal to the maximum average approach speed of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for the calculation of the LTI. Higher speed value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This estimate was computed for selected pairs (corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}. Those pairs represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The reference line indicates the time that a follower takes to travel the specified separation distance for the respective pair category. 
-
-Similar methodology is currently being used by Isavia in determining the runway capacity envelope.
-
-\fxnote{Confidence intervals!}
+The final approach speed used for the LTI calculation was set equal to the \textit{maximum average approach speed} of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for the calculation of the LTI. Higher speed value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This estimate was computed for selected pairs (corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}. Those pairs represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The reference line indicates the time that a follower takes to travel the specified separation distance for the respective pair category.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{Distribution of of landing time interval (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{Distribution of of landing time interval (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The blue horizontal line indicates 2 standard deviations left and right of the mean.}
     \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
+
+The shift from distance separation to time separation (between aircraft in approach for landing) is necessary in order to correlate the landing time interval (LTI) and the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds.
+
+
+\fxnote{95\% Confidence intervals! and reference lines relation }
+
+
 
 \fxnote{Summarise percent of change for the whole BIKF traffic in peak hours. and table of which pairs experience how much reduction, connect with final velocity to come up with a time savings number.}
 
@@ -404,7 +407,7 @@ The following section presents the landing time intervals (LTI) for a subset of 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_CC_from_HH_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO H-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[AROT and LTI of C-C pairs originating from ICAO H-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
     \label{fig:CC_from_HH_pairs_time_sep}
 \end{figure}
 
@@ -415,7 +418,7 @@ The share of C-C pairs originating from the ICAO H-M category from the peak traf
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_CC_from_HM_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[AROT and LTI of C-C pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
     \label{fig:CC_from_HM_pairs_time_sep}
 \end{figure}
 
@@ -424,7 +427,7 @@ These two cases: C-C pairs from ICAO H-H and H-M categories, would have more not
  \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_CD_from_HM_pairs_time_sep.png}
-    \caption[AROT and LTI of C-D pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-D pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-D pairs. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[AROT and LTI of C-D pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-D pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-D pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
     \label{fig:CD_from_HM_pairs_time_sep}
 \end{figure}
 
@@ -435,7 +438,7 @@ The C-C pairs formed from the ICAO M-H category were 11,1\% from the BIKF traffi
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_CC_from_MH_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO M-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO M-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[AROT and LTI of C-C pairs originating from ICAO M-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO M-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
     \label{fig:CC_from_MH_pairs_time_sep}
 \end{figure}
 
@@ -444,7 +447,7 @@ The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_CC_from_MM_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO M-M pairs]{AROT and landing time intervals of C-C pairs originating from ICAO M-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 1 standard deviation left and right of the mean.}
+    \caption[AROT and LTI of C-C pairs originating from ICAO M-M pairs]{AROT and landing time intervals of C-C pairs originating from ICAO M-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
     \label{fig:CC_from_MM_pairs_time_sep}
 \end{figure}
 
