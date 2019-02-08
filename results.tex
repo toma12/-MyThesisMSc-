@@ -2,7 +2,7 @@
 
 The results chapter deals with presenting the different metrics discussed so far, within the RECAT-EU scheme. The data subset for the analysis was limited to four pair categories from the ICAO scheme: H-H, H-M, M-H and M-M. This simplification was done in order to filter out the small number of data points for other pairs, insufficient for any valid estimations of the distribution of inter-arrival distance or the landing time intervals. 
 
-The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The AROT and LTI for particular pairs were compared to identify the limiting factor for throughput capacity. The AROT was considered limiting for the runway capacity if its distribution overlapped with the distribution of the landing time intervals. As mentioned earlier in the introduction section, no aircraft landing is allowed if another aircraft is present on a designated runway. An overlap of AROT and LTI can indicate a landing incursion and lead to missed approach.  
+The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The arrival runway occupancy time (AROT) and the landing time interval (LTI) for particular pairs were compared to identify the limiting factor for throughput capacity. The AROT was considered limiting for the runway capacity if its frequency distribution overlapped excessively with the frequency distribution of the LTI. As mentioned earlier in the introduction section, no aircraft landing is allowed if another aircraft is present on a designated runway. An overlap of AROT and LTI can indicate a landing incursion and lead to missed approach. 
 
 \section{Aircraft Traffic Mix\label{sec:traffic_mix}}
 
@@ -10,7 +10,7 @@ The aircraft traffic mix is one of the components that affect runway capacity as
 
 \begin{table}[h]
 \centering
-\resizebox{0.7\textwidth}{!}{%
+\resizebox{0.6\textwidth}{!}{%
 \begin{tabular}{clcllc}
 \multicolumn{3}{c}{\cellcolor[HTML]{34CDF9}HEAVY} &  &  & \cellcolor[HTML]{FD6864}LIGHT \\ \hline
 \multicolumn{1}{|c|}{\cellcolor[HTML]{34CDF9}CAT-A} & \multicolumn{1}{c|}{\cellcolor[HTML]{34CDF9}CAT-B} & \multicolumn{1}{c|}{\cellcolor[HTML]{32CB00}CAT-C} & \multicolumn{1}{c|}{\cellcolor[HTML]{F8FF00}CAT-D} & \multicolumn{1}{c|}{\cellcolor[HTML]{F8FF00}CAT-E} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFC702}CAT-F} \\ \hline
@@ -374,31 +374,88 @@ The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU 
 
 The share of the ICAO M-M pairs was the largest in the pair traffic mix at Keflaík International Airport. Most of those pairs end up in the C-C RECAT-EU category after re-categorisation and some experience change of the distance separation requirement. The share of aircraft pairs during peak hour traffic at BIKF, that will benefit from the re-categorisation, by reducing the required separation minima between aircraft is 14,9\%. An increase in separation requirement under RECAT-EU will suffer 1,6\% of the BIKF pairs. For the majority of pairs or 83,5\%, the re-categorisation will have no effect on the separation minima requirement between aircraft. 
 
-The figures of the separation distribution and the separation minima are also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement.
+The figures of the separation distribution and the separation minima are also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement. In order to estimate the potential time savings from implementing the RECAT-EU scheme for Keflavík airport, the distance separation has to be transferred into the time domain, which is done by introducing the final approach speed in the following Section \ref{sec:LTI}.
 
 \section{Landing Time Interval}\label{sec:LTI}
 
-Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required separation minima and the final approach speed of the following aircraft. 
+Another important metric derived from the data, together with the distance separation between pairs, was the landing time interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required distance separation and the final approach speed of the following aircraft. The final approach speed value for each arriving aircraft is in the \textit{bikf\_traffic} data table in the Isavia \textit{airport\_traffic} database. Isavia uses a script to calculate the final approach speed based on the ground speed measurement at 4 NM away from the runway threshold. 
 
-The final approach speed value of arriving aircraft is in the \textit{bikf\_traffic} data table in the Isavia \textit{airport\_traffic} database. Isavia uses a script to calculate the final approach speed based on the ground speed measurement 4 NM away from the runway threshold. 
+The final approach speed used in calculating the reference time was set equal to the \textit{maximum average final approach speed} of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for each pair category. 
 
-The final approach speed used for the LTI calculation was set equal to the \textit{maximum average approach speed} of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for the calculation of the LTI. Higher speed value results in lower reference time. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This estimate was computed for selected pairs (corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs}. Those pairs represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The reference line indicates the time that a follower takes to travel the specified separation distance for the respective pair category.
+The reference time is analogous to the reference separation minima defined in the previous Section~\ref{sec:interarrival_dist_sep_RECAT}, i.e the reference time metric shifts its position under the RECAT-EU scheme. The aircraft considered for this calculation are exclusively from the Heavy and Medium wake categories, the ones dominating the traffic during peak hours at BIKF, so the final approach speed for those aircraft is approximately 146 knots in both cases (Table~\ref{tab:final_approach_max}).
+
+\begin{table}[h]
+\centering
+\resizebox{.5\textwidth}{!}{%
+\begin{tabular}{l|l|l|}
+\cline{2-3}
+ & \multicolumn{2}{l|}{Average final approach speed {[}knots{]}} \\ \cline{2-3} 
+ & Heavy followers & Medium followers \\ \hline
+\multicolumn{1}{|l|}{RWY 01} & 145,93 & \cellcolor[HTML]{FD6864}146,43 \\ \hline
+\multicolumn{1}{|l|}{RWY 10} & 139,90 & 137,97 \\ \hline
+\multicolumn{1}{|l|}{RWY 19} & 141,64 & 142,16 \\ \hline
+\multicolumn{1}{|l|}{RWY 28} & \cellcolor[HTML]{FD6864}146,32 & 145,56 \\ \hline
+\end{tabular}%
+}
+\caption[Maximum average final approach speeds]{Average final approach speeds for Heavy and Medium followers per runway. The final approach speed is calculated by Isavia from the aircraft ground speed at 4 nautical miles away from the threshold on approach for landing for each of the runways.}
+\label{tab:final_approach_max}
+\end{table}
+
+Higher speed value results in lower reference time when the required separation minima per aircraft pair is considered. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This time was estimated for selected pairs (variations of the Heavy and the Medium categories, corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} along with the LTI frequency distribution. Those pair categories represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The red time reference line indicates the time that a follower takes to travel the specified separation distance for the respective ICAO pair category.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}
-    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{Distribution of of landing time interval (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The blue horizontal line indicates 2 standard deviations left and right of the mean.}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}\label{lti_distr}}
+    
+    \vspace{1cm}
+    
+    \subfloat[]{\resizebox{0.35\textwidth}{!}{%
+    \begin{tabular}{|l|c|r|r|}
+    \hline
+    \multicolumn{2}{|l|}{\multirow{2}{*}{Reference times {[}s{]}}} & \multicolumn{2}{l|}{Follower} \\ \cline{3-4} 
+    \multicolumn{2}{|l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} \\ \hline
+    \multirow{2}{*}{Leader} & H & 98s & 123s \\ \cline{2-4} 
+     & M & 74s & 74s \\ \hline
+    \end{tabular}}\label{ref_times}}
+    
+    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The blue horizontal line indicates two standard deviations left and right of the mean or the 95\% confidence interval. \\
+    \protect\subref{ref_times} Reference times calculated from the maximum final approach speed of the follower and the required separation minima per pair category, presented by the red vertical lines in \protect\subref{lti_distr}.}
     \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-The shift from distance separation to time separation (between aircraft in approach for landing) is necessary in order to correlate the landing time interval (LTI) and the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds.
+The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the landing time interval (LTI) with the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds.
+
+Switching to the time domain also provides an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change form ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
+
+To illustrate the process of estimating the shift of reference times, let's consider the re-categorisation of ICAO Heavy-Medium pairs (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). The reduction of wake separation requirement for the resulting B-C, B-D and C-E pairs is 1 NM, while for the C-C, C-D, D-C and D-D pairs it is 2 NM. The maximum average final approach speed for a Medium follower from all runways at BIKF is 146,43 knots. This results in time difference of 25~seconds (-25,0\%) for decrease by 1 NM, or 49~seconds (-40,0\%) for decrease by 2 NM of the separation requirement. Here we also witness an increased separation requirement by 1 NM in the case of the C-E category, which will result in added 25 seconds (+33,3\%) to the reference time.
+
+Lowered separation requirements reduce the time reference for some RECAT-EU landing pairs, but in other cases (C-F pairs originating from the ICAO M-M category, with increase in separation requirement by 3 NM) this reference time is increased by 100,0\%. Applying the method to the rest of the ICAO pair groups, that experience change in separation requirement, resulted in the time difference values shown in Table~\ref{tab:time_saving}.
+
+\begin{table}[h]
+\centering
+\resizebox{.9\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{} & \multicolumn{6}{c|}{Follower} \\ \cline{3-8} 
+\multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
+ & CAT-A &  &  &  &  &  &  \\ \cline{2-8} 
+ & CAT-B &  & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-25s (-25\%) &  &  \\ \cline{2-8} 
+ & CAT-C &  & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-41s (-38\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{fd6864}+12s (+18\%) & \cellcolor[HTML]{fd6864}+64s (+93\%) \\ \cline{2-8} 
+ & CAT-D &  &  & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) &  & \cellcolor[HTML]{fd6864}+49s (+67\%) \\ \cline{2-8} 
+ & CAT-E &  &  &  &  &  &  \\ \cline{2-8} 
+\multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F &  &  &  &  &  &  \\ \hline
+\end{tabular}}
+\caption[Reference time change for BIKF]{Reference time change between ICAO and RECAT-EU schemes. Green background pairs experience time savings and red background pairs suffer from increased reference time for landings. The values were averaged considering the number of aircraft pairs coming from the respective ICAO categories and the difference in separation requirements. The possible beneficial effect on landing time interval applies to 14,9\% of the pairs and for 1,6\% the LTI would have to increase. The re-categorisation will have no effect on the time reference for majority of the aircraft pairs (83,5\%), thus the lowered reference time is attributed primarily to ICAO pairs with a Heavy leader. The considered data is from arrivals during peak hours from October 2017 to November 2018.}
+\label{tab:time_saving}
+\end{table}
+
+In view of the aircraft pairs that experience change in separation under RECAT-EU, the time savings can potentially result in 35~seconds lower landing time interval (LTI) on average or decrease by 27,9\%. Those pair categories are indicated by a coloured background in Table~\ref{tab:time_saving}.
+
+If the reference time shift is viewed in context of the overall traffic during peak hours at Keflavík Airport for the observed period the time savings correspond to 5,8 seconds on average per aircraft pair, or decreased LTI by 4,6\%. As mentioned before the re-categorisation will not influence the separation requirement for the majority of the aircraft pairs and for this decrease of the LTI contribute only the RECAT-EU pairs originating from ICAO Heavy leader pairs.
 
 
-\fxnote{95\% Confidence intervals! and reference lines relation }
+\fxnote{95\% Confidence intervals! and reference lines relation , assume safety relation between LTI distribution and reference minima}
 
-
-
-\fxnote{Summarise percent of change for the whole BIKF traffic in peak hours. and table of which pairs experience how much reduction, connect with final velocity to come up with a time savings number.}
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
 
