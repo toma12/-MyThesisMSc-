@@ -407,25 +407,26 @@ Higher speed value results in lower reference time when the required separation 
     \centering
     \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}\label{lti_distr}}
     
-    \vspace{1cm}
+    \vspace{0.5cm}
     
-    \subfloat[]{\resizebox{0.35\textwidth}{!}{%
-    \begin{tabular}{|l|c|r|r|}
-    \hline
-    \multicolumn{2}{|l|}{\multirow{2}{*}{Reference times {[}s{]}}} & \multicolumn{2}{l|}{Follower} \\ \cline{3-4} 
-    \multicolumn{2}{|l|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{M} \\ \hline
-    \multirow{2}{*}{Leader} & H & 98s & 123s \\ \cline{2-4} 
-     & M & 74s & 74s \\ \hline
-    \end{tabular}}\label{ref_times}}
+    \subfloat[]{\resizebox{\textwidth}{!}{%
+\begin{tabular}{cccc|c|c|c|c|c|c|c|c|}
+\cline{5-12}
+\multicolumn{4}{c|}{} & \multicolumn{4}{c|}{H follower} & \multicolumn{4}{c|}{M follower} \\ \cline{3-12} 
+\multicolumn{2}{c|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT\\  percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{3-4} \cline{6-7} \cline{10-11}
+\multicolumn{2}{c|}{\multirow{-2}{*}{}} & \multicolumn{1}{c|}{5\%} & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference \\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} \\ \hline
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFCE93}53} & \cellcolor[HTML]{FFCE93}\textbf{111} & {\color[HTML]{9A0000} 98} & \cellcolor[HTML]{68CBD0}\textbf{117} & \cellcolor[HTML]{68CBD0}215 & -- & {\color[HTML]{9A0000} 123} & \cellcolor[HTML]{68CBD0}\textbf{118} & \cellcolor[HTML]{68CBD0}224 & -- \\ \cline{2-12} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFCE93}55} & \cellcolor[HTML]{FFCE93}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{68CBD0}\textbf{109} & \cellcolor[HTML]{68CBD0}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{68CBD0}\textbf{105} & \cellcolor[HTML]{68CBD0}225 & 4 \\ \hline
+\end{tabular}}\label{ref_times}}
     
-    \caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The blue horizontal line indicates two standard deviations left and right of the mean or the 95\% confidence interval. \\
-    \protect\subref{ref_times} Reference times calculated from the maximum final approach speed of the follower and the required separation minima per pair category, presented by the red vertical lines in \protect\subref{lti_distr}.}
-    \label{fig:time_separ_HH_HM_MH_MM_pairs}
+\caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The light blue field indicates the 5\%-95\% percentile range of landing time intervals. \\
+\protect\subref{ref_times} Reference times calculated from the maximum final approach speed of the follower and the required separation minima per pair category, presented by the red vertical lines in \protect\subref{lti_distr}.}
+\label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
 The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the landing time interval (LTI) with the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds.
 
-Switching to the time domain also provides an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change form ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
+Switching to the time domain can also provide an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change form ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
 
 To illustrate the process of estimating the shift of reference times, let's consider the re-categorisation of ICAO Heavy-Medium pairs (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). The reduction of wake separation requirement for the resulting B-C, B-D and C-E pairs is 1 NM, while for the C-C, C-D, D-C and D-D pairs it is 2 NM. The maximum average final approach speed for a Medium follower from all runways at BIKF is 146,43 knots. This results in time difference of 25~seconds (-25,0\%) for decrease by 1 NM, or 49~seconds (-40,0\%) for decrease by 2 NM of the separation requirement. Here we also witness an increased separation requirement by 1 NM in the case of the C-E category, which will result in added 25 seconds (+33,3\%) to the reference time.
 
@@ -440,8 +441,8 @@ Lowered separation requirements reduce the time reference for some RECAT-EU land
 \multicolumn{2}{|c|}{\multirow{-2}{*}{RECAT-EU scheme}} & CAT-A & CAT-B & CAT-C & CAT-D & CAT-E & CAT-F \\ \hline
  & CAT-A &  &  &  &  &  &  \\ \cline{2-8} 
  & CAT-B &  & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-25s (-25\%) &  &  \\ \cline{2-8} 
- & CAT-C &  & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-41s (-38\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{fd6864}+12s (+18\%) & \cellcolor[HTML]{fd6864}+64s (+93\%) \\ \cline{2-8} 
- & CAT-D &  &  & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) &  & \cellcolor[HTML]{fd6864}+49s (+67\%) \\ \cline{2-8} 
+ & CAT-C &  & \cellcolor[HTML]{9AFF99}-25s (-25\%) & \cellcolor[HTML]{9AFF99}-41s (-38\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{ffccc9}+12s (+18\%) & \cellcolor[HTML]{ffccc9}+64s (+93\%) \\ \cline{2-8} 
+ & CAT-D &  &  & \cellcolor[HTML]{9AFF99}-49s (-40\%) & \cellcolor[HTML]{9AFF99}-49s (-40\%) &  & \cellcolor[HTML]{ffccc9}+49s (+67\%) \\ \cline{2-8} 
  & CAT-E &  &  &  &  &  &  \\ \cline{2-8} 
 \multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F &  &  &  &  &  &  \\ \hline
 \end{tabular}}
@@ -449,12 +450,16 @@ Lowered separation requirements reduce the time reference for some RECAT-EU land
 \label{tab:time_saving}
 \end{table}
 
-In view of the aircraft pairs that experience change in separation under RECAT-EU, the time savings can potentially result in 35~seconds lower landing time interval (LTI) on average or decrease by 27,9\%. Those pair categories are indicated by a coloured background in Table~\ref{tab:time_saving}.
+In view of the aircraft pairs that experience change in separation requirement under RECAT-EU, the time savings can potentially result in 35~seconds lower landing time interval on average or decreased LTI by 27,9\%. Those pair categories are indicated by a coloured background in Table~\ref{tab:time_saving} and comprise 14,9\% of the traffic during peak hours.
 
 If the reference time shift is viewed in context of the overall traffic during peak hours at Keflavík Airport for the observed period the time savings correspond to 5,8 seconds on average per aircraft pair, or decreased LTI by 4,6\%. As mentioned before the re-categorisation will not influence the separation requirement for the majority of the aircraft pairs and for this decrease of the LTI contribute only the RECAT-EU pairs originating from ICAO Heavy leader pairs.
 
 
-\fxnote{95\% Confidence intervals! and reference lines relation , assume safety relation between LTI distribution and reference minima}
+\fxnote{95\% Confidence intervals! and reference lines relation, assume safety relation between LTI distribution and reference minima}
+
+
+
+
 
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
