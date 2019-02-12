@@ -415,16 +415,16 @@ Higher speed value results in lower reference time when the required separation 
 \multicolumn{4}{c|}{} & \multicolumn{4}{c|}{H follower} & \multicolumn{4}{c|}{M follower} \\ \cline{3-12} 
 \multicolumn{2}{c|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT\\  percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{3-4} \cline{6-7} \cline{10-11}
 \multicolumn{2}{c|}{\multirow{-2}{*}{}} & \multicolumn{1}{c|}{5\%} & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference \\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} \\ \hline
-\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFCE93}53} & \cellcolor[HTML]{FFCE93}\textbf{111} & {\color[HTML]{9A0000} 98} & \cellcolor[HTML]{68CBD0}\textbf{117} & \cellcolor[HTML]{68CBD0}215 & -- & {\color[HTML]{9A0000} 123} & \cellcolor[HTML]{68CBD0}\textbf{118} & \cellcolor[HTML]{68CBD0}224 & -- \\ \cline{2-12} 
-\multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{FFCE93}55} & \cellcolor[HTML]{FFCE93}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{68CBD0}\textbf{109} & \cellcolor[HTML]{68CBD0}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{68CBD0}\textbf{105} & \cellcolor[HTML]{68CBD0}225 & 4 \\ \hline
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}53} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 98} & \cellcolor[HTML]{cce5e5}\textbf{117} & \cellcolor[HTML]{cce5e5}215 & -- & {\color[HTML]{9A0000} 123} & \cellcolor[HTML]{cce5e5}\textbf{118} & \cellcolor[HTML]{cce5e5}224 & -- \\ \cline{2-12} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}55} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{109} & \cellcolor[HTML]{cce5e5}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{105} & \cellcolor[HTML]{cce5e5}225 & 4 \\ \hline
 \end{tabular}}\label{ref_times}}
     
-\caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The light blue field indicates the 5\%-95\% percentile range of landing time intervals. \\
-\protect\subref{ref_times} Reference times calculated from the maximum final approach speed of the follower and the required separation minima per pair category, presented by the red vertical lines in \protect\subref{lti_distr}.}
+\caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The coloured fields indicate the 5--95 percentile range of the arrival occupancy times (light orange) and the landing time intervals (light blue). \\
+\protect\subref{ref_times} Values for the reference times and the 5--95 percentile range of AROT and LTI. Reference times, presented by the red vertical lines in \protect\subref{lti_distr}, are calculated from the maximum final approach speed of the follower and the required separation minima per pair category. The overlap interval is considered acceptable incursion between AROT and LTI when it is within 10 seconds.}
 \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the landing time interval (LTI) with the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds.
+The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the landing time interval (LTI) with the arrival runway occupancy time (AROT), both having the same dimension expressed in units of seconds. The assumption made here is, that the 5--95 percentile range of the AROT and LTI distributions describes normal operation of airfield at Keflavík without incursions and within safety limits. Therefore the relationship between the two metrics is accepted as the standard when evaluating the frequency distributions within the RECAT-EU scheme.  The acceptable overlap interval value of the percentile ranges is defined as 10 seconds. The position of the reference time line within the 5--95 percentile range of AROT is an indication that presently, under the ICAO scheme, the arrival runway occupancy time is the limiting factor for the airfield capacity.  
 
 Switching to the time domain can also provide an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change form ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
 
@@ -446,20 +446,14 @@ Lowered separation requirements reduce the time reference for some RECAT-EU land
  & CAT-E &  &  &  &  &  &  \\ \cline{2-8} 
 \multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F &  &  &  &  &  &  \\ \hline
 \end{tabular}}
-\caption[Reference time change for BIKF]{Reference time change between ICAO and RECAT-EU schemes. Green background pairs experience time savings and red background pairs suffer from increased reference time for landings. The values were averaged considering the number of aircraft pairs coming from the respective ICAO categories and the difference in separation requirements. The possible beneficial effect on landing time interval applies to 14,9\% of the pairs and for 1,6\% the LTI would have to increase. The re-categorisation will have no effect on the time reference for majority of the aircraft pairs (83,5\%), thus the lowered reference time is attributed primarily to ICAO pairs with a Heavy leader. The considered data is from arrivals during peak hours from October 2017 to November 2018.}
+\caption[Reference time change for BIKF]{Reference time change between ICAO and RECAT-EU schemes. Green background pairs experience time savings and light red background pairs suffer from increased reference time for landings. The values were averaged considering the number of aircraft pairs coming from the respective ICAO categories and the difference in separation requirements. The possible beneficial effect on landing time interval applies to 14,9\% of the pairs and for 1,6\% the LTI would have to increase. The re-categorisation will have no effect on the time reference for majority of the aircraft pairs (83,5\%), thus the lowered reference time is attributed primarily to ICAO pairs with a Heavy leader. The considered data is from arrivals during peak hours from October 2017 to November 2018.}
 \label{tab:time_saving}
 \end{table}
 
-In view of the aircraft pairs that experience change in separation requirement under RECAT-EU, the time savings can potentially result in 35~seconds lower landing time interval on average or decreased LTI by 27,9\%. Those pair categories are indicated by a coloured background in Table~\ref{tab:time_saving} and comprise 14,9\% of the traffic during peak hours.
+In view of the aircraft pairs that experience decrease in separation requirement under RECAT-EU, the time savings can potentially result in 43~seconds lower landing time interval on average, or decreased LTI by 36,2\% (green background pairs in Table~\ref{tab:time_saving}). 
+The aircraft pairs that experience increase in separation requirement under RECAT-EU would suffer 37~seconds higher landing time interval on average, or increased LTI by 49,6\% (light red background pairs in Table~\ref{tab:time_saving}).
 
-If the reference time shift is viewed in context of the overall traffic during peak hours at Keflavík Airport for the observed period the time savings correspond to 5,8 seconds on average per aircraft pair, or decreased LTI by 4,6\%. As mentioned before the re-categorisation will not influence the separation requirement for the majority of the aircraft pairs and for this decrease of the LTI contribute only the RECAT-EU pairs originating from ICAO Heavy leader pairs.
-
-
-\fxnote{95\% Confidence intervals! and reference lines relation, assume safety relation between LTI distribution and reference minima}
-
-
-
-
+If the reference time shift is viewed in context of the overall traffic during peak hours at Keflavík Airport for the observed period the time savings correspond to 5,8 seconds on average per aircraft pair, or decreased LTI by 4,6\%. As mentioned before the re-categorisation will not influence the separation requirement for the majority of the aircraft pairs, therefore for this potential decrease of the LTI contribute only the RECAT-EU pairs originating from ICAO Heavy leader pairs. The pair categories that encounter change in separation are indicated by a coloured background in Table~\ref{tab:time_saving} and comprise 14,9\% of the traffic during peak hours.
 
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
@@ -468,32 +462,62 @@ The following section presents the landing time intervals (LTI) for a subset of 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_CC_from_HH_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO H-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
-    \label{fig:CC_from_HH_pairs_time_sep}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CC_from_HH_pairs_time_sep.png}\label{fig:CC_from_HH_pairs_time_sep}}
+    
+    \vspace{0.5cm}
+    
+    \subfloat[]{\resizebox{0.6\textwidth}{!}{
+    \begin{tabular}{c|c|c|c|c|c|c|}
+    \cline{2-7}
+    \multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
+     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Potential\\ time savings {[}s{]}\end{tabular}} \\ \hline
+    \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{120} & \cellcolor[HTML]{cce5e5}220 & \textbf{-20} \\ \hline
+    \end{tabular}%
+    }}
+
+    
+    \caption[AROT and LTI of C-C pairs originating from ICAO H-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs.}
+    
 \end{figure}
 
-The LTI frequency distribution contained all C-C pairs originating from the ICAO H-H category. The reference time separation (red dashed line) was calculated from the final approach speed and the RECAT-EU distance separation, as explained in \ref{sec:LTI}. The frequency distribution for the AROT, on the other hand, contained all pairs with CAT-C leader originating from the Heavy category, not only pairs with CAT-C leader and CAT-C follower. In this sense the distribution for the AROT was based on more data points than the distribution for the LTI and gave a more accurate presentation of the runway occupancy. Figure~\ref{fig:CC_from_HH_pairs_time_sep} represents the case for 1,9\% of all arrival pairs at BIKF for the observed period during peak hours.
+The LTI frequency distribution contained all C-C pairs originating from the ICAO H-H category. The reference time separation (red dashed line) was calculated from the final approach speed and the RECAT-EU distance separation, as explained in Section \ref{sec:LTI}. The frequency distribution for the AROT, on the other hand, contained all pairs with CAT-C leader originating from the Heavy category, not only pairs with CAT-C leader and CAT-C follower. In this sense the distribution for the AROT was based on more data points than the distribution for the LTI and gave a more accurate presentation of the runway occupancy. Figure~\ref{fig:CC_from_HH_pairs_time_sep} represents the case for 1,9\% of all arrival pairs at BIKF for the observed period during peak hours.
 
 The share of C-C pairs originating from the ICAO H-M category from the peak traffic at the airport was 9,5\%.  The LTI frequency distribution of those pairs is shown in Figure~\ref{fig:CC_from_HM_pairs_time_sep}. Here again the AROT distribution was based on the runway occupancy of CAT-C leaders, as in the previous case. 
  
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_CC_from_HM_pairs_time_sep.png}
-    \caption[AROT and LTI of C-C pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-C pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
-    \label{fig:CC_from_HM_pairs_time_sep}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CC_from_HM_pairs_time_sep.png}\label{fig:CC_from_HM_pairs_time_sep}}
+    
+    % \vspace{0.5cm}
+    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CD_from_HM_pairs_time_sep.png}\label{fig:CD_from_HM_pairs_time_sep}}
+    
+    \subfloat[]{\resizebox{0.7\textwidth}{!}{%
+    \begin{tabular}{c|c|c|c|c|c|c|}
+    \cline{2-7}
+    \multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader \\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
+     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Potential\\ time savings {[}s{]}\end{tabular}} \\ \hline
+    \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9a0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{118} & \cellcolor[HTML]{cce5e5}226 & \textbf{-18} \\ \hline
+    \multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{ffedcc}52 & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9a0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{120} & \cellcolor[HTML]{cce5e5}221 &  \textbf{-19} \\ \hline
+    \end{tabular}%
+    }}
+    
+    \caption[AROT and LTI of C-C and C-D pairs originating from ICAO H-M pairs]{AROT and landing time intervals of \protect\subref{fig:CC_from_HM_pairs_time_sep} C-C and \protect\subref{fig:CD_from_HM_pairs_time_sep} C-D pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-D pairs.}
 \end{figure}
+
 
 These two cases: C-C pairs from ICAO H-H and H-M categories, would have more noticeable beneficial effect from the implementation of the RECAT-EU scheme (refer to~\ref{sec:interarrival_dist_sep_RECAT}). The decrease in distance separation in those cases is 1 NM or 2 NM. Translating the separation into the time domain resulted in a separation reference time line at 74 seconds and minimum LTI values close to 100 seconds. This shift of the reference line creates the potential for shift to the left in the frequency distribution of the LTI.
  
- \begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{graphics/fig_CD_from_HM_pairs_time_sep.png}
-    \caption[AROT and LTI of C-D pairs originating from ICAO H-M pairs]{AROT and landing time intervals of C-D pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-D pairs. The blue horizontal line indicates 2 standard deviation left and right of the mean.}
-    \label{fig:CD_from_HM_pairs_time_sep}
-\end{figure}
 
 Even greater potential for decrease of the inter-arrival time was observed in the case of C-D pairs from the ICAO H-M category (Figure~\ref{fig:CD_from_HM_pairs_time_sep}). Here the minimum LTI observed was 113 seconds, serving as a possible 39 seconds shift to the left of the frequency distribution. However the share of those pairs in the traffic was limited to 1.4\%.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{graphics/fig_best_CC_from_HM_pairs_time_sep.png}
+    \caption[AROT and LTI of C-C pairs from ICAO H-M pairs on RWY~19]{AROT and landing time intervals of C-C pairs originating from ICAO H-M pairs for RWY-19 during the summer season. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs.}
+    \label{fig:best_CC_from_HM_pairs_time_sep}
+\end{figure}
+
 
 The C-C pairs formed from the ICAO M-H category were 11,1\% from the BIKF traffic with frequency distribution of the LTI shown in Figure~\ref{fig:CC_from_MH_pairs_time_sep}. The reference line in this case is again at 74 seconds, and the LTI frequency distribution curve was closer to the reference than in the cases above.
 
