@@ -197,7 +197,7 @@ The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger s
 \label{tab:all_RWY_AROT_stats}
 \end{table}
 
-A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats} and visualised in Figure~\ref{fig:runway_AROTs_boxplot}. The average AROT for the BIKF airfield amounted to 78 seconds with average standard deviation about the mean of 18 seconds. Overall, half of the landing aircraft occupy the runways between 67 and 85 seconds on average. 
+A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats} and visualised in Figure~\ref{fig:runway_AROTs_boxplot}. The average AROT for the BIKF airfield amounted to 78 seconds with average standard deviation about the mean of 18 seconds. Overall, half of the landing aircraft occupy the runways between 64 and 89 seconds on average, based on the IQR of arrivals from all runways during peak hours. 
 
 \begin{figure}[h]
     \centering
@@ -417,8 +417,8 @@ Higher speed value results in lower reference time when the required separation 
 \multicolumn{2}{c|}{\multirow{-2}{*}{}} & \multicolumn{1}{c|}{5\%} & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference \\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} \\ \hline
 \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}53} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 98} & \cellcolor[HTML]{cce5e5}\textbf{117} & \cellcolor[HTML]{cce5e5}215 & -- & {\color[HTML]{9A0000} 123} & \cellcolor[HTML]{cce5e5}\textbf{118} & \cellcolor[HTML]{cce5e5}224 & -- \\ \cline{2-12} 
 \multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}55} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{109} & \cellcolor[HTML]{cce5e5}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{105} & \cellcolor[HTML]{cce5e5}225 & 4 \\ \hline
-\end{tabular}}\label{ref_times}}
-    
+\end{tabular}\label{ref_times}}}
+
 \caption[Distribution of landing time interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of landing time intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The coloured fields indicate the 5--95 percentile range of the arrival occupancy times (light orange) and the landing time intervals (light blue). \\
 \protect\subref{ref_times} Values for the reference times and the 5--95 percentile range of AROT and LTI. Reference times, presented by the red vertical lines in \protect\subref{lti_distr}, are calculated from the maximum final approach speed of the follower and the required separation minima per pair category. The overlap interval is considered acceptable incursion between AROT and LTI when it is within 10 seconds.}
 \label{fig:time_separ_HH_HM_MH_MM_pairs}
@@ -430,7 +430,7 @@ Aside from the limiting effect of the AROT, switching to the time domain can als
 
 To illustrate the process of estimating the shift of reference times, let's consider the re-categorisation of ICAO Heavy-Medium pairs (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). The reduction of wake separation requirement for the resulting B-C, B-D and C-E pairs is 1 NM, while for the C-C, C-D, D-C and D-D pairs it is 2 NM. The maximum average final approach speed for a Medium follower from all runways at BIKF is 146,43 knots. This results in time difference of 25~seconds (-25,0\%) for decrease by 1 NM, or 49~seconds (-40,0\%) for decrease by 2 NM of the separation requirement. Here we also witness an increased separation requirement by 1 NM in the case of the C-E category, which will result in added 25 seconds (+33,3\%) to the reference time.
 
-Lowered separation requirements reduce the time reference for some RECAT-EU landing pairs, but in other cases (C-F pairs originating from the ICAO M-M category, with increase in separation requirement by 3 NM) this reference time is increased by 100,0\%. Applying the method to the rest of the ICAO pair groups, that experience change in separation requirement, resulted in the time difference values shown in Table~\ref{tab:time_saving}.
+Lowered separation requirements reduce the time reference for some RECAT-EU landing pairs, but in other cases (C-F pairs originating from the ICAO M-M category, with increase in separation requirement by 3 NM) this reference time is increased by 100\%. Applying the method to the rest of the ICAO pair groups, that experience change in separation requirement, resulted in the time difference values shown in Table~\ref{tab:time_saving}.
 
 \begin{table}[h]
 \centering
@@ -458,13 +458,13 @@ If the reference time shift is viewed in context of the overall traffic during p
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
 
-The following section presents the interaction between the landing time intervals and the arrival runway occupancy times that will define one of the metric as a limiting factor for increased throughput of the airfield. 
+The following section presents the interaction between the landing time intervals (LTI) and the arrival runway occupancy times (AROT) that will define one of the metric as a limiting factor for increased throughput of the airfield. 
 
-The LTI is based on a subset of the traffic after re-categorisation from the ICAO wake turbulence scheme. The subset contains primarily C-C pairs, that were selected as being the more prominent subset, where most of the traffic is concentrated and the LTI frequency distribution would be more accurate. 
+The LTI values are based on a subset of the traffic after re-categorisation from the ICAO wake turbulence scheme. The subset contains primarily C-C pairs, that were selected as being the more prominent subset, where most of the traffic is concentrated and the LTI frequency distribution would be more accurate. 
 
-The other metric used in contrast to the LTI was the arrival runway occupancy time for the respective aircraft pairs. The leader in a pair determines when the runway is available for the next landing of a follower. During peak hours every follower aircraft becomes a leader the moment the previous aircraft has cleared the runway. Therefore, the frequency distribution of the AROT was based exclusively on CAT-C aircraft, both leaders and followers, previously categorised as either Heavy or Medium under the ICAO scheme.
+The other metric used in contrast to the LTI was the arrival runway occupancy time for the respective aircraft pairs. The leader in a pair determines when the runway is available for the next landing of a follower. During peak hours every follower aircraft becomes a leader the moment the previous aircraft has cleared the runway. Therefore, the frequency distribution of the AROT in the examples was based exclusively on CAT-C aircraft, both leaders and followers, previously categorised as either Heavy or Medium under the ICAO scheme.
 
-The parallel between the landing time interval and the arrival runway occupancy time is drawn with the assumption, that the airfield operates without incursions, indicating lack of overlap between the 5–-95~percentile ranges of the AROT and LTI . This assumption is made in analogy with the results in Fifure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} under the ICAO scheme, therefore the relationship between the two metrics is accepted as the standard when evaluating the constraint under the RECAT-EU scheme. The position of the reference time line within the 5–95~percentile range of AROT is an indication that the arrival runway occupancy time is the limiting factor for potential increase of airfield capacity. 
+The parallel between the landing time interval and the arrival runway occupancy time is drawn with the assumption, that the airfield operates without incursions, indicating lack of overlap between the 5–-95~percentile ranges of the AROT and LTI . This assumption is made in analogy with the results in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} under the ICAO scheme, therefore the relationship between the two metrics is accepted as the standard when evaluating the constraint under the RECAT-EU scheme. The position of the reference time line within the 5–95~percentile range of AROT is an indication that the arrival runway occupancy time is the limiting factor for potential increase of airfield capacity. 
 
 The possible time savings from implementing RECAT-EU are defined as the difference between the lower limit of the LTI percentile range and the upper limit of the AROT percentile range or the reference time line (whichever has a higher value). The existence of such time difference points to the LTI being the limiting factor for increased throughput. The potential shift of the LTI distribution is defined as the difference between the lower limit of the LTI percentile range and the reference time line.
 
@@ -566,7 +566,7 @@ The AROT and LTI frequency distributions of C-C pairs formed from the ICAO M-H c
 The reference time line is within the 5--95 percentile range of the AROT and at the same time the LTI and AROT percentile ranges overlap, which establish the arrival occupancy time as the limiting factor for increased capacity.
 
 
-The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M pairs (Figure~\ref{fig:CC_from_MM_pairs_time_sep}).The reference time line is again within the 5--95 percentile range of the AROT and the overlap of the two distributions restrain increased throughput.
+The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M pairs (Figure~\ref{fig:CC_from_MM_pairs_time_sep}). The reference time line is again within the 5--95 percentile range of the AROT and the overlap of the two distributions restrain increased throughput.
 % Here the minimum inter-arrival time separation was 80 seconds, a mere 6 seconds above the reference limit, with half of all pairs having LTI between 132 and 185 seconds.
 
 \begin{figure}[h]
@@ -587,26 +587,27 @@ The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M 
 \end{figure}
 
 % Nevertheless the potential decrease of the landing time interval was hindered by the AROT, the other major factor affecting runway capacity (refer to \ref{sec:runway_capacity}).
-All of the frequency distributions for the C-C pairs in the figures above witness an overlap of the reference time separation line and the AROT frequency distribution. The average runway occupancy time was estimated as 77,5 seconds (\ref{ssec:runway_usage_arot}) and compared to the reference time line for the predominant C-C pairs (74 seconds), it is apparent that the AROT is the limiting factor and a major constraint for shift in the LTI distribution.
+The frequency distribution for the C-C pairs in general, shows an overlap of the reference time separation line and the 5--95 percentile range of the AROT. The average runway occupancy time for the airfield was estimated as 78 seconds (Section~\ref{ssec:runway_usage_arot}) and compared to the reference time line for the predominant C-C pairs (74 seconds), it is apparent that the AROT is a constraint for shift in the LTI distribution and a limiting factor for increased capacity.
 
+The C-C pairs were chosen for analysis based on how common their presence is in the traffic at Keflavík Airport. A broader view, concerning other well presented pairs from the traffic mix, points repeatedly to the arrival runway occupancy time as the constraint for increased airfield capacity, because of the overlap of the AROT and LTI percentile ranges and the position of the reference time line (Table~\ref{tab:constraints_general}). The criteria for identifying a well presented aircraft pair category was a conventional sample size $\geq30$. Those pair categories from the BIKF traffic during peak hours are six (refer to Table~\ref{tab:pairs_mix_to_recat}), listed as row heads in Table~\ref{tab:constraints_general}. 
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{c|c|c|c|c|c|c|c|}
 \cline{2-8}
  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  &  \\ \cline{2-3} \cline{5-6}
  & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap / Time \\ savings {[}s{]}\end{tabular}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Possible LTI\\  decrease {[}s{]}\end{tabular}} \\ \hline
-\multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}223 & \cellcolor[HTML]{FFFFFF}\textbf{+2} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-34}} \\ \hline
-\multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{96} & \cellcolor[HTML]{CCE5E5}217 & \cellcolor[HTML]{FFFFFF}\textbf{+14} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-22}} \\ \hline
-\multicolumn{1}{|c|}{C-E} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{98}} & \cellcolor[HTML]{CCE5E5}\textbf{107} & \cellcolor[HTML]{CCE5E5}227 & \cellcolor[HTML]{FFFFFF}\textbf{+3} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-8}} \\ \hline
+\multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}223 & \cellcolor[HTML]{FFEEED}\textbf{+2} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-34}} \\ \hline
+\multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{96} & \cellcolor[HTML]{CCE5E5}217 & \cellcolor[HTML]{FFEEED}\textbf{+14} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-22}} \\ \hline
+\multicolumn{1}{|c|}{C-E} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{98}} & \cellcolor[HTML]{CCE5E5}\textbf{107} & \cellcolor[HTML]{CCE5E5}227 & \cellcolor[HTML]{FFEEED}\textbf{+3} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-8}} \\ \hline
 \multicolumn{1}{|c|}{D-C} & \cellcolor[HTML]{FFEDCC}54 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{116} & \cellcolor[HTML]{CCE5E5}230 & \cellcolor[HTML]{DDF9DC}\textbf{-5} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-42}} \\ \hline
-\multicolumn{1}{|c|}{D-D} & \cellcolor[HTML]{FFEDCC}54 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}230 & \cellcolor[HTML]{FFFFFF}\textbf{+2} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-34}} \\ \hline
-\multicolumn{1}{|c|}{E-C} & \cellcolor[HTML]{FFEDCC}51 & \cellcolor[HTML]{FFEDCC}\textbf{134} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{100} & \cellcolor[HTML]{CCE5E5}224 & \cellcolor[HTML]{FFFFFF}\textbf{+34} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-26}} \\ \hline
+\multicolumn{1}{|c|}{D-D} & \cellcolor[HTML]{FFEDCC}54 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}230 & \cellcolor[HTML]{FFEEED}\textbf{+2} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-34}} \\ \hline
+\multicolumn{1}{|c|}{E-C} & \cellcolor[HTML]{FFEDCC}51 & \cellcolor[HTML]{FFEDCC}\textbf{134} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{100} & \cellcolor[HTML]{CCE5E5}224 & \cellcolor[HTML]{FFEEED}\textbf{+34} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-26}} \\ \hline
 \end{tabular}%
 }
-\caption{My caption}
-\label{my-label}
+\caption[RECAT-EU pairs and constraints for airfield capacity]{RECAT-EU pairs and constraints for airfield capacity. AROT is considered a limiting factor if it holds the reference time line within its 5--95 percentile range, which is the case for all of the selected RECAT-EU pairs. The overlap of the AROT and LTI ranges is additional indicator for restrained capacity by the AROT. The opportunity for improved capacity is indicated by the possible decrease of the LTI, in relation to the reference time, when the AROT is not taken into consideration.}
+\label{tab:constraints_general}
 \end{table}
 
 
