@@ -96,6 +96,7 @@
 
 %%%% My user packages-Toma%%%%%%
 \usepackage{multirow}
+\usepackage{longtable}
 %\usepackage[table,xcdraw]{xcolor} %% this was added to the \documentclass[..here..]
 % \usepackage{refcheck}
 % \usepackage{showlabels}% !!!remove this in final version!!!
@@ -392,8 +393,9 @@ Additionally the Isavia company provided a workplace and the means to obtain the
 %% Other lists may be added, such as lists of algorithms, symbols, theorems, etc.
 %% IN CS PhD, this is sometimes centered.
 \coverchapter{List of Abbreviations}%%RUM: Not mentioned
+\begin{longtable}{ll}
 
-\begin{tabular}{ll}
+% \begin{tabular}{ll}
 % MSc     &   Masters of Science\\
 % PhD   &   Doctor of Philosophy\\
  ADS-B   &   Automatic Dependent Surveillance-Broadcast\\
@@ -440,8 +442,8 @@ Additionally the Isavia company provided a workplace and the means to obtain the
  VFR     &   Visual Flight Rules\\
  WTC     &   Wake Turbulence Category\\
 
-\end{tabular}
-
+% \end{tabular}
+\end{longtable}
 
 % \coverchapter{List of Symbols}%%RUM: Not mentioned
 % \begin{tabular}{lll}
