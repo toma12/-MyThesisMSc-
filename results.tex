@@ -227,7 +227,7 @@ B752 & GLF4 & M & M & 5.086 & 132 & CAT-C & CAT-E & RWY 01 & TWY A-1 & ICE & 201
 \label{tab:sample_pairs}
 \end{table}
 
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in Section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in Section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. 
 
 \begin{table}[h]
 \centering
@@ -244,6 +244,8 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 \caption[BIKF traffic mix sorted into ICAO WTC]{Number of ICAO pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake category. The majority of aircraft pairs comprise the M-M category (69,9\%), followed by M-H (14,3\%), H-M (12,9\%) and H-H (2,1\%) pairs. The observation period is from October 2017 to November 2018.}
 \label{tab:pairs_mix_to_wtc}
 \end{table}
+
+The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
 
 The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation minima. 
 
@@ -284,7 +286,6 @@ The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The re
     \subfloat[]{\includegraphics[width=1.0\textwidth]{graphics/fig_MM_to_RECAT_pairs_dist_separ.png}\label{mm2recat}}
     
     % \vspace{1cm}
-    
     \subfloat[]{\resizebox{0.5\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|}
     \hline
     \multicolumn{2}{|c|}{} & \multicolumn{4}{c|}{Follower} \\ \cline{3-6} 
@@ -307,7 +308,7 @@ It is illustrative to mention also that some of the pair categories would suffer
     \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs]{Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU C-E and C-F pairs. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
     \label{fig:MM_to_CE_and_CF_pairs_dist_separ}
 \end{figure}
-\clearpage
+% \clearpage
 Similarly, the reference separation minima for all M-H pairs remains unchanged after re-categorisation~(Figure~\ref{fig:MH_to_RECAT_pairs_dist_separ}), which brings no decrease of separation under the RECAT-EU scheme for aircraft pairs originating from the ICAO~M-H category. 
 
 \begin{figure}[h]
@@ -414,7 +415,7 @@ Higher speed value results in lower reference time when the required separation 
 \cline{5-12}
 \multicolumn{4}{c|}{} & \multicolumn{4}{c|}{H follower} & \multicolumn{4}{c|}{M follower} \\ \cline{3-12} 
 \multicolumn{2}{c|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT\\  percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI \\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{3-4} \cline{6-7} \cline{10-11}
-\multicolumn{2}{c|}{\multirow{-2}{*}{}} & \multicolumn{1}{c|}{5\%} & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference \\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} \\ \hline
+\multicolumn{2}{c|}{\multirow{-2}{*}{}} & \multicolumn{1}{c|}{~~~5\%~~~} & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference \\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{Overlap {[}s{]}} \\ \hline
 \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{H} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}53} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 98} & \cellcolor[HTML]{cce5e5}\textbf{117} & \cellcolor[HTML]{cce5e5}215 & -- & {\color[HTML]{9A0000} 123} & \cellcolor[HTML]{cce5e5}\textbf{118} & \cellcolor[HTML]{cce5e5}224 & -- \\ \cline{2-12} 
 \multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}55} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{109} & \cellcolor[HTML]{cce5e5}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{105} & \cellcolor[HTML]{cce5e5}225 & 4 \\ \hline
 \end{tabular}\label{ref_times}}}
@@ -480,7 +481,7 @@ The results for the LTI and the AROT of C-C pairs from H-H pair category are pre
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
     \multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
-     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}} Time \\ savings {[}s{]}\end{tabular}} \\ \hline
+     &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}} Time \\ savings {[}s{]}\end{tabular}} \\ \hline
     \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{120} & \cellcolor[HTML]{cce5e5}220 & \cellcolor[HTML]{9AFF99}\textbf{-10} \\ \hline
     \end{tabular}%
     }\label{tablehh}}
@@ -508,7 +509,7 @@ The LTI frequency distribution of C-C and C-D pairs, originating from the ICAO H
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
     \multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader \\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
-     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Time \\ savings {[}s{]}\end{tabular}} \\ \hline
+     &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Time \\ savings {[}s{]}\end{tabular}} \\ \hline
     \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9a0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{118} & \cellcolor[HTML]{cce5e5}226 & \cellcolor[HTML]{9AFF99}\textbf{-8} \\ \hline
     \multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9a0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{120} & \cellcolor[HTML]{cce5e5}221 &  \cellcolor[HTML]{9AFF99}\textbf{-9} \\ \hline
     \end{tabular}%
@@ -534,7 +535,7 @@ A specific best case scenario, that illustrates a benefit of switching to the RE
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
      & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
-     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Time \\ savings {[}s{]}\end{tabular}} \\ \hline
+     &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Time \\ savings {[}s{]}\end{tabular}} \\ \hline
     \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}47 & \cellcolor[HTML]{FFEDCC}\textbf{70} & {\color[HTML]{9A0000} \textbf{76}} & \cellcolor[HTML]{CCE5E5}\textbf{118} & \cellcolor[HTML]{CCE5E5}226 & \cellcolor[HTML]{9AFF99}\textbf{-42} \\ \hline
     \end{tabular}%
     }\label{tablebesthm}}
@@ -555,7 +556,7 @@ The AROT and LTI frequency distributions of C-C pairs formed from the ICAO M-H c
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
      & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
-     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap \\ time {[}s{]}\end{tabular}} \\ \hline
+     &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap \\ time {[}s{]}\end{tabular}} \\ \hline
     \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}220 & \cellcolor[HTML]{FFCCC9}\textbf{+1} \\ \hline
     \end{tabular}%
     }\label{tablemh}}
@@ -578,7 +579,7 @@ The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M 
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
      & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  \\ \cline{2-3} \cline{5-6}
-     & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap \\ time {[}s{]}\end{tabular}} \\ \hline
+     &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap \\ time {[}s{]}\end{tabular}} \\ \hline
     \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{107} & \cellcolor[HTML]{CCE5E5}224 & \cellcolor[HTML]{FFCCC9}\textbf{+3} \\ \hline
     \end{tabular}%
     }\label{tablemm}}
@@ -598,7 +599,7 @@ The C-C pairs were chosen for analysis based on how common their presence is in 
 \begin{tabular}{c|c|c|c|c|c|c|c|}
 \cline{2-8}
  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}AROT of leader\\ percentile range {[}s{]}\end{tabular}} &  & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}c@{}}LTI\\ percentile range {[}s{]}\end{tabular}} &  &  \\ \cline{2-3} \cline{5-6}
- & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} & 5\% & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap / Time \\ savings {[}s{]}\end{tabular}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Possible LTI\\  decrease {[}s{]}\end{tabular}} \\ \hline
+ &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Reference\\ time {[}s{]}\end{tabular}} &~~~5\%~~~ & 95\% & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Overlap / Time \\ savings {[}s{]}\end{tabular}} & \multirow{-2}{*}{\begin{tabular}[c]{@{}c@{}}Possible LTI\\  decrease {[}s{]}\end{tabular}} \\ \hline
 \multicolumn{1}{|c|}{C-C} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{108} & \cellcolor[HTML]{CCE5E5}223 & \cellcolor[HTML]{FFEEED}\textbf{+2} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-34}} \\ \hline
 \multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{74}} & \cellcolor[HTML]{CCE5E5}\textbf{96} & \cellcolor[HTML]{CCE5E5}217 & \cellcolor[HTML]{FFEEED}\textbf{+14} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-22}} \\ \hline
 \multicolumn{1}{|c|}{C-E} & \cellcolor[HTML]{FFEDCC}56 & \cellcolor[HTML]{FFEDCC}\textbf{110} & {\color[HTML]{9A0000} \textbf{98}} & \cellcolor[HTML]{CCE5E5}\textbf{107} & \cellcolor[HTML]{CCE5E5}227 & \cellcolor[HTML]{FFEEED}\textbf{+3} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{013300} \textbf{-8}} \\ \hline
