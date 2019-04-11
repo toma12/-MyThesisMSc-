@@ -159,7 +159,7 @@
 %% NOTE: THIS IS THE DATE OF THE SUPERVISOR'S SIGNATURE!!!!!!
 %% Predefined: \MLjan, \MLfeb, \MLmar, ... \MLdec
 %\whensigned{day}{month}{year} %day is only used on some formats, but you must put something.
-\whensigned{10}{\MLmar}{2019}
+\whensigned{10}{\MLmay}{2019}
 
 %% Title in English and Icelandic
 %% You need to put both a normal case and ALL CAPS version into the macros.
@@ -276,9 +276,17 @@
 %% Note: Icelandic quotation marks cannot be typeset using "` and "'.  You should use \enquote{}
 %% this is probably due to interactions with the MultiLingual macros.
 %% TODO: turn this into more sensible macros to avoid confusion --foley
-\newML{AbstractText}{\lipsum[1]}  
+\newML{AbstractText}{
+
+English abstract
+
+}  
 % ipsum generaes text text
-{\lipsum[1]} % Icelandic abstract goes here
+{
+
+útdráttur á íslensku
+
+} % Icelandic abstract goes here
 \setAbstract{\MLAbstractText}
 
 
@@ -348,9 +356,11 @@
 
 \draftnote{Acknowledgements are optional; comment this chapter out if they are absent
   Note that it is important to acknowledge any funding that helped in the work.}
-
+  
 The work on this thesis was supported by 2018~Isavia grant.
 Additionally the Isavia company provided a workplace and the means to obtain the necessary information from the company servers. Special appreciation goes to Hjalti Pálsson, Head of Research and Development Department and his team of professionals: Atli Norðmann Sigurðarson, Specialist, for valuable insight into the manner of retrieving and analysing the data, Víkingur Logi Ásgeirsson, Project Manager, for his beneficial assistance in managing the specifics of the Python code.
+
+I would like to give thanks to my supervisors Þorgeir Pálsson and Ármann Gylfason for the support and valuable advice throughout the process of developing this study.
 
 % \coverchapter{Preface}
 % % RUM: "Preface (optional)"
