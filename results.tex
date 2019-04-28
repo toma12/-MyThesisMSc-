@@ -2,7 +2,7 @@
 
 The results chapter deals with presenting the different metrics discussed so far, within the RECAT-EU scheme. The data subset for the analysis was limited to four pair categories from the ICAO scheme: H-H, H-M, M-H and M-M. This simplification was done in order to filter out the small number of data points for other pairs, insufficient for any valid estimations of the distribution of inter-arrival distance or the landing time intervals. 
 
-The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The Arrival Runway Occupancy Time (AROT) and the Landing Time Interval (LTI) for particular pairs were compared to identify the limiting factor for throughput capacity. The AROT was considered limiting for the runway capacity if its frequency distribution overlapped excessively with the frequency distribution of the LTI. As mentioned earlier in the introduction section, no aircraft landing is allowed if another aircraft is present on a designated runway. An overlap of AROT and LTI can indicate a landing incursion and lead to missed approach. 
+The distribution of inter-arrival distances for the RECAT-EU pairs were examined in agreement with the RECAT-EU reference separations. The Arrival Runway Occupancy Time (AROT) and the Landing Time Interval (LTI) for particular pairs were compared to identify the limiting factor for throughput capacity. The AROT was considered limiting for the runway capacity if its frequency distribution overlapped excessively with the frequency distribution of the LTI. As mentioned earlier in the introduction section, no aircraft landing is allowed if another aircraft is present on a designated runway. An overlap occurs when the LTI for a certain aircraft pair is less than the AROT, and can indicate a landing incursion leading to missed approach. 
 
 \section{Aircraft Traffic Mix\label{sec:traffic_mix}}
 
@@ -52,7 +52,7 @@ Several approaches were used to look at the AROT at the airfield. First the runw
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_RECAT_AROTs_boxplot.png}
-    \caption[AROTs box-plot for RECAT-EU categories, all runways]{Arrival runway occupancy times for the different RECAT-EU categories based on data gathered for a period 14 months since October 2017. The coloured blocks indicate where 50\% of the data are located, or the inter-quartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile (Q1), upper edge is the 75\textsuperscript{th}~percentile (Q3). The whiskers are at Q1-1,5$\times$IQR and Q3+1,5$\times$IQR.  The box plot shows the AROTs for all runways at BIKF during peak hours.}
+    \caption[AROTs box-plot for RECAT-EU categories, all runways]{Arrival runway occupancy times for the different RECAT-EU categories based on data gathered for a period 14 months since October 2017. The coloured blocks indicate where 50\% of the data in the relevant category are located, or the inter-quartile range (IQR); lower edge is the 25\textsuperscript{th}~percentile (Q1), upper edge is the 75\textsuperscript{th}~percentile (Q3). The whiskers are at Q1-1,5$\times$IQR and Q3+1,5$\times$IQR.  The box plot shows the AROTs for all runways at BIKF during peak hours.}
     \label{fig:RECAT_AROTs_boxplot}
 \end{figure}
 
@@ -79,7 +79,7 @@ The analysis showed that the shortest AROTs relate to aircraft from the CAT-D an
 
 The numbers also reveal that half of the aircraft from the CAT-C and CAT-D categories have AROTs in the range 60 to 90 seconds approximately, which outlines to some extent the anticipated values for AROT for the airfield. 
 
-AROT is a metric that is expected to have minimal value, within certain safety limits, for increased throughput of the runway. One of the requirements for reducing the Radar Separation Minimum (MRS) from 3~NM to 2,5~NM is AROT $\leq50$ seconds. ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that MRS may be reduced if the AROT of landing succeeding aircraft, which are established on the same final approach track is proven, by means such as data collection and statistical analysis and/or theoretical models, not to exceed 50 seconds. None of the average AROT values fulfils the 50~seconds limit for reduced MRS. This constraint fixes the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
+The objective for the AROT metric is to have minimal value, within certain safety limits, for increased throughput of the runway. One of the requirements for reducing the Radar Separation Minimum (MRS) from 3~NM to 2,5~NM is AROT $\leq50$ seconds. ICAO Doc 4444 PANS-AM~\cite{doc44444} dictates that MRS may be reduced if the average AROT of landing succeeding aircraft, which are established on the same final approach track is proven, by means such as data collection and statistical analysis and/or theoretical models, not to exceed 50 seconds. None of the average AROT values at BIKF fulfils the 50~seconds limit for reduced MRS. This constraint fixes the MRS reference value at 3 NM and also suggest that the runway occupancy will be a limiting factor for the cases in which MRS is applicable (Table~\ref{tab:RECAT-dist}). This limitation is also confirmed by the statistical analysis for each of the runways in the following sections.% \ref{sssec:seasonal_arot}, \ref{sssec:runway_usage_arot}. 
 
 \subsection{Seasonal Variation of AROT\label{ssec:seasonal_arot}}
 Another approach was to analyse the seasonal variations of the runway occupancy time. The differentiation between summer and winter months was based on AROT values for a period of one year (Table~\ref{tab:month2season_arot}). Months with average AROT~$\leq$80~seconds formed the summer season and the rest were selected as winter months. This separation criteria is purely subjective but succeeds in forming two seasons with equal number of months. On average the seasonal difference of runway occupancy times was only eight seconds as seen in Table~\ref{tab:summer_winter_arot}. Still the seasonal variation should be taken into consideration as it can affect the AROT significantly, especially in the winter months when adverse weather conditions may impair the runway surface by accumulated slush, snow or ice, thus diminishing braking action. Good braking action due to runway surface condition is also one of the requirements for reduced MRS as provided by the procedures for navigation services of Air Traffic Management~\cite{doc44444}.
@@ -111,8 +111,7 @@ Runway usage for each of the runways was also examined both with regard to seaso
 
 BIKF airfield is currently equipped with two rapid-exit taxiways designated as TWY~A-1 and TWY~B-1. The first was completed on 26~July~2017 and the latter on 4~October~2017. Taxiway A-1 provides a rapid-exit track to the left for RWY-01, in the north landing direction, and B-1 serves RWY-28 exiting to the right in the west direction. The day that B-1 became operational was chosen as the starting time for the data set considered for analysis in this project. The reason behind this is the beneficial effect that rapid-exits have on reducing arrival runway occupancy time. 
 
-The statistical analysis points to decreased AROT on average for RWY-01 with the use of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}). 
-
+The statistical analysis points to decreased AROT on average for RWY-01 with the use of A-1 (Table~\ref{tab:season_AROT_stats_RWY01_post_fast_exit}) compared to the the use of the runway without rapid-exit (Table~\ref{tab:season_AROT_stats_RWY01_pre_fast_exit}). 
 \begin{table}[h]
     \centering
     \subfloat[\label{tab:season_AROT_stats_RWY01_pre_fast_exit}]{\resizebox{0.8\textwidth}{!}{\begin{tabular}{lr|r|r|r|r|r|r|r|}
@@ -132,11 +131,10 @@ The statistical analysis points to decreased AROT on average for RWY-01 with the
 \end{tabular}}}
 
 \caption[AROTs RWY-01 with and without rapid-exit by season]{AROTs for runway RWY-01 by season: \protect\subref{tab:season_AROT_stats_RWY01_pre_fast_exit} without rapid-exit and \protect\subref{tab:season_AROT_stats_RWY01_post_fast_exit} with rapid-exit TWY A-1. The count is the number of landings during peak hours from July 2017 to November 2018.}
-
 \end{table}
 
-This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. Still, judging by the number of arrivals during peak hours, the rapid-exit is used by less than 1/3 of the flights. The comparatively lower usage of rapid-exit TWY~A-1, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting taxiing aircraft in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so the rapid-exit is avoided altogether during peak hours.
-
+\clearpage
+This decrease of AROT for flights using TWY~A-1, during the winter season was 42\% and 39\% for the summer months. Still, judging by the number of arrivals during peak hours, the rapid-exit is used by less than 1/3 of the flights. Comparatively lower usage of rapid-exit TWY~A-1, can be linked to its layout and the fact that A-1 exits into TWY~E-3, meeting aircraft taxiing in the opposite direction (Figure~\ref{fig:BIKF_schematic}), so that the rapid-exit is avoided altogether during peak hours.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/BIKF_schematic.png}
@@ -144,8 +142,8 @@ This decrease of AROT for flights using TWY~A-1, during the winter season was 42
     \label{fig:BIKF_schematic}
 \end{figure}
 
-The data for RWY-28 present a somewhat different picture. After the implementation of TWY~B-1 in the end of 2017, arriving flights use almost exclusively the rapid-exit. The average AROT is being reduced by 33\% for the summer months and by 34\% for the winter, with the usage of rapid-exit taxiway (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}). 
-
+\clearpage
+The data for RWY-28 present a somewhat different picture. After the implementation of TWY~B-1 in the end of 2017, arriving flights use almost exclusively the rapid-exit. The average AROT is being reduced by 33\% for the summer months and by 34\% for the winter, with the usage of rapid-exit taxiway (Table~\ref{tab:season_AROT_stats_RWY28_pre_fast_exit},~\ref{tab:season_AROT_stats_RWY28_post_fast_exit}).
 \begin{table}[h]
 \centering
 \resizebox{0.8\textwidth}{!}{%
@@ -178,8 +176,10 @@ The data for RWY-28 present a somewhat different picture. After the implementati
 
 Despite the reduced AROT, runway RWY~28 remains least used, servicing only 10$\%$ of landing aircraft (Figure~\ref{fig:runway_usage_peak}). One explanation for the small share of landings on RWY-28 is that flights on approach for landing westwards are generally uncommon for BIKF. 
 
-The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger share of RWY~19 and RWY-01 over the other two runways could be explained with the direction of approaching traffic during peak hours and the frequent northerly winds (\ref{fig:BIKF_wind_rose}), facilitating landing and decreased AROT, especially for RWY-01. Landings and take-offs are typically conducted into the wind and runways are usually designed so that the effect of the cross-wind component is mitigated~\cite[p.~301]{de_neufville_airport_2013}~\cite{manual1991_doc9157}.
+The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger share of RWY~19 and RWY-01 over the other two runways could be explained with the direction of approaching traffic during peak hours and the frequent northerly and southerly winds (Appendix~\ref{fig:BIKF_wind_rose}), facilitating landing and decreased AROT, especially for RWY-01. Landings and take-offs are typically conducted into the wind and runways are usually designed so that the effect of the cross-wind component is mitigated~\cite[p.~301]{de_neufville_airport_2013}~\cite{manual1991_doc9157}.
 
+\clearpage
+A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats} and visualised in Figure~\ref{fig:runway_AROTs_boxplot}. The average AROT for the BIKF airfield amounted to 78 seconds with average standard deviation about the mean of 18 seconds.
 \begin{table}[h]
 \centering
 \resizebox{0.8\textwidth}{!}{%
@@ -193,23 +193,22 @@ The preferred runway is RWY~19, servicing 37,8$\%$ of the arrivals. The larger s
 \multicolumn{1}{|l|}{RWY 28} & 470 & 69 & 14 & 49 & 61 & 66 & 74 & 155 \\ \hline
 \end{tabular}%
 }
-\caption[AROTs during peak hours by runway]{AROT statistics for the air traffic mix at BIKF by runway. The count is the number of landings during peak hours from October 2017 to November 2018.}
+\caption[AROTs during peak hours by runway]{AROT statistics for the air traffic pattern at BIKF by runway from October 2017 to November 2018. The count is the number of landings during peak hours.}
 \label{tab:all_RWY_AROT_stats}
 \end{table}
 
-A statistical summary for all the runways is shown in Table~\ref{tab:all_RWY_AROT_stats} and visualised in Figure~\ref{fig:runway_AROTs_boxplot}. The average AROT for the BIKF airfield amounted to 78 seconds with average standard deviation about the mean of 18 seconds. Overall, half of the landing aircraft occupy the runways between 64 and 89 seconds on average, based on the IQR of arrivals from all runways during peak hours. 
-
+ The height of the coloured blocks in Figure~\ref{fig:runway_AROTs_boxplot} indicate the inter-quartile range (IQR). The approximate share of arriving aircraft using a rapid-exit to those using the whole length of a runway is visualised by the width of the coloured blocks (not to scale). Overall, half of the landing aircraft occupy the runways between 64 and 89 seconds on average, based on the IQR of arrivals from all runways during peak hours. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{graphics/fig_runway_AROTs_boxplot.png}
-    \caption[AROTs box-plot per runway/taxiway]{Arrival Runway Occupancy Times at BIKF during peak hours for all runways with or without rapid-exit. The height coloured blocks indicate the inter-quartile range (IQR). The box-plots for RWY~01 and RWY~28 exclude arrivals using rapid-exit taxiways. TWY~A-1 and TWY~B-1 represent exclusively arrivals that use a runway's rapid-exit. The approximate share of arriving aircraft using a rapid-exit to those using the whole length of a runway is visualised by the width of the coloured blocks (not to scale). The average AROT value for BIKF is 78 seconds (dotted red line). The plot shows the AROTs based on data gathered for a period 14 months starting October 2017 with the exception of RWY~28 that includes arrivals since October 2015 (because of insufficient data points).}
+    \caption[AROTs box-plot per runway/taxiway]{Arrival Runway Occupancy Times at BIKF during peak hours for all runways with and without rapid-exit, starting October 2017 with the exception of RWY~28 that includes arrivals since October 2015 (because of insufficient data points). The box-plots for RWY~01 and RWY~28 exclude arrivals using rapid-exit taxiways. TWY~A-1 and TWY~B-1 represent exclusively arrivals that use a runway's rapid-exit.}
     \label{fig:runway_AROTs_boxplot}
 \end{figure}
 % ---------------------------
-
+% \clearpage
 \section{Inter-arrival Distance Separation}\label{sec:interarrival_dist_sep_RECAT}
 
-The data set used for the analysis of the inter-arrival distances and the landing time interval combined information on landing aircraft from three data tables. A script in Isavia's internal GUI Vikingaskipið sorted the arrivals into a \textit{table of pairs} (leader and follower), with spacing and time interval between a leader and a follower calculated at the threshold. That table was merged with the \textit{key reference table}~(\ref{tab:sample_key_RECAT}) from EUROCONTROL to assign a RECAT-EU category to the leader and the follower. The \textit{data table of arrivals}~(\ref{tab:sample_df}) at BIKF added information about flights such as runway, taxiway and season. The resulting data-frame (Table~\ref{tab:sample_pairs}) contained the necessary information to allow estimate of the distribution of inter-arrival distances and LTI, based on wake turbulence category, for arriving pairs during peak hours.
+The data set used for the analysis of the inter-arrival distances and the landing time interval combined information on landing aircraft from three data tables. A script in Isavia's internal GUI Vikingaskipið sorted the arrivals into a \textit{table of pairs} (leader and follower), with spacing and time interval between a leader and a follower calculated at the threshold. The \textit{table of pairs} was merged with the \textit{key reference table}~(\ref{tab:sample_key_RECAT}) from EUROCONTROL to assign a RECAT-EU category to the leader and the follower. The \textit{data table of arrivals}~(\ref{tab:sample_df}) at BIKF added information about flights such as runway, taxiway and season. The resulting data-frame (Table~\ref{tab:sample_pairs}) contains the necessary information to allow estimates of the distributions of inter-arrival distances and LTI to be made, based on wake turbulence category, for arriving pairs during peak hours.
 
 \begin{table}[h]
 \centering
@@ -223,11 +222,11 @@ B763 & B752 & H & M & 7.365 & 208 & CAT-C & CAT-C & RWY 28 & TWY B-1 & ICE & 201
 B752 & GLF4 & M & M & 5.086 & 132 & CAT-C & CAT-E & RWY 01 & TWY A-1 & ICE & 2017  & winter
 \end{tabular}%
 }
-\caption[Data table sample for arrival pairs at BIKF during peak hours]{Data table sample (abridged) used in the analysis of inter-arrival distance and landing time interval for aircraft pairs arriving at BIKF during peak hours. The units of the LTI (time\_diff) are seconds, distance (arrival\_dist) is measured in nautical miles.}
+\caption[Data table sample for arrival pairs at BIKF during peak hours]{Data table sample (abridged) used in the analysis of Inter-Arrival Distance and Landing Time Interval for aircraft pairs arriving at BIKF during peak hours. The units of the LTI (time\_diff) are seconds, distance (arrival\_dist) is measured in nautical miles.}
 \label{tab:sample_pairs}
 \end{table}
 
-The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft fleet mix discussed previously in Section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. 
+The information for the arrival pairs was fitted into the ICAO WTC scheme in order to recognise the prevailing aircraft pair mix, which is a consequence of the aircraft composition as discussed previously in Section~\ref{sec:traffic_mix}. Clearly the majority of arrival pairs were classified as Medium-Medium (M-M), as shown in Table~\ref{tab:pairs_mix_to_wtc}. 
 
 \begin{table}[h]
 \centering
@@ -247,7 +246,7 @@ The information for the arrival pairs was fitted into the ICAO WTC scheme in ord
 
 The other noticeable pairs were variations of the Heavy and the Medium categories i.e. H-H, H-M and M-H. Those four pair types formed the subset of data to be further analysed and re-categorised into the RECAT-EU scheme. The rest of the pairs containing Light aircraft were discarded as being insignificant because of their limited number. 
 
-The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC}. The distributions of the distance separations from the selected four pair-types were examined and presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation minima. 
+The ICAO WTC scheme specifies a distance separation minima as prescribed in  Table~\ref{tab:ICAO_WTC}. The distributions of the distance separations from the selected four pair-types were examined and are presented in Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs} along with the ICAO reference separation minima. 
 
 \begin{figure}[h]
     \centering
@@ -256,9 +255,9 @@ The ICAO WTC scheme specifies a distance separation minima as prescribed in  Tab
     \label{fig:dist_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-The portion of aircraft pairs that exhibit distance separation to the left of the ICAO reference minima can be attributed to flights operating under visual flight rules (VFR), according to Air Traffic Control (ATC) at BIKF. When visual flight rules are in effect, the separation may be decided by the pilot. Most of those flights are Icelandair operated aircraft of B736 and B752 type, which are classified as Heavy and Medium ICAO wake category respectively, but end up in the same CAT-C category under the  RECAT-EU scheme. Practice at Keflavík airport has shown that the distance separation for this particular pair can be reduced under VFR by allowing the follower closer, but over the final approach flight path of the leader, hence the reduced spacing within some H-M pairs.
+The portion of aircraft pairs that exhibit distance separation to the left of the ICAO reference minima can be attributed to flights operating under visual flight rules (VFR), according to Air Traffic Control (ATC) at BIKF. When visual flight rules are in effect, the separation may be decided by the pilot. Most of those flights are Icelandair operated aircraft of B736 and B752 type, which are classified as Heavy and Medium ICAO wake category respectively, but end up in the same CAT-C category under the  RECAT-EU scheme. Practice at Keflavík Airport has shown that the distance separation for this particular pair can be reduced under VFR by allowing the follower to come closer on the final approach flight path of the leader; hence the reduced spacing within some H-M pairs.
 
-Each of the ICAO aircraft pairs were re-categorised, based on the RECAT-EU scheme. The visual representation within figures was simplified and considers a reduced data-set, again by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in Section~\ref{sec:traffic_mix}, most of the aircraft formed C-C pairs. The rest of the more significantly presented traffic pairs were combinations of CAT-C, CAT-D and CAT-E categories. 
+Each of the ICAO aircraft pairs were re-categorised, in relation to the RECAT-EU scheme. The visual representation within figures was simplified and is based on a reduced data-set, again by filtering out the pair categories with insufficient number of data points. The mix of arrival pairs from the peak hour traffic at BIKF after re-categorisation is presented in Table~\ref{tab:pairs_mix_to_recat}. As expected from the traffic fleet analysis in Section~\ref{sec:traffic_mix}, most of the aircraft formed C-C pairs. The rest of the more significantly presented traffic pairs were combinations of CAT-C, CAT-D and CAT-E categories. 
 
 \begin{table}[h]
 \centering
@@ -279,8 +278,7 @@ Each of the ICAO aircraft pairs were re-categorised, based on the RECAT-EU schem
 \label{tab:pairs_mix_to_recat}
 \end{table}
 
-The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The reference separation minima for those pair types, in both wake separation schemes, is specified as 3~NM. Considering this, the outcome of re-categorising the ICAO~M-M pairs shows no apparent advantage in terms of separation, for the newly formed RECAT-EU pairs, presented mainly by the C-C pair category(Figure~\ref{fig:MM_to_RECAT_pairs_dist_separ}). The RECAT-EU reference separation minima does not change its position after re-categorisation to allow for any shift of the separation distribution of aircraft pairs. Nearly 98\% of the ICAO~M-M pairs will experience no change of wake separation under the RECAT-EU scheme.
-
+The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The reference separation minima for those pair types, in both wake separation schemes, is specified as 3~NM. Considering this, the outcome of re-categorising the ICAO~M-M pairs shows no apparent advantage in terms of separation, for the newly formed RECAT-EU pairs, presented mainly by the C-C pair category(Figure~\ref{fig:MM_to_RECAT_pairs_dist_separ}). The RECAT-EU reference separation minima does not change its position after re-categorisation to allow for any shift of the separation distribution of aircraft pairs. Nearly 98\% of the ICAO~\textbf{M-M pairs} will experience no change of wake separation under the RECAT-EU scheme.
 \begin{figure}[h]
     \centering
     \subfloat[]{\includegraphics[width=1.0\textwidth]{graphics/fig_MM_to_RECAT_pairs_dist_separ.png}\label{mm2recat}}
@@ -299,8 +297,9 @@ The RECAT-EU C-C pairs were formed primarily by ICAO Medium-Medium pairs. The re
     \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU scheme]{\protect\subref{mm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU scheme. The vertical red line indicate the separation minima in both wake schemes ICAO and RECAT-EU.\\ \protect\subref{number_mm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in~\protect\subref{mm2recat} and in Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}. Red background pairs will experience increase in wake separation requirement compared to the same pairs under the ICAO scheme.}
     \label{fig:MM_to_RECAT_pairs_dist_separ}
 \end{figure}
+
 \clearpage
-It is illustrative to mention also that some of the pair categories would suffer an increase in the required distance separation under the RECAT-EU scheme. Such example from the traffic at Keflavík airport would be the C-E and C-F pairs originating from the ICAO~M-M category~(Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}). The separation minima in the former case would be moved from 3 NM up to 4 NM and in the latter case the increase is double, from 3 NM to 6 NM. Those pairs were rare in the data set and insufficient to reach any accurate estimate about the distribution of the current distance separation. 
+It is illustrative to mention also that some of the pair categories would suffer an increase in the required distance separation under the RECAT-EU scheme. Such example from the traffic at Keflavík Airport would be the C-E and C-F pairs originating from the ICAO~M-M category~(Figure~\ref{fig:MM_to_CE_and_CF_pairs_dist_separ}). The separation minima in the former case would be moved from 3 NM up to 4 NM and in the latter case the increase is double, from 3 NM to 6 NM. An example of such a pair is a Boeing~757-200 leader and a Learjet LJ35 follower. The ICAO Medium LJ35 aircraft is re-categorised to the lightest CAT-F under the REACT-EU scheme, which requires twofold increase of its separation behind a B752. Those pairs were rare in the data set and insufficient to reach any accurate estimate about the distribution of the current distance separation. 
 
 \begin{figure}[h]
     \centering
@@ -308,8 +307,9 @@ It is illustrative to mention also that some of the pair categories would suffer
     \caption[Inter-arrival distance separation of ICAO M-M pairs into the RECAT-EU C-F and D-F pairs]{Distribution of the inter-arrival distance separation after re-categorisation of ICAO M-M pairs into the RECAT-EU C-E and C-F pairs. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).}
     \label{fig:MM_to_CE_and_CF_pairs_dist_separ}
 \end{figure}
-% \clearpage
-Similarly, the reference separation minima for all M-H pairs remains unchanged after re-categorisation~(Figure~\ref{fig:MH_to_RECAT_pairs_dist_separ}), which brings no decrease of separation under the RECAT-EU scheme for aircraft pairs originating from the ICAO~M-H category. 
+
+\clearpage
+Similarly, the reference separation minima for all \textbf{M-H pairs} remains unchanged after re-categorisation~(Figure~\ref{fig:MH_to_RECAT_pairs_dist_separ}), which brings no decrease of separation under the RECAT-EU scheme for aircraft pairs originating from the ICAO~M-H category. 
 
 \begin{figure}[h]
     \centering
@@ -331,7 +331,8 @@ Similarly, the reference separation minima for all M-H pairs remains unchanged a
     \label{fig:MH_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-For aircraft pairs of the ICAO H-M category, the transition to the RECAT-EU scheme results in reduced separation requirement. The reference separation minima for aircraft pairs that are re-categorised as B-C or B-D, shifts from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Approximately 99\% of the ICAO~H-M pairs will experience decrease of wake separation requirements under the RECAT-EU scheme.
+\clearpage
+For aircraft pairs of the ICAO~\textbf{H-M category}, the transition to the RECAT-EU scheme results in reduced separation requirement. The reference separation minima for aircraft pairs that are re-categorised as B-C or B-D, shifts from 5 NM to 4 NM, while for the C-C and C-D pairs this reduction is 2~NM, from 5~NM to 3~NM (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). Approximately 99\% of the ICAO~H-M pairs will experience decrease of wake separation requirements under the RECAT-EU scheme.
 
 \begin{figure}[h]
     \centering
@@ -349,11 +350,11 @@ For aircraft pairs of the ICAO H-M category, the transition to the RECAT-EU sche
     \multirow{-4}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-D & \cellcolor[HTML]{9AFF99}1 & \cellcolor[HTML]{9AFF99}3 &  &  \\ \hline
     \end{tabular}\label{numbers_hm2recat}}}
     
-    \caption[Inter-arrival distance separation of ICAO H-M pairs into the RECAT-EU scheme]{\protect\subref{hm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO H-M pairs into the RECAT-EU scheme. The vertical lines indicate the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).\\ \protect\subref{numbers_hm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in \protect\subref{hm2recat}. Green background pairs will experience reduced wake separation requirement under RECAT-EU and red background pairs will experience increase, compared to the same pairs under the ICAO scheme.}
+    \caption[Inter-arrival distance separation of ICAO H-M pairs into the RECAT-EU scheme]{\protect\subref{hm2recat} Distribution of the inter-arrival distance separation after re-categorisation of ICAO H-M pairs into the RECAT-EU scheme. The vertical lines define the separation minima in different schemes (ICAO - solid red line, RECAT-EU - dashed red line).\\ \protect\subref{numbers_hm2recat} Number of RECAT-EU pairs from the traffic mix at BIKF during peak hours, arranged into the corresponding wake categories. Numbers in blue are used in the representation of the distributions in \protect\subref{hm2recat}. Green background pairs will experience reduced wake separation requirement under RECAT-EU and red background pairs will experience increase, compared to the same pairs under the ICAO scheme.}
     \label{fig:HM_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU scheme (Figure~\ref{fig:HH_to_RECAT_pairs_dist_separ}). In this case, under RECAT-EU, the separation minima is reduced with one nautical mile (from 4 NM to 3 NM). All of the H-H pairs at BIKF during peak hours will experience this decreased separation requirement.
+The ICAO~\textbf{H-H pairs} were re-categorised primarily as C-C pairs into the RECAT-EU scheme (Figure~\ref{fig:HH_to_RECAT_pairs_dist_separ}). In this case, under RECAT-EU, the separation minima is reduced by one nautical mile (from 4 NM to 3 NM). All of the H-H pairs at BIKF during peak hours will experience this decreased separation requirement.
 
 \begin{figure}[h]
     \centering
@@ -373,18 +374,17 @@ The ICAO H-H pairs were re-categorised primarily as C-C pairs into the RECAT-EU 
     \label{fig:HH_to_RECAT_pairs_dist_separ}
 \end{figure}
 
-The share of the ICAO M-M pairs was the largest in the pair traffic mix at Keflaík International Airport. Most of those pairs end up in the C-C RECAT-EU category after re-categorisation and some experience change of the distance separation requirement. The share of aircraft pairs during peak hour traffic at BIKF, that will benefit from the re-categorisation, by reducing the required separation minima between aircraft is 14,9\%. An increase in separation requirement under RECAT-EU will suffer 1,6\% of the BIKF pairs. For the majority of pairs or 83,5\%, the re-categorisation will have no effect on the separation minima requirement between aircraft. 
+The share of the ICAO~\textbf{M-M} pairs was the largest in the pair traffic mix at Keflaík International Airport. Most of those pairs end up in the C-C RECAT-EU category after re-categorisation and some 16,5\% experience change of the distance separation requirement. The share of aircraft pairs during peak hour traffic at BIKF, that will benefit from the re-categorisation, by reducing the required separation minima between aircraft is 14,9\%. Based on peak hour traffic, an increase in separation requirement under RECAT-EU will affect 1,6\% of the BIKF pairs. For the majority of pairs or 83,5\%, the re-categorisation will have no effect on the separation minima requirement between aircraft. 
 
-The figures of the separation distribution and the separation minima are also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially assist the aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader, in terms of separation requirement. In order to estimate the potential time savings from implementing the RECAT-EU scheme for Keflavík airport, the distance separation has to be transferred into the time domain, which is done by introducing the final approach speed in the following Section \ref{sec:LTI}.
+The figures showing the separation distribution and the separation minima are also evidence that incorporating the RECAT-EU scheme for the selected data-set, would potentially provide benefit in the case of aircraft pairs with a Heavy leader, but would not change much the situation for pairs with a Medium leader in terms of separation requirement. In order to estimate the potential time savings from implementing the RECAT-EU scheme for Keflavík Airport, the distance separation has to be transferred into the time domain, which is done by introducing the final approach speed in the following Section \ref{sec:LTI}.
 
 \section{Landing Time Interval}\label{sec:LTI}
 
-Another important metric derived from the data, together with the distance separation between pairs, was the Landing Time Interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required distance separation and the final approach speed of the following aircraft. The final approach speed value for each arriving aircraft is in the \textit{bikf\_traffic} data table in the Isavia \textit{airport\_traffic} database. Isavia uses a script to calculate the final approach speed based on the ground speed measurement at 4 NM away from the runway threshold. 
+Another important metric derived from the data, together with the distance separation between pairs, is the Landing Time Interval (LTI) that indicates whether AROT or the separation requirement is the limiting factor for airfield capacity. As mentioned in the study objective~(Section~\ref{sec:arot_and_study_objective}) the LTI quantifies the time separation between landing aircraft in a pair, calculated from the required distance separation and the final approach speed of the following aircraft. The final approach speed value for each arriving aircraft is in the \textit{bikf\_traffic} data table in the Isavia \textit{airport\_traffic} database. Isavia uses a script in order to calculate the final approach speed based on the ground speed measurement from the ADS-B data 4 NM away from the runway threshold. 
 
 The final approach speed used in calculating the reference time was set equal to the \textit{maximum average final approach speed} of landing aircraft from all four runways. This is done by finding the average speed for each of four runways and using the maximum of the four values as the final approach speed for each pair category. 
-
+% \clearpage
 The reference time is analogous to the reference separation minima defined in the previous Section~\ref{sec:interarrival_dist_sep_RECAT}, i.e the reference time metric shifts its position under the RECAT-EU scheme. The aircraft considered for this calculation are exclusively from the Heavy and Medium wake categories, the ones dominating the traffic during peak hours at BIKF, so the final approach speed for those aircraft is approximately 146 knots in both cases (Table~\ref{tab:final_approach_max}).
-
 \begin{table}[h]
 \centering
 \resizebox{.5\textwidth}{!}{%
@@ -392,24 +392,23 @@ The reference time is analogous to the reference separation minima defined in th
 \cline{2-3}
  & \multicolumn{2}{l|}{Average final approach speed {[}knots{]}} \\ \cline{2-3} 
  & Heavy followers & Medium followers \\ \hline
-\multicolumn{1}{|l|}{RWY 01} & 145,93 & \cellcolor[HTML]{FD6864}146,43 \\ \hline
-\multicolumn{1}{|l|}{RWY 10} & 139,90 & 137,97 \\ \hline
-\multicolumn{1}{|l|}{RWY 19} & 141,64 & 142,16 \\ \hline
-\multicolumn{1}{|l|}{RWY 28} & \cellcolor[HTML]{FD6864}146,32 & 145,56 \\ \hline
+\multicolumn{1}{|l|}{RWY 01} & 146 & \cellcolor[HTML]{FD6864}146 \\ \hline
+\multicolumn{1}{|l|}{RWY 10} & 140 & 138 \\ \hline
+\multicolumn{1}{|l|}{RWY 19} & 142 & 142 \\ \hline
+\multicolumn{1}{|l|}{RWY 28} & \cellcolor[HTML]{FD6864}146 & 146 \\ \hline
 \end{tabular}%
 }
 \caption[Maximum average final approach speeds]{Average final approach speeds for Heavy and Medium followers per runway. The final approach speed is calculated by Isavia from the aircraft ground speed at 4 nautical miles away from the threshold on approach for landing for each of the runways.}
 \label{tab:final_approach_max}
 \end{table}
 
-Higher speed value results in lower reference time when the required separation minima per aircraft pair is considered. In this sense the reference time is a more liberally specified constraint, as opposed to using the minimum of the average approach speeds. This time was estimated for selected pairs (variations of the Heavy and the Medium categories, corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} along with the LTI frequency distribution. Those pair categories represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The red time reference line indicates the time that a follower takes to travel the specified separation distance for the respective ICAO pair category.
-
+% \clearpage
+Higher speed value results in lower reference time when the required separation minima per aircraft pair is considered. In this sense the reference time is a more restrictive constraint, as opposed to using the minimum of the average approach speeds. This time was estimated for selected pairs (variations of the Heavy and the Medium categories, corresponding to the ones from Figure~\ref{fig:dist_separ_HH_HM_MH_MM_pairs}) and is presented in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} along with the LTI frequency distribution. Those pair categories represent the majority of the arrivals at BIKF during peak hours for a period of 14 month starting October 2017. The red time reference line indicates the time that a follower takes to travel the specified minimum separation distance for the respective ICAO pair category.
 \begin{figure}[h]
     \centering
     \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_time_separ_HH_HM_MH_MM_pairs.png}\label{lti_distr}}
     
     % \vspace{0.5cm}
-    
     \subfloat[]{\resizebox{\textwidth}{!}{%
 \begin{tabular}{cccc|c|c|c|c|c|c|c|c|}
 \cline{5-12}
@@ -420,19 +419,20 @@ Higher speed value results in lower reference time when the required separation 
 \multicolumn{1}{|c|}{\multirow{-2}{*}{\rotatebox[origin=c]{90}{Leader}}} & \multicolumn{1}{c|}{M} & \multicolumn{1}{c|}{\cellcolor[HTML]{ffedcc}55} & \cellcolor[HTML]{ffedcc}\textbf{111} & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{109} & \cellcolor[HTML]{cce5e5}220 & 2 & {\color[HTML]{9A0000} 74} & \cellcolor[HTML]{cce5e5}\textbf{105} & \cellcolor[HTML]{cce5e5}225 & 4 \\ \hline
 \end{tabular}\label{ref_times}}}
 
-\caption[Distribution of Landing Time Interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of Landing Time Intervals (LTI) for selected ICAO pair categories. The red line indicates a liberal time reference estimate for a particular pair category. The coloured fields indicate the 5--95 percentile range of the arrival occupancy times (light orange) and the landing time intervals (light blue). \\
+\caption[Distribution of Landing Time Interval (LTI) for ICAO pairs]{\protect\subref{lti_distr} Distribution of Landing Time Intervals (LTI) for selected ICAO pair categories. The red line indicates a time reference estimate for a particular pair category. The coloured fields indicate the 5--95 percentile range of the arrival occupancy times (light orange) and the landing time intervals (light blue). \\
 \protect\subref{ref_times} Values for the reference times and the 5--95 percentile range of AROT and LTI. Reference times, presented by the red vertical lines in \protect\subref{lti_distr}, are calculated from the maximum final approach speed of the follower and the required separation minima per pair category. The overlap interval is considered acceptable incursion between AROT and LTI when it is within 10 seconds.}
 \label{fig:time_separ_HH_HM_MH_MM_pairs}
 \end{figure}
 
-The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the Landing Time Interval (LTI) with the Arrival Runway Occupancy Time (AROT), both having the same dimension expressed in units of seconds. The assumption made here is, that the relation between the 5--95 percentile range of the AROT and LTI distributions describes normal operation of airfield at Keflavík without incursions and within safety limits. Therefore the relationship between the two metrics is accepted as the standard when evaluating the frequency distributions within the RECAT-EU scheme.  The acceptable overlap interval value of the percentile ranges is defined as 10 seconds and a reasonable overlap of the LTI and the reference time line is 30 seconds. As mentioned before the pairs exhibiting LTI under the required reference time comprise aircraft operating under visual flight rules (VFR). The position of the reference time line within the 5--95 percentile range of AROT is an indication that presently, under the ICAO scheme, the arrival runway occupancy time is the limiting factor for the airfield capacity.  
+% \clearpage
+The shift from distance separation to time separation (between aircraft on approach for landing) is necessary in order to correlate the Landing Time Interval (LTI) with the Arrival Runway Occupancy Time (AROT), both having the same dimension expressed in units of seconds. The assumption made here is, that the relation between the 5--95 percentile range of the AROT and LTI distributions describes normal operation of airfield at Keflavík without incursions and within safety limits. Therefore the relationship between the two metrics is assumed as the standard when evaluating the frequency distributions within the RECAT-EU scheme.  The acceptable overlap interval value of the percentile ranges is presumed as 10 seconds and a reasonable overlap of the LTI and the reference time line is 30 seconds. As mentioned before the pairs exhibiting LTI under the required reference time comprise aircraft operating under visual flight rules (VFR). The position of the reference time line within the 5--95 percentile range of AROT is an indication that presently, under the ICAO scheme, the arrival runway occupancy time is the limiting factor for the airfield capacity.  
 
-Aside from the limiting effect of the AROT, switching to the time domain can also provide an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change form ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
+Aside from the limiting effect of the AROT, switching to the time domain can also provide an estimate of the potential time savings in the landing time intervals of arriving pairs, due to the RECAT-EU separation requirements. For the purpose, the change in the wake separation requirement, that some pairs experience, is divided by the maximum average final approach speed of the follower from a particular pair category. The change from ICAO to RECAT-EU in wake separation requirement can be up to 3 NM, as per Section~\ref{sec:interarrival_dist_sep_RECAT}. 
 
-To illustrate the process of estimating the shift of reference times, let's consider the re-categorisation of ICAO Heavy-Medium pairs (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). The reduction of wake separation requirement for the resulting B-C, B-D and C-E pairs is 1 NM, while for the C-C, C-D, D-C and D-D pairs it is 2 NM. The maximum average final approach speed for a Medium follower from all runways at BIKF is 146,43 knots. This results in time difference of 25~seconds (-25,0\%) for decrease by 1 NM, or 49~seconds (-40,0\%) for decrease by 2 NM of the separation requirement. Here we also witness an increased separation requirement by 1 NM in the case of the C-E category, which will result in added 25 seconds (+33,3\%) to the reference time.
+To illustrate the process of estimating the shift of reference times, let's consider the re-categorisation of ICAO Heavy-Medium pairs (Figure~\ref{fig:HM_to_RECAT_pairs_dist_separ}). The reduction of wake separation requirement for the resulting B-C, B-D and C-E pairs is 1 NM, while for the C-C, C-D, D-C and D-D pairs it is 2 NM. The maximum average final approach speed for a Medium follower from all runways at BIKF is 146 knots. This results in time difference of 25~seconds (-25,0\%) for decrease by 1 NM, or 49~seconds (-40,0\%) for decrease by 2 NM of the separation requirement. Here we also witness an increased separation requirement by 1 NM in the case of the C-E category, which will result in added 25 seconds (+33,3\%) to the reference time.
 
-Lowered separation requirements reduce the time reference for some RECAT-EU landing pairs, but in other cases (C-F pairs originating from the ICAO M-M category, with increase in separation requirement by 3 NM) this reference time is increased by 100\%. Applying the method to the rest of the ICAO pair groups, that experience change in separation requirement, resulted in the time difference values shown in Table~\ref{tab:time_saving}.
-
+% \clearpage
+Lowered distance separation requirements reduce the time reference for some RECAT-EU landing pairs, but in other cases (C-F pairs originating from the ICAO M-M category, with increase in separation requirement by 3 NM) this reference time is increased by 100\%. Applying the method to the rest of the ICAO pair groups, that experience change in separation requirement, resulted in the time difference values shown in Table~\ref{tab:time_saving}.The values were averaged considering the number of aircraft pairs coming from the respective ICAO categories and the difference in separation requirements. The possible beneficial effect on landing time interval applies to 14,9\% of the pairs and for 1,6\% the LTI would have to increase. The re-categorisation will have no effect on the time reference for majority of the aircraft pairs~(83,5\%), thus lower reference times are attributed primarily to ICAO pairs with a Heavy leader.
 \begin{table}[h]
 \centering
 \resizebox{.9\textwidth}{!}{%
@@ -447,7 +447,7 @@ Lowered separation requirements reduce the time reference for some RECAT-EU land
  & CAT-E &  &  &  &  &  &  \\ \cline{2-8} 
 \multirow{-6}{*}{\rotatebox[origin=c]{90}{Leader}} & CAT-F &  &  &  &  &  &  \\ \hline
 \end{tabular}}
-\caption[Reference time change for BIKF]{Reference time change between ICAO and RECAT-EU schemes. Green background pairs experience time savings and light red background pairs suffer from increased reference time for landings. The values were averaged considering the number of aircraft pairs coming from the respective ICAO categories and the difference in separation requirements. The possible beneficial effect on landing time interval applies to 14,9\% of the pairs and for 1,6\% the LTI would have to increase. The re-categorisation will have no effect on the time reference for majority of the aircraft pairs~(83,5\%), thus lower reference times are attributed primarily to ICAO pairs with a Heavy leader. The considered data is from arrivals during peak hours from October 2017 to November 2018.}
+\caption[Reference time change for BIKF]{Reference time change between ICAO and RECAT-EU schemes. Green background pairs experience time savings and light red background pairs suffer from increased reference time for landings. The considered data is from arrivals during peak hours from October 2017 to November 2018.}
 \label{tab:time_saving}
 \end{table}
 
@@ -459,24 +459,22 @@ If the reference time shift is viewed in context of the overall traffic during p
 
 \section{Constraints for Increased Capacity}% Runway Occupancy and Landing Time Interval for RECAT-EU pairs}
 
-The following section presents the interaction between the Landing Time Intervals (LTI) and the Arrival Runway Occupancy Times (AROT) that will define one of the metric as a limiting factor for increased throughput of the airfield. 
+The following section presents the interaction between the Landing Time Intervals (LTI) and the Arrival Runway Occupancy Times (AROT) that is a major constraint limiting the throughput of the airfield. 
 
 The LTI values are based on a subset of the traffic after re-categorisation from the ICAO wake turbulence scheme. The subset contains primarily C-C pairs, that were selected as being the more prominent subset, where most of the traffic is concentrated and the LTI frequency distribution would be more accurate. 
 
 The other metric used in contrast to the LTI was the arrival runway occupancy time for the respective aircraft pairs. The leader in a pair determines when the runway is available for the next landing of a follower. During peak hours every follower aircraft becomes a leader the moment the previous aircraft has cleared the runway. Therefore, the frequency distribution of the AROT in the examples was based exclusively on CAT-C aircraft, both leaders and followers, previously categorised as either Heavy or Medium under the ICAO scheme.
 
-The parallel between the landing time interval and the arrival runway occupancy time is drawn with the assumption, that the airfield operates without incursions, indicating lack of overlap between the 5–-95~percentile ranges of the AROT and LTI . This assumption is made in analogy with the results in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} under the ICAO scheme, therefore the relationship between the two metrics is accepted as the standard when evaluating the constraint under the RECAT-EU scheme. The position of the reference time line within the 5–95~percentile range of AROT is an indication that the arrival runway occupancy time is the limiting factor for potential increase of airfield capacity. 
+The parallel between the landing time interval and the arrival runway occupancy time is drawn with the assumption, that the airfield operates without incursions (the incorrect presence of another aircraft on the runway designated for landing), indicating lack of overlap between the 5–-95~percentile ranges of the AROT and LTI . This assumption is made in analogy with the results in Figure~\ref{fig:time_separ_HH_HM_MH_MM_pairs} under the ICAO scheme, therefore the relationship between the two metrics is accepted as the standard when evaluating the constraint under the RECAT-EU scheme. The position of the reference time line within the 5–95~percentile range of AROT is an indication that the arrival runway occupancy time is the limiting factor for potential increase of airfield capacity. 
 
 The possible time savings from implementing RECAT-EU are defined as the difference between the lower limit of the LTI percentile range and the upper limit of the AROT percentile range or the reference time line (whichever has a higher value). The existence of such time difference points to the LTI being the limiting factor for increased throughput. The potential shift of the LTI distribution is defined as the difference between the lower limit of the LTI percentile range and the reference time line.
 
 The results for the LTI and the AROT of C-C pairs from H-H pair category are presented in Figure~\ref{fig:CC_from_HH_pairs_time_sep}. The separation requirement for ICAO H-H pairs after re-categorisation is reduced by 1~NM, that would decrease the time reference by 25\% or down to 74~seconds. The presence of the reference time line within the 5--95~percentile range of the AROT, establish the arrival occupancy time as the limiting factor for increased capacity. Re-categorisation will result in 10~seconds time savings per pair, even though the potential for shift of the LTI distribution is 46~seconds.
-
 \begin{figure}[h]
     \centering
     \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CC_from_HH_pairs_time_sep.png}\label{figurehh}}
     
     % \vspace{0.5cm}
-    
     \subfloat[]{\resizebox{0.7\textwidth}{!}{
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
@@ -486,25 +484,21 @@ The results for the LTI and the AROT of C-C pairs from H-H pair category are pre
     \end{tabular}%
     }\label{tablehh}}
 
-    
     \caption[AROT and LTI of C-C pairs originating from ICAO H-H pairs]{AROT and LTI distribution of C-C pairs originating from ICAO H-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs. The potential shift of the LTI distribution to the left, is the time difference between the lower limit of the LTI percentile range and the reference time line. A limiting factor for such decrease is the AROT distribution. The figure presents the case for 1,9\% of all arrival pairs at BIKF during peak hours for the observed period of 14 months starting October 2017.}\label{fig:CC_from_HH_pairs_time_sep}
 \end{figure}
 
-
-
 % The LTI frequency distribution contained all C-C pairs originating from the ICAO H-H category. The reference time separation (red dashed line) was calculated from the final approach speed and the RECAT-EU distance separation, as explained in Section \ref{sec:LTI}. The frequency distribution for the AROT, on the other hand, contained all pairs with CAT-C leader originating from the Heavy category, not only pairs with CAT-C leader and CAT-C follower. In this sense the distribution for the AROT was based on more data points than the distribution for the LTI and gave a more accurate presentation of the runway occupancy.
 
-
+% \clearpage
 The LTI frequency distribution of C-C and C-D pairs, originating from the ICAO H-M pair category from the peak traffic at the airport is shown in Figure~\ref{whole_figureHM}. In both cases the separation requirement after re-categorisation is reduced by 2 NM, which moves the time reference to the left by 40\%. The time savings and the potential shift of the LTI distribution are similar to the previous case, yet again the AROT is the limiting factor for capacity increase.
- 
 \begin{figure}[h]
     \centering
-    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CC_from_HM_pairs_time_sep.png}\label{fig:CC_from_HM_pairs_time_sep}}
+    \subfloat[]{\includegraphics[width=1.0\textwidth]{graphics/fig_CC_from_HM_pairs_time_sep.png}\label{fig:CC_from_HM_pairs_time_sep}}
     
     % \vspace{0.5cm}
-    \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CD_from_HM_pairs_time_sep.png}\label{fig:CD_from_HM_pairs_time_sep}}
-    % \vspace{0.5cm}
+    \subfloat[]{\includegraphics[width=1.0\textwidth]{graphics/fig_CD_from_HM_pairs_time_sep.png}\label{fig:CD_from_HM_pairs_time_sep}}
     
+    % \vspace{0.5cm}
     \subfloat[]{\resizebox{0.7\textwidth}{!}{%
     \begin{tabular}{c|c|c|c|c|c|c|}
     \cline{2-7}
@@ -514,17 +508,14 @@ The LTI frequency distribution of C-C and C-D pairs, originating from the ICAO H
     \multicolumn{1}{|c|}{C-D} & \cellcolor[HTML]{ffedcc}53 & \cellcolor[HTML]{ffedcc}\textbf{110} & {\color[HTML]{9a0000} \textbf{74}} & \cellcolor[HTML]{cce5e5}\textbf{120} & \cellcolor[HTML]{cce5e5}221 &  \cellcolor[HTML]{9AFF99}\textbf{-9} \\ \hline
     \end{tabular}%
     }\label{tablehm}}
-    
     \caption[AROT and LTI of C-C and C-D pairs originating from ICAO H-M pairs]{AROT and LTI distribution of \protect\subref{fig:CC_from_HM_pairs_time_sep} C-C and \protect\subref{fig:CD_from_HM_pairs_time_sep} C-D pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time. The potential shift of the LTI distribution to the left, is the time difference between the lower limit of the LTI percentile range and the reference time line \protect\subref{tablehm}. A limiting factor for such decrease in both cases is the AROT distribution. The figures presents the case for 10,9\% of all arrival pairs at BIKF during peak hours for the observed period of 14 months starting October 2017.}\label{whole_figureHM}
 \end{figure}
 
 % The share of C-C pairs originating from the ICAO H-M category from the peak traffic at the airport was 9,5\%
-
+\clearpage
 The ICAO H-H and H-M pairs will possibly experience beneficial effect on landing time intervals from implementing the RECAT-EU scheme (refer to Section~\ref{sec:interarrival_dist_sep_RECAT}). The distance separation requirement in those cases is decreased by 1 NM or 2 NM. Translating the separations requirement into the time domain result in a reference time of 74~seconds. This shift of the reference line creates the potential for shift to the left in the frequency distribution of the LTI and the possibility of landing more aircraft per time interval. However, the arrival runway occupancy time of the aircraft impose a constraint on the increase of airfield throughput.
- 
 % Even greater potential for decrease of the inter-arrival time was observed in the case of C-D pairs from the ICAO H-M category (Figure~\ref{fig:CD_from_HM_pairs_time_sep}). Here the minimum LTI observed was 113 seconds, serving as a possible 39 seconds shift to the left of the frequency distribution.
 % However the share of those pairs in the traffic was limited to 1.4\%.
-
 A specific best case scenario, that illustrates a benefit of switching to the RECAT-EU wake turbulence scheme, will experience the C-C pair traffic, originating from the ICAO H-M pair category, during peak hours in the summer of 2018, landing on runway RWY-01 and exiting through rapid-exit taxiway TWY~A-1 (Figure~\ref{fig:best_CC_from_HM_pairs_time_sep}). Such filtering of the AROT data produces acceptable frequency distribution to the left of the reference time line and allows for reduction of the landing times.
 \begin{figure}[h]
     \centering
@@ -541,6 +532,7 @@ A specific best case scenario, that illustrates a benefit of switching to the RE
     
     \caption[AROT for RWY~01 and LTI of C-C pairs from ICAO H-M pairs]{AROT for RWY-01 TWY~A-1 during the summer season and LTI distribution of C-C pairs originating from ICAO H-M pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs \protect\subref{figurebesthm}. The decrease in distance separation requirement is by 2~NM, translating to a reference time of 76~seconds \protect\subref{tablebesthm}. This shift of the reference line creates opportunity for shift to the left in the frequency distribution of the LTI and the possibility of landing more aircraft per time interval.}\label{fig:best_CC_from_HM_pairs_time_sep}
 \end{figure}
+\clearpage
 The distance separation requirement after re-categorisation is reduced by 2~NM, translating to a reference time of 76~seconds, which is outside the 5--95 percentile range of the AROT. The time savings applicable to this case are 42~seconds -- the difference between the lower limit of the LTI percentile range and the reference time line. Here the LTI is the limiting factor for increased throughput, because the arrival runway occupancy times are not restraining the landing time intervals from moving closer to the reference time.
 
 Despite the apparent time savings in some cases, the majority of the traffic will see no change of LTI partially due to the restraining effect of AROT, but mainly because the separation requirement after re-categorisation remains the same. This is the case for ICAO M-H and M-M pairs.
@@ -562,13 +554,10 @@ The AROT and LTI frequency distributions of C-C pairs formed from the ICAO M-H c
     \caption[AROT and LTI of C-C pairs originating from ICAO M-H pairs]{AROT and landing time intervals of C-C pairs originating from ICAO M-H pairs. The dashed red line indicates the RECAT-EU reference time separation for the C-C pairs \protect\subref{figuremh}. The distance separation requirement remains the same under RECAT-EU with a reference time of 74~seconds \protect\subref{tablemh}. Although the distribution of the LTI could potentially move closer to the reference time line, the frequency distribution of the AROT restrains this shift and acts as a limiting factor for increased capacity. Those pairs represent 11\% of the BIKF traffic during peak hours.}
     \label{fig:CC_from_MH_pairs_time_sep}
 \end{figure}
-
 The reference time line is within the 5--95 percentile range of the AROT and at the same time the LTI and AROT percentile ranges overlap, which establish the arrival occupancy time as the limiting factor for increased capacity.
-
 
 The majority of the C-C pairs of the BIKF traffic were formed from the ICAO M-M pairs (Figure~\ref{fig:CC_from_MM_pairs_time_sep}). The reference time line is again within the 5--95 percentile range of the AROT and the overlap of the two distributions restrain increased throughput.
 % Here the minimum inter-arrival time separation was 80 seconds, a mere 6 seconds above the reference limit, with half of all pairs having LTI between 132 and 185 seconds.
-
 \begin{figure}[h]
     \centering
     \subfloat[]{\includegraphics[width=1\textwidth]{graphics/fig_CC_from_MM_pairs_time_sep.png}\label{figuremm}}
